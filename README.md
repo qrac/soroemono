@@ -1,8 +1,9 @@
 # SOROEMONO
 
-JetBrains Mono に対して 1:2 で合わせる日本語フォント。
+JetBrains Mono に対して BIZ UDGothic を 1:2 に調整して合わせたエディタ用の等幅フォント。JetBrains Mono のバランスはそのまま、日本語フォントだけ少し幅広にした JetBrains Mono 優先・JetBrains Mono 好きのための等幅フォント。
 
-- `v0.0.1` バグ: JetBrains Mono を先に指定しないとフォーカスポイントがズレる場合あり
+- JetBrains Mono はオリジナルのまま
+- Markdown のテーブルで Prettier の文字数計算と幅が揃う
 
 ## Build
 
@@ -14,7 +15,7 @@ $ fontforge -script build.py
 ## Font Family
 
 ```
-'JetBrains Mono', SOROEMONO, ...
+SOROEMONO, ...
 ```
 
 ## Respect
@@ -25,7 +26,7 @@ $ fontforge -script build.py
 
 - SOROEMONO: licensed under the SIL OFL 1.1
 - JetBrains Mono: licensed under the SIL OFL 1.1
-- Noto Sans JP: licensed under the SIL OFL 1.1
+- BIZUDGothic: licensed under the SIL OFL 1.1
 
 ## Credit
 

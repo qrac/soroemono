@@ -1,43 +1,71 @@
-import fontforge
-import os
-import configparser
-import psMat
-import shutil
+#!fontforge --lang=py -script
 
+import configparser
+import os
+import shutil
+import fontforge
+import psMat
+
+# iniファイルを読み込む
 config = configparser.ConfigParser()
 config.read("build.ini")
 
 VERSION = config.get("DEFAULT", "VERSION")
 FONT_NAME = config.get("DEFAULT", "FONT_NAME")
-EN_FONT_PATH = config.get("DEFAULT", "EN_FONT")
-JP_FONT_PATH = config.get("DEFAULT", "JP_FONT")
+JP_FONT = config.get("DEFAULT", "JP_FONT")
+ENG_FONT = config.get("DEFAULT", "EN_FONT")
+BUILD_FONTS_DIR = config.get("DEFAULT", "BUILD_FONTS_DIR")
+EM_ASCENT = int(config.get("DEFAULT", "EM_ASCENT"))
+EM_DESCENT = int(config.get("DEFAULT", "EM_DESCENT"))
+INTERMEDIATE_WIDTH = int(config.get("DEFAULT", "INTERMEDIATE_WIDTH"))
+FINAL_WIDTH = int(config.get("DEFAULT", "FINAL_WIDTH"))
 
-WEIGHTS = ["Regular", "Bold"]
+def clear_build_directory(directory):
+    """distディレクトリを空にする"""
+    if os.path.exists(directory):
+        shutil.rmtree(directory)
+    os.makedirs(directory)
 
-def adjust_width_with_scale(font, target_width, original_width):
-    scale_factor = target_width / original_width
-    for glyph in font.glyphs():
-        if glyph.width == original_width:
+def adjust_em(font, em_ascent, em_descent):
+    """フォントのEMをJetBrainsMonoに揃える"""
+    font.em = em_ascent + em_descent
+    font.ascent = em_ascent
+    font.descent = em_descent
+
+def adjust_width_jp_font(jp_font):
+    """BIZUDGothicの幅をJetBrainsMonoに合わせて調整"""
+    target_width = 600  # JetBrainsMonoの標準幅
+    for glyph in jp_font.glyphs():
+        if glyph.width > target_width:
+            scale_factor = target_width / glyph.width
             glyph.transform(psMat.scale(scale_factor, 1))
             glyph.width = target_width
 
-def adjust_width_without_scale(font, new_width, current_width):
-    for glyph in font.glyphs():
-        if glyph.width == current_width:
-            glyph.width = new_width
-
-def delete_overlapping_glyphs(base_font, overwrite_font):
+def delete_duplicate_glyphs(base_font, overwrite_font):
+    """jp_fontとeng_fontの重複するグリフを削除"""
     for glyph in overwrite_font.glyphs():
-        try:
-            if glyph.unicode != -1 and base_font[glyph.unicode].isWorthOutputting():
-                base_font.removeGlyph(glyph.unicode)
-        except TypeError:
-            continue
+        if glyph.unicode != -1 and glyph.unicode in base_font:
+            base_font.removeGlyph(glyph.unicode)
 
-def merge_fonts(jp_font, en_font):
-    jp_font.mergeFonts(en_font)
+def merge_fonts(jp_font, eng_font):
+    """英語フォントを日本語フォントにマージ"""
+    jp_font.mergeFonts(eng_font)
+
+def resize_japanese_glyphs(font, intermediate_width, final_width):
+    """日本語の全角グリフの幅を1080に拡大し、次に1200に設定"""
+    for glyph in font.glyphs():
+        if glyph.width == 600:  # 600幅のグリフを全角として扱う
+            # 一旦1080に拡大
+            scale_factor = intermediate_width / 600
+            glyph.transform(psMat.scale(scale_factor, 1))
+            glyph.width = intermediate_width
+
+            # 中心を維持したまま1200に設定
+            glyph.transform(psMat.translate((final_width - intermediate_width) / 2, 0))
+            glyph.width = final_width
 
 def update_font_metadata(font, weight):
+    """フォントのメタデータを更新"""
     font.familyname = FONT_NAME
     font.fullname = f"{FONT_NAME} {weight}"
     font.fontname = f"{FONT_NAME}-{weight}".replace(" ", "")
@@ -50,38 +78,56 @@ Version 1.1. This license is available with a FAQ
 at: http://scripts.sil.org/OFL""",
         ),
         ("English (US)", "License URL", "http://scripts.sil.org/OFL"),
+        ("English (US)", "Version", VERSION),
     )
 
 def save_font(font, weight):
-    output_dir = "dist"
+    """フォントを保存"""
+    output_dir = BUILD_FONTS_DIR
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
     output_path = os.path.join(output_dir, f"{FONT_NAME}-{weight}.ttf")
     font.generate(output_path)
 
-def read_license(license_path):
-    with open(license_path, "r", encoding="utf-8") as f:
-        return f.read()
+def main():
+    """フォントの生成を行うメイン処理"""
+    # distフォルダを空にする
+    clear_build_directory(BUILD_FONTS_DIR)
 
-def create_zip_archive(source_dir, output_filename):
-    shutil.make_archive(output_filename, 'zip', source_dir)
+    weights = ["Regular", "Bold"]
 
-for weight in WEIGHTS:
-    en_font_path = EN_FONT_PATH.format(weight=weight)
-    jp_font_path = JP_FONT_PATH.format(weight=weight)
+    for weight in weights:
+        # フォントファイルを開く
+        jp_font = fontforge.open(JP_FONT.format(weight=weight))
+        eng_font = fontforge.open(ENG_FONT.format(weight=weight))
 
-    en_font = fontforge.open(en_font_path)
-    jp_font = fontforge.open(jp_font_path)
+        # EMスクエアをJetBrainsMonoに揃える
+        adjust_em(jp_font, EM_ASCENT, EM_DESCENT)
 
-    adjust_width_with_scale(jp_font, 1100, 1000)
-    adjust_width_without_scale(jp_font, 1200, 1100)
-    delete_overlapping_glyphs(jp_font, en_font)
-    merge_fonts(jp_font, en_font)
-    update_font_metadata(jp_font, weight)
-    save_font(jp_font, weight)
+        # BIZUDGothicの幅をJetBrainsMonoに合わせて調整
+        adjust_width_jp_font(jp_font)
 
+        # 重複するグリフを削除
+        delete_duplicate_glyphs(jp_font, eng_font)
 
-zip_filename = f"{FONT_NAME}_v{VERSION}"
-create_zip_archive("dist", zip_filename)
+        # フォントをマージ
+        merge_fonts(jp_font, eng_font)
 
-print("Fonts merged and saved successfully.")
+        # マージ後に日本語グリフを一旦1080に拡大し、その後1200にリサイズ
+        resize_japanese_glyphs(jp_font, INTERMEDIATE_WIDTH, FINAL_WIDTH)
+
+        # メタデータを更新
+        update_font_metadata(jp_font, weight)
+
+        # フォントを保存
+        save_font(jp_font, weight)
+
+    # ZIPファイルを作成してdistディレクトリに移動
+    zip_filename = f"{FONT_NAME}_v{VERSION}"
+    shutil.make_archive(zip_filename, 'zip', BUILD_FONTS_DIR)
+
+    # distディレクトリにZIPファイルを移動
+    shutil.move(f"{zip_filename}.zip", os.path.join(BUILD_FONTS_DIR, f"{zip_filename}.zip"))
+
+if __name__ == "__main__":
+    main()
