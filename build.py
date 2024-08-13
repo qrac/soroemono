@@ -14,9 +14,6 @@ JP_FONT_PATH = config.get("DEFAULT", "JP_FONT")
 
 WEIGHTS = ["Regular", "Bold"]
 
-EN_LICENSE_PATH = "resource/JetBrainsMono/OFL.txt"
-JP_LICENSE_PATH = "resource/NotoSansJP/OFL.txt"
-
 def adjust_width_with_scale(font, target_width, original_width):
     scale_factor = target_width / original_width
     for glyph in font.glyphs():
@@ -40,18 +37,19 @@ def delete_overlapping_glyphs(base_font, overwrite_font):
 def merge_fonts(jp_font, en_font):
     jp_font.mergeFonts(en_font)
 
-def update_font_metadata(font, weight, en_license, jp_license):
+def update_font_metadata(font, weight):
     font.familyname = FONT_NAME
     font.fullname = f"{FONT_NAME} {weight}"
     font.fontname = f"{FONT_NAME}-{weight}".replace(" ", "")
-    font.version = VERSION
-
-    license_info = f"{jp_license}\n\n{en_license}"
-
     font.sfnt_names = (
-        ("English (US)", "License", license_info),
+        (
+            "English (US)",
+            "License",
+            """This Font Software is licensed under the SIL Open Font License,
+Version 1.1. This license is available with a FAQ
+at: http://scripts.sil.org/OFL""",
+        ),
         ("English (US)", "License URL", "http://scripts.sil.org/OFL"),
-        ("English (US)", "Version", VERSION),
     )
 
 def save_font(font, weight):
@@ -64,9 +62,6 @@ def save_font(font, weight):
 def read_license(license_path):
     with open(license_path, "r", encoding="utf-8") as f:
         return f.read()
-
-en_license = read_license(EN_LICENSE_PATH)
-jp_license = read_license(JP_LICENSE_PATH)
 
 def create_zip_archive(source_dir, output_filename):
     shutil.make_archive(output_filename, 'zip', source_dir)
@@ -82,11 +77,11 @@ for weight in WEIGHTS:
     adjust_width_without_scale(jp_font, 1200, 1100)
     delete_overlapping_glyphs(jp_font, en_font)
     merge_fonts(jp_font, en_font)
-    update_font_metadata(jp_font, weight, en_license, jp_license)
+    update_font_metadata(jp_font, weight)
     save_font(jp_font, weight)
 
 
-zip_filename = f"{FONT_NAME}_{VERSION}"
+zip_filename = f"{FONT_NAME}_v{VERSION}"
 create_zip_archive("dist", zip_filename)
 
 print("Fonts merged and saved successfully.")
