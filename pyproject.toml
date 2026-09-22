@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "soroemono"
+version = "2.0.0a1"
+description = "Reproducible JetBrains Mono + BIZ UDGothic font build and proofs"
+requires-python = ">=3.12"
+dependencies = ["fonttools==4.64.0", "uharfbuzz>=0.52,<1"]
+
+[project.optional-dependencies]
+proof = ["playwright>=1.55,<2", "pillow>=12,<13"]
+
+[project.scripts]
+soroemono = "soroemono.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/soroemono"]

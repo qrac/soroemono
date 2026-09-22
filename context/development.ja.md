@@ -1,0 +1,64 @@
+# Regular試作の開発・検証
+
+実装日: 2026-09-22。最初の実装はRegularと比較基盤まで。正式な2.0リリースではない。
+
+## 実行
+
+リポジトリ直下で実行する。Pythonは `.python-version`、依存ライブラリは `uv.lock`、元TTFと公開基準版は `sources.lock.json` で固定する。初回の環境構築・基準版取得・ブラウザ取得にはネットワークが必要。それ以降の生成と比較ページ作成はローカルで完結する。
+
+```sh
+uv sync --locked --extra proof
+uv run --locked soroemono build
+uv run --locked soroemono check
+uv run --locked python -m unittest discover -s tests -v
+uv run --locked soroemono fetch-baseline
+uv run --locked soroemono proof
+uv run --locked playwright install chromium
+uv run --locked soroemono capture
+```
+
+取得済みの公開ZIPを使う場合は `fetch-baseline --archive /path/to/SOROEMONO_v1.0.0.zip`。アーカイブと中のTTFの両方のハッシュを検査する。`build --output /path/to/directory`、`check --font /path/to/font.ttf`、`proof --font /path/to/font.ttf --output /path/to/proof`、`capture --proof /path/to/proof` で出力・検査先を指定できる。リポジトリ外からはサブコマンドの前に `--root /path/to/soroemono` を付ける。
+
+macOSの既存Chromeを使う場合は `capture --channel chrome`。新しい一時プロファイルを使い、日常のChromeのプロファイルは利用しない。OSへのフォント登録は行わない。
+
+## 今回の実装
+
+- fontTools中心の生成。通常のJetBrains Monoグリフ1,743個の輪郭・hmtx・グリフ命令を保持し、`fpgm` / `prep` / `cvt ` / `gasp` も元のJetBrains Monoと一致させる。
+- BIZの採用範囲をcmapで決め、subsetterにGSUB・合成参照・IVSの依存先を残させる。加工するグリフは合成を展開して変形し、古いヒント命令を除去する。
+- 全角は `x'=round(x*1080/2048+60)`、`y'=round(y*1000/2048)`、advance 1200。旧工程とは丸めと輪郭再生成が異なるので全座標の完全一致は保証しない。
+- BIZ半角は元の500相当の輪郭サイズを保ち左右50を足してadvance 600。結合文字は別分類でadvance 0。U+FEFFも0幅を維持する。
+- 全角波括弧U+FF5B/U+FF5DはBIZへ切替。U+26A1/U+FE62はJetBrains Monoの輪郭を複製し300移動して1200セルへ配置する。元のグリフは維持し、複製側のヒントは除去する。
+- 日本語のGSUBは `ccmp, locl, jp78, jp83, jp90, hojo, nlck, trad, expt` に限定。エディタの等幅性と相容れないプロポーショナル・縦組み・幅切替は採用しない。ラテン側の機能は維持し、HarfBuzzで元フォントと比較する。
+- BIZ由来の結合文字には追加GPOSを作成。かなの濁点は右上、追加IPAは結合クラスに応じた上・下・重ね合わせの暫定アンカー。かなの合成不能な例もproofへ入れる。IPA全組合せ、複数マークの積み重ねは受け入れ未完了。
+- 行送りはhhea/Typoを1020/-300/0、USE_TYPO_METRICSを有効化。Winのクリッピング範囲は全グリフの外接矩形から計算する（今回1120/400）。結合後の全組合せのクリッピングまでは保証しない。
+- 別ファミリー `SOROEMONO Preview`、両入力の著作権、OFL、入力・ツール情報を出力。TTFの時刻を固定し、同一環境の再ビルドをバイト比較する。
+
+## 出力
+
+| 場所 | 内容 |
+| --- | --- |
+| `build/preview/` | Regular TTF、両OFL、build.json、checks.json |
+| `build/proofs/regular/report.html` | 両TTF・OFLを内包する比較ページ。HTML単体をVMへコピー可能 |
+| `build/proofs/regular/screenshots.html` | スクリーンショット一覧 |
+| `build/proofs/regular/overview.png` | 旧版・新版の比較一覧 |
+| `build/proofs/regular/before.png`, `after.png` | 同位置の比較領域の原寸画像 |
+| `build/proofs/regular/diff.png` | 絶対画素差をグレースケール反転。白は一致。サイズ差は右・下を白で補う |
+| `build/proofs/regular/details/` | 各比較項目の詳細画像 |
+| `build/proofs/regular/manifest.json` | TTFハッシュ、Git状態、文字列、検査結果、OS・ブラウザ、表示条件、実使用フォント |
+
+生成物・キャッシュ・仮想環境はGit管理外。比較ページはFont Loading APIの成功と実測幅を確認する。自動撮影ではさらにChromiumの実使用フォントを取得し、見本にシステムフォントのフォールバックがあれば失敗する。
+
+`.github/workflows/preview.yml` はUbuntu 24.04で数値テスト、ビルド、基準版取得、ブラウザ撮影を行い、成果物を保存する設定。今回GitHub上では未実行。OSイメージの完全固定やコンテナによる画素回帰、リリース自動公開はまだ実装していない。
+
+## 初回の確認結果
+
+- macOS 26.6.2 / arm64、Chrome 153.0.8010.53、ヘッドレス、1200×1100 CSS px、deviceScaleFactor 1、ブラウザ倍率1。OSのDPIやWindowsの拡大率を模擬した結果ではない。
+- 入力保持、再ビルド一致、500幅を故意に混入した場合の検出、不正ハッシュの拒否を含む4テストが合格。
+- 通常cmap 12,442文字、IVS 10,160組。幅の内訳は1200が10,877、600が1,518、0が47。コードポイント単位で数え、0には結合文字とU+FEFFを含む。
+- ブラウザ実測の100px表示: 旧版 `A=60, 日=120, ｱ=50px`、新版 `A=60, 日=120, ｱ=60px`。見本のフォールバックなし。
+- 16px、4行、`line-height: normal` の高さは64pxから84pxへ変化。画像上でも旧版の詰まった行間から余裕が増えている。
+- 日本語の大きさ・配置は従来の変換を基準に維持。今回確認した「元・日・あ・ア」のxMaxは旧版より1フォント単位小さい。例えば「元」は旧版x=87..1104、新版87..1103。半角「ｱ」の輪郭は旧版30..471から新版80..521へ移動し、横幅441は一致。
+- 固定line-heightでも旧版と新版で描画のベースライン位置に画素差がある。これは行メトリクス変更とラスタライズを含む差で、diffの全画素一致を合格条件にはしない。英数字の輪郭・配置・ヒント保持は別途TTFの数値比較で確認している。
+- ParallelsのWindows 11は一時停止を解除しデスクトップを確認できたが、この接続のクリック・キー送信ではゲスト内のファイルを開けなかった。元の一時停止状態へ戻した。Windows上のproof・スクリーンショット・#2/#6の改善判定は未実施。
+
+次の受け入れ項目は、Windowsゲストへの操作経路を確立し、このHTMLを表示・撮影すること。その後にWindowsのVS Code・Terminal等、100/125/150/200%で確認する。Bold/Italic、Prettierの実整形、独立したOTS/FontBakery検査、正式ZIP、Nerd Fonts、全角スペース可視化は今後の範囲。

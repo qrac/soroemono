@@ -7,3 +7,8 @@ venv
 dist
 *.glyphspackage
 *.zip
+.venv/
+.cache/
+build/
+__pycache__/
+*.egg-info/

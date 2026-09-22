@@ -4,7 +4,8 @@ SOROEMONOは、JetBrains Monoの英数字のバランスを維持し、BIZ UDGot
 
 - 計画・調査・仕様・判断の記録は `context/` に置く。`docs/` は作らない。
 - 作業に関係する [再設計計画](context/rebuild-plan.ja.md)、[現行字形の基準](context/font-baseline.ja.md)、[フォント検証計画](context/font-testing.ja.md) を参照する。
-- 文書中の構成案やコマンド案を実装済みとして扱わない。現状は従来の `build.py` / `build.ini` が生成処理で、新ビルド・proof・VM検証は計画段階。実装した部分は文書も更新する。
+- 文書中の構成案を実装済みとして扱わない。Regular試作の新ビルド・数値検査・ブラウザproof・撮影は `src/soroemono/` に実装済み。Windows実アプリ検証、他スタイル、正式配布は未完了。実装した部分は文書も更新する。
+- 実行方法と初回結果は [開発・検証手順](context/development.ja.md) を参照する。通常は `uv sync --locked --extra proof`、`uv run --locked soroemono build` / `check` / `proof` / `capture`、`uv run --locked python -m unittest discover -s tests -v` を使う。
 - 説明・調査記録は原則日本語で書く。事実、原因候補、未検証事項を区別する。
 
 **字形と幅**

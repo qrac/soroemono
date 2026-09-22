@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "fonts": {
+    "latin": {
+      "path": "resource/JetBrainsMono/JetBrainsMono-Regular.ttf",
+      "version": "2.304",
+      "url": "https://github.com/JetBrains/JetBrainsMono/releases/tag/v2.304",
+      "sha256": "a0bf60ef0f83c5ed4d7a75d45838548b1f6873372dfac88f71804491898d138f"
+    },
+    "japanese": {
+      "path": "resource/BIZUDGothic/BIZUDGothic-Regular.ttf",
+      "version": "1.051",
+      "url": "https://github.com/googlefonts/morisawa-biz-ud-gothic/releases/tag/v1.051",
+      "sha256": "18956be217e02e08ca18dfe71aeb2110173e81c5f5d5c69d4833d854039e462a"
+    }
+  },
+  "baseline": {
+    "url": "https://github.com/qrac/soroemono/releases/download/1.0.0/SOROEMONO_v1.0.0.zip",
+    "archive_sha256": "a04bbf0eaa29d0c26b2dcefdb58deb64bf01e7296e2d407fb3f6ee62a43a6930",
+    "member": "SOROEMONO-Regular.ttf",
+    "sha256": "83994897f9a4ee58cab502861f47718b4638b1836e379e1479035b4a664ea8d3"
+  }
+}
