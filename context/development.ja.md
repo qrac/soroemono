@@ -61,7 +61,9 @@ macOSの既存Chromeを使う場合は `capture --channel chrome`。新しい一
 - 固定line-heightでも旧版と新版で描画のベースライン位置に画素差がある。これは行メトリクス変更とラスタライズを含む差で、diffの全画素一致を合格条件にはしない。英数字の輪郭・配置・ヒント保持は別途TTFの数値比較で確認している。
 - ParallelsのWindows 11は一時停止を解除しデスクトップを確認できたが、この接続のクリック・キー送信ではゲスト内のファイルを開けなかった。元の一時停止状態へ戻した。Windows上のproof・スクリーンショット・#2/#6の改善判定は未実施。
 
-次の受け入れ項目は、Windowsゲストへの操作経路を確立し、このHTMLを表示・撮影すること。その後にWindowsのVS Code・Terminal等、100/125/150/200%で確認する。Bold/Italic、Prettierの実整形、独立したOTS/FontBakery検査、正式ZIP、Nerd Fonts、全角スペース可視化は今後の範囲。
+その後のCLI接続調査（2026-09-23）では、`prlctl exec` でWindows内の読み取り専用コマンドを実行し、共有リポジトリを参照できた。`prlctl capture` によるデスクトップ撮影も成功した。Windows上のフォントproofと実アプリ表示は引き続き未実施。結果と次の操作手順は [Parallels DesktopによるWindows検証](windows-parallels.ja.md) に記録した。
+
+次の受け入れ項目は、確立したCLI操作経路でこのHTMLをWindowsゲストに表示・撮影すること。その後にWindowsのVS Code・Terminal等、100/125/150/200%で確認する。Bold/Italic、Prettierの実整形、独立したOTS/FontBakery検査、正式ZIP、Nerd Fonts、全角スペース可視化は今後の範囲。
 
 ## Python 3.14.6への既定版変更（2026-09-23）
 

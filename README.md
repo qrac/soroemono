@@ -35,6 +35,8 @@ uv run --locked soroemono capture
 
 `build/proofs/regular/report.html` はTTFを内包する比較ページ、`screenshots.html` は撮影結果です。旧版・新版・差分PNGと環境情報も同じ場所に保存します。既存Chromeで撮る場合は `capture --channel chrome` を使います。
 
+Windows 11での確認には、Parallels DesktopのCLIと共有フォルダを使う[プロジェクト用Skill](.agents/skills/soroemono-windows-check/SKILL.md)と[検証手順](context/windows-parallels.ja.md)を用意しています。CLI接続と画面取得は確認済みですが、Windows上のフォント描画と既存Issuesの解消は未検証です。既存のGitHub ActionsはUbuntuでの継続的なビルド・検査用として維持します。
+
 [開発・検証手順](context/development.ja.md) / [再設計計画](context/rebuild-plan.ja.md) / [現行字形の基準](context/font-baseline.ja.md)
 
 従来の `build.py` / `build.ini` は調査用に残しています。公開版を再現する手段としては使わず、通常の開発は上記コマンドを使ってください。
