@@ -14,10 +14,26 @@
       "sha256": "18956be217e02e08ca18dfe71aeb2110173e81c5f5d5c69d4833d854039e462a"
     }
   },
+  "bold_fonts": {
+    "latin": {
+      "path": "resource/JetBrainsMono/JetBrainsMono-Bold.ttf",
+      "version": "2.304",
+      "url": "https://github.com/JetBrains/JetBrainsMono/releases/tag/v2.304",
+      "sha256": "5590990c82e097397517f275f430af4546e1c45cff408bde4255dad142479dcb"
+    },
+    "japanese": {
+      "path": "resource/BIZUDGothic/BIZUDGothic-Bold.ttf",
+      "version": "1.051",
+      "url": "https://github.com/googlefonts/morisawa-biz-ud-gothic/releases/tag/v1.051",
+      "sha256": "a5c1c791e3168f20271fb4b7f85987054b985ba4d3f141210be63f084e42cfcd"
+    }
+  },
   "baseline": {
     "url": "https://github.com/qrac/soroemono/releases/download/1.0.0/SOROEMONO_v1.0.0.zip",
     "archive_sha256": "a04bbf0eaa29d0c26b2dcefdb58deb64bf01e7296e2d407fb3f6ee62a43a6930",
     "member": "SOROEMONO-Regular.ttf",
-    "sha256": "83994897f9a4ee58cab502861f47718b4638b1836e379e1479035b4a664ea8d3"
+    "sha256": "83994897f9a4ee58cab502861f47718b4638b1836e379e1479035b4a664ea8d3",
+    "bold_member": "SOROEMONO-Bold.ttf",
+    "bold_sha256": "320f342c6517885d5358251f231b4c0bf09049095caf35f46bcacf604c950f84"
   }
 }

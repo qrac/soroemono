@@ -69,7 +69,7 @@ def capture_proof(directory: Path, channel: str | None = None) -> Path:
     manifest["difference"] = {"method": "absolute RGB difference converted to inverted grayscale; white means equal",
                               "bbox": difference.getbbox(), "padding": "white at bottom/right if dimensions differ"}
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
-    gallery = '<!doctype html><meta charset="utf-8"><title>SOROEMONO screenshots</title><style>body{max-width:1200px;margin:32px auto;font:16px system-ui}img{max-width:100%}pre{white-space:pre-wrap}</style><h1>SOROEMONO Regular 比較画像</h1><p><a href="report.html">フォントを直接表示する比較ページ</a> · <a href="manifest.json">環境情報</a></p>'
+    gallery = '<!doctype html><meta charset="utf-8"><title>SOROEMONO screenshots</title><style>body{max-width:1200px;margin:32px auto;font:16px system-ui}img{max-width:100%}pre{white-space:pre-wrap}</style><h1>SOROEMONO ' + html.escape(manifest.get("style", "Regular")) + ' 比較画像</h1><p><a href="report.html">フォントを直接表示する比較ページ</a> · <a href="manifest.json">環境情報</a></p>'
     gallery += f'<p>{html.escape(manifest["capture"]["os"])} / Chromium {manifest["capture"]["browser"]}</p>'
     for name in ["overview", "before", "after", "diff"]:
         gallery += f'<h2>{name}</h2><a href="{name}.png"><img alt="{name}" src="{name}.png"></a>'

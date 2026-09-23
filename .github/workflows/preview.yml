@@ -1,4 +1,4 @@
-name: Regular preview
+name: Regular and Bold preview
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  regular:
+  fonts:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -23,13 +23,17 @@ jobs:
       - run: uv run --locked python -m unittest discover -s tests -v
       - run: uv run --locked soroemono build
       - run: uv run --locked soroemono check
+      - run: uv run --locked soroemono build --style Bold
+      - run: uv run --locked soroemono check --style Bold
       - run: uv run --locked soroemono fetch-baseline
       - run: uv run --locked soroemono proof
+      - run: uv run --locked soroemono proof --style Bold
       - run: uv run --locked playwright install --with-deps chromium
       - run: uv run --locked soroemono capture
+      - run: uv run --locked soroemono capture --proof build/proofs/bold
       - uses: actions/upload-artifact@v7
         with:
-          name: soroemono-regular-preview-linux
+          name: soroemono-regular-bold-preview-linux
           path: |
             build/preview/
             build/proofs/

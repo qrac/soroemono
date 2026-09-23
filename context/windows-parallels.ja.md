@@ -1,6 +1,6 @@
 # Parallels DesktopによるWindows検証
 
-調査日: 2026-09-23。これはWindows 11 VMでSOROEMONOを検証するための操作設計と接続調査であり、字形や既存Issueの合格記録ではない。実行入口は [プロジェクトSkill](../.agents/skills/soroemono-windows-check/SKILL.md)。全体の判定基準は [フォント検証計画](font-testing.ja.md) に従う。
+調査日: 2026-09-23。これはWindows 11 VMでSOROEMONOを検証するための操作設計と初回の接続調査。後続のRegular/Boldブラウザ表示結果は[検証記録](verification-2.0.0a1-2026-09-23.ja.md)に記載。既存Issueの実アプリ受け入れ結果ではない。実行入口は [プロジェクトSkill](../.agents/skills/soroemono-windows-check/SKILL.md)。全体の判定基準は [フォント検証計画](font-testing.ja.md) に従う。
 
 ## 接続調査の結果
 
@@ -24,7 +24,7 @@
 4. **画面と環境を保存する。** VMが動作中で各モードの画面が更新されたことを確認してから、`prlctl capture <VM> --file <PNG>` の元画像を `build/proofs/windows-<run-id>/` に保存する。一時停止中の古い画面をproofに使わない。各モードの全画面画像を残したうえで、同じ範囲に切り出した比較画像と差分を作る。TTFのSHA-256、Gitコミットと未コミット変更、Windowsビルド、ブラウザ版、画面解像度、DPI・Windows拡大率、ブラウザ倍率、描画設定、Parallels/Tools版を対応づける。取得できない値は推測せず未取得と記す。
 5. **必要なら実アプリを検証する。** ブラウザproofだけではVS CodeやWindows Terminalのフォント選択、行送り、Windows固有の描画不具合は合格にできない。破棄可能なVMまたは安全に戻せる専用スナップショットを用意した後、VM内だけでRegular試験フォントを登録し、使い捨てプロファイルでアプリを起動する。既存のアプリ設定やホストOSのフォントを変更しない。スナップショット復元時に他の作業を消さないことを確認する。
 
-現在の試作はRegularのみ。公開版BoldとPreview版Boldの比較や4スタイル認識は今後の実装に属する。Windowsブラウザproofの完了と、Issue #2/#6のWindows 11実アプリ受け入れ完了は別に記録する。各段階を「合格・不合格・未検証」で報告し、後者が未検証なら不具合解消を宣言しない。
+現在の試作はRegular/Bold。公開版BoldとPreview版Boldのブラウザ比較は実施済み。Italic/Bold Italicと4スタイル認識は今後の実装に属する。Windowsブラウザproofの完了と、Issue #2/#6のWindows 11実アプリ受け入れ完了は別に記録する。各段階を「合格・不合格・未検証」で報告し、後者が未検証なら不具合解消を宣言しない。
 
 ## GitHub Actionsの役割
 

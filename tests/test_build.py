@@ -32,6 +32,21 @@ class BuildTests(unittest.TestCase):
         self.assertTrue(report["passed"])
         self.assertEqual(report["counts"]["variation_sequences"], 10160)
 
+    def test_bold_build_preserves_inputs_and_links_to_regular(self):
+        bold_path = build(ROOT, self.output / "bold", "Bold")
+        rebuilt = build(ROOT, self.output / "bold-rebuilt", "Bold")
+        self.assertEqual(digest(bold_path.read_bytes()), digest(rebuilt.read_bytes()))
+        report = check(ROOT, bold_path, "Bold")
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["counts"]["variation_sequences"], 10160)
+        regular, bold = TTFont(self.font), TTFont(bold_path)
+        self.assertEqual(regular["name"].getDebugName(1), bold["name"].getDebugName(1))
+        self.assertEqual(regular["name"].getDebugName(2), "Regular")
+        self.assertEqual(bold["name"].getDebugName(2), "Bold")
+        self.assertEqual((regular["OS/2"].usWeightClass, bold["OS/2"].usWeightClass), (400, 700))
+        self.assertEqual((regular["hhea"].ascent, regular["hhea"].descent),
+                         (bold["hhea"].ascent, bold["hhea"].descent))
+
     def test_rebuild_is_byte_identical(self):
         directory = self.output / "second"
         subprocess.run([sys.executable, "-m", "soroemono.cli", "build", "--output", str(directory)],

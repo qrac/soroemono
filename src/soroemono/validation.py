@@ -9,7 +9,7 @@ from fontTools.ttLib import TTFont
 from fontTools.misc.roundTools import otRound
 import uharfbuzz as hb
 
-from .builder import FAMILY, JP_OVERRIDES, WIDE_LATIN
+from .builder import FAMILY, JP_OVERRIDES, WIDE_LATIN, STYLES
 from .sources import digest, source_paths
 
 
@@ -33,8 +33,8 @@ def shape(path: Path, text: str, features: dict | None = None) -> list[tuple]:
             for i, p in zip(buffer.glyph_infos, buffer.glyph_positions)]
 
 
-def check(root: Path, path: Path) -> dict:
-    inputs = source_paths(root)
+def check(root: Path, path: Path, style: str = "Regular") -> dict:
+    inputs = source_paths(root, style)
     font, latin, japanese = [TTFont(p) for p in [path, inputs["latin"], inputs["japanese"]]]
     cmap, left, right = [f.getBestCmap() for f in [font, latin, japanese]]
     failures = []
@@ -123,6 +123,12 @@ def check(root: Path, path: Path) -> dict:
     require(os2.usWinAscent >= max(g.yMax for g in bounds), "Win ascent clips a glyph")
     require(os2.usWinDescent >= -min(g.yMin for g in bounds), "Win descent clips a glyph")
     require(font["name"].getDebugName(1) == FAMILY, "Preview family must be distinct")
+    require(font["name"].getDebugName(2) == style, "Style name mismatch")
+    require(font["name"].getDebugName(17) == style, "Typographic style name mismatch")
+    require(os2.usWeightClass == STYLES[style], "Weight class mismatch")
+    require(bool(font["head"].macStyle & 1) == (style == "Bold"), "macStyle bold flag mismatch")
+    require(bool(os2.fsSelection & (1 << 5)) == (style == "Bold"), "fsSelection bold flag mismatch")
+    require(bool(os2.fsSelection & (1 << 6)) == (style == "Regular"), "fsSelection regular flag mismatch")
     result = {"passed": not failures, "sha256": digest(path.read_bytes()), "counts": counts,
               "failures": failures, "harfbuzz": hb.version_string(),
               "scope": "Static metrics, input preservation and shaping; not Windows rasterization acceptance"}

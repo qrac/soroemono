@@ -22,19 +22,26 @@ def lock(root: Path) -> dict:
     return json.loads((root / "sources.lock.json").read_text())
 
 
-def source_paths(root: Path) -> dict[str, Path]:
+def source_paths(root: Path, style: str = "Regular") -> dict[str, Path]:
+    if style not in {"Regular", "Bold"}:
+        raise ValueError(f"Unsupported style: {style}")
+    key = "fonts" if style == "Regular" else "bold_fonts"
     return {
         key: verified(root / spec["path"], spec["sha256"])
-        for key, spec in lock(root)["fonts"].items()
+        for key, spec in lock(root)[key].items()
     }
 
 
-def baseline_path(root: Path) -> Path:
+def baseline_path(root: Path, style: str = "Regular") -> Path:
+    if style not in {"Regular", "Bold"}:
+        raise ValueError(f"Unsupported style: {style}")
     spec = lock(root)["baseline"]
-    path = root / ".cache" / "baseline" / spec["member"]
+    member = spec["member"] if style == "Regular" else spec["bold_member"]
+    expected = spec["sha256"] if style == "Regular" else spec["bold_sha256"]
+    path = root / ".cache" / "baseline" / member
     if not path.exists():
         raise FileNotFoundError("Baseline missing. Run: soroemono fetch-baseline")
-    return verified(path, spec["sha256"])
+    return verified(path, expected)
 
 
 def fetch_baseline(root: Path, archive: Path | None = None) -> Path:
@@ -48,9 +55,13 @@ def fetch_baseline(root: Path, archive: Path | None = None) -> Path:
         raise ValueError("Baseline archive SHA-256 mismatch")
     with zipfile.ZipFile(io.BytesIO(data)) as zf:
         font = zf.read(spec["member"])
+        bold = zf.read(spec["bold_member"])
     if digest(font) != spec["sha256"]:
         raise ValueError("Baseline font SHA-256 mismatch")
+    if digest(bold) != spec["bold_sha256"]:
+        raise ValueError("Baseline Bold font SHA-256 mismatch")
     path = root / ".cache" / "baseline" / spec["member"]
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(font)
+    (path.parent / spec["bold_member"]).write_bytes(bold)
     return path

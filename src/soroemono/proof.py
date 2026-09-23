@@ -20,10 +20,10 @@ SAMPLES = [
 ]
 
 
-def make_proof(root: Path, candidate: Path, output: Path | None = None) -> Path:
-    output = output or root / "build" / "proofs" / "regular"
-    baseline = baseline_path(root)
-    checks = check(root, candidate)
+def make_proof(root: Path, candidate: Path, output: Path | None = None, style: str = "Regular") -> Path:
+    output = output or root / "build" / "proofs" / style.lower()
+    baseline = baseline_path(root, style)
+    checks = check(root, candidate, style)
     for font_path in [baseline, candidate]:
         font = TTFont(font_path)
         cmap = font.getBestCmap()
@@ -41,10 +41,11 @@ def make_proof(root: Path, candidate: Path, output: Path | None = None) -> Path:
                     raise ValueError(f"Missing proof character: {font_path}, U+{cp:04X}")
     fonts = {"before": baseline, "after": candidate}
     manifest = {
+        "style": style,
         "fonts": {key: {"sha256": digest(path.read_bytes()), "filename": path.name}
                   for key, path in fonts.items()},
         "checks": checks, "samples": SAMPLES,
-        "settings": {"font_sizes_css_px": [14, 16, 20], "font_weight": 400,
+        "settings": {"font_sizes_css_px": [14, 16, 20], "font_weight": 700 if style == "Bold" else 400,
                      "font_synthesis": "none", "calt": True, "letter_spacing": 0,
                      "line_height": "1.65; normal in the last specimen"},
         "capture": None,
@@ -55,7 +56,7 @@ def make_proof(root: Path, candidate: Path, output: Path | None = None) -> Path:
     except (OSError, subprocess.CalledProcessError):
         manifest["commit"] = None
     font_css = "\n".join(
-        f"@font-face {{font-family: Proof{key}; src: url(data:font/ttf;base64,{base64.b64encode(path.read_bytes()).decode()}) format('truetype'); font-weight:400; font-style:normal;}}"
+        f"@font-face {{font-family: Proof{key}; src: url(data:font/ttf;base64,{base64.b64encode(path.read_bytes()).decode()}) format('truetype'); font-weight:{700 if style == 'Bold' else 400}; font-style:normal;}}"
         for key, path in fonts.items()
     )
     cards = []
@@ -67,6 +68,7 @@ def make_proof(root: Path, candidate: Path, output: Path | None = None) -> Path:
             specimens.append(f'<div class="cell {mode}" data-mode="{mode}">{content}</div>')
         cards.append(f'<section><h2>{html.escape(label)}</h2><div class="pair">{"".join(specimens)}</div></section>')
     document = TEMPLATE.replace("__FONT_CSS__", font_css).replace("__CARDS__", "".join(cards))
+    document = document.replace("__STYLE__", style).replace("__WEIGHT__", "700" if style == "Bold" else "400")
     document = document.replace("__MANIFEST__", json.dumps(manifest, ensure_ascii=False).replace("<", "\\u003c"))
     licenses = "\n\n".join((root / "resource" / name / "OFL.txt").read_text()
                             for name in ["JetBrainsMono", "BIZUDGothic"])
@@ -79,7 +81,7 @@ def make_proof(root: Path, candidate: Path, output: Path | None = None) -> Path:
 
 TEMPLATE = r'''<!doctype html>
 <html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SOROEMONO · Regular proof</title>
+<title>SOROEMONO · __STYLE__ proof</title>
 <style>
 __FONT_CSS__
 * {box-sizing:border-box} body {margin:0;background:#f2f3f5;color:#17212b;font:14px system-ui,sans-serif}
@@ -91,18 +93,18 @@ nav {display:flex;gap:10px;margin:20px 0} a {color:#236f61} nav a {background:wh
 section {background:white;border:1px solid #dce2e6;border-radius:8px;padding:16px 20px;margin:12px 0}
 h2 {font:600 12px system-ui;color:#62717e;margin:0 0 12px;letter-spacing:.04em}
 .cell {min-width:0;overflow:visible}.before {font-family:Proofbefore}.after {font-family:Proofafter}
-pre {font-family:inherit;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;line-height:1.65;margin:6px 0;white-space:pre;font-feature-settings:'calt' 1;font-kerning:none}
+pre {font-family:inherit;font-weight:__WEIGHT__;font-style:normal;font-synthesis:none;letter-spacing:0;line-height:1.65;margin:6px 0;white-space:pre;font-feature-settings:'calt' 1;font-kerning:none}
 .sizes + .sizes {margin-top:16px} .normal {line-height:normal}
 .single main {max-width:1160px} .single .pair {grid-template-columns:1fr} .single .cell {min-height:0}
 .single section {min-height:0} .single.before-only .after,.single.after-only .before {display:none}
 details {margin:20px 0} #metadata {font:12px/1.5 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
 </style><main>
-<div class="eyebrow">SOROEMONO / REGULAR / FIRST PREVIEW</div>
+<div class="eyebrow">SOROEMONO / __STYLE__ / FIRST PREVIEW</div>
 <h1>日本語の見た目を保ち、文字幅を揃える。</h1>
 <p class="muted">公開 v1.0.0 と新ビルドの比較。フォントはこのHTMLから読み込み、OSへのインストールは不要です。</p>
 <nav><a href="?mode=overview">並べて比較</a><a href="?mode=before">旧版のみ</a><a href="?mode=after">新版のみ</a></nav>
 <div id="status" role="status">フォントを読み込んでいます…</div>
-<div class="pair labels"><div class="before">BEFORE · v1.0.0</div><div class="after">AFTER · Preview Regular</div></div>
+<div class="pair labels"><div class="before">BEFORE · v1.0.0</div><div class="after">AFTER · Preview __STYLE__</div></div>
 <div id="specimens">__CARDS__</div>
 <p class="muted">確認点：元の字形／半角カナの500→600／全角1200／濁点とIVS／通常行送り。Windows実アプリでの受け入れ確認は別途必要です。</p>
 <details><summary>フォントと表示環境の記録</summary><pre id="metadata"></pre></details>
@@ -115,7 +117,7 @@ if (mode === 'before' || mode === 'after') document.body.className = `single ${m
 (async () => {
  try {
    for (const family of ['Proofbefore','Proofafter']) {
-     const faces = await document.fonts.load(`16px ${family}`, '元ｱAあ゙');
+     const faces = await document.fonts.load(`__WEIGHT__ 16px ${family}`, '元ｱAあ゙');
      if (faces.length !== 1 || faces[0].status !== 'loaded') throw Error(`Font load failed: ${family}`);
    }
    await document.fonts.ready;
@@ -123,7 +125,7 @@ if (mode === 'before' || mode === 'after') document.body.className = `single ${m
    const canvas = document.createElement('canvas'), ctx = canvas.getContext('2d');
    const metrics = {};
    for (const key of ['before','after']) {
-     ctx.font = `100px Proof${key}`;
+     ctx.font = `__WEIGHT__ 100px Proof${key}`;
      metrics[key] = Object.fromEntries(['A','日','ｱ'].map(s => [s,ctx.measureText(s).width]));
    }
    if (Math.abs(metrics.after.A-60)>.01 || Math.abs(metrics.after['日']-120)>.01 || Math.abs(metrics.after['ｱ']-60)>.01) throw Error('Unexpected preview cell widths');
@@ -131,7 +133,7 @@ if (mode === 'before' || mode === 'after') document.body.className = `single ${m
      devicePixelRatio,viewport:[innerWidth,innerHeight],screen:[screen.width,screen.height],
      normalLineBoxes:[...document.querySelectorAll('.normal')].map(e=>({mode:e.parentElement.dataset.mode,height:e.getBoundingClientRect().height}))};
    document.querySelector('#status').className='ready';
-   document.querySelector('#status').textContent='読み込み・文字幅確認 OK · 半角600 / 全角1200 · Regular';
+   document.querySelector('#status').textContent='読み込み・文字幅確認 OK · 半角600 / 全角1200 · __STYLE__';
    document.querySelector('#metadata').textContent=JSON.stringify({manifest,environment:window.proofState},null,2);
  } catch (error) {
    window.proofState.error=String(error);
