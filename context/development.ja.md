@@ -25,6 +25,8 @@ uv run --locked soroemono capture --proof build/proofs/bold
 
 macOSの既存Chromeを使う場合は `capture --channel chrome`。新しい一時プロファイルを使い、日常のChromeのプロファイルは利用しない。OSへのフォント登録は行わない。
 
+Markdown表の手動確認用見本は `tests/fixtures/markdown-table.md` に置く。現時点でこの見本は自動テストから参照していない。
+
 ## 今回の実装
 
 - fontTools中心の生成。通常のJetBrains Monoグリフ1,743個の輪郭・hmtx・グリフ命令を保持し、`fpgm` / `prep` / `cvt ` / `gasp` も元のJetBrains Monoと一致させる。
