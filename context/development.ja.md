@@ -53,7 +53,7 @@ Markdown表の手動確認用見本は `tests/fixtures/markdown-table.md` に置
 | `build/proofs/regular/details/` | 各比較項目の詳細画像 |
 | `build/proofs/regular/manifest.json` | TTFハッシュ、Git状態、文字列、検査結果、OS・ブラウザ、表示条件、実使用フォント |
 
-生成物・キャッシュ・仮想環境はGit管理外。比較ページはFont Loading APIの成功と実測幅を確認する。自動撮影ではさらにChromiumの実使用フォントを取得し、見本にシステムフォントのフォールバックがあれば失敗する。
+日常の生成物・キャッシュ・仮想環境はGit管理外。確定した検証画像と環境情報だけは[保存した証跡](artifacts/verification-2026-09-23/README.md)でGit管理する。比較ページはFont Loading APIの成功と実測幅を確認する。自動撮影ではさらにChromiumの実使用フォントを取得し、見本にシステムフォントのフォールバックがあれば失敗する。
 
 `.github/workflows/preview.yml` はUbuntu 24.04でRegular/Boldの数値テスト、ビルド、基準版取得、ブラウザ撮影を行い、成果物を保存する設定。GitHub上での今回の変更後の実行は未確認。OSイメージの完全固定やコンテナによる画素回帰、リリース自動公開はまだ実装していない。
 
@@ -68,13 +68,13 @@ Markdown表の手動確認用見本は `tests/fixtures/markdown-table.md` に置
 - 固定line-heightでも旧版と新版で描画のベースライン位置に画素差がある。これは行メトリクス変更とラスタライズを含む差で、diffの全画素一致を合格条件にはしない。英数字の輪郭・配置・ヒント保持は別途TTFの数値比較で確認している。
 - ここまでが2026-09-22の初回結果。後続のRegular/BoldのMac/Windowsブラウザ検証結果は[2026-09-23の検証記録](verification-2.0.0a1-2026-09-23.ja.md)を参照。
 
-その後のCLI接続調査（2026-09-23）では、`prlctl exec` でWindows内の読み取り専用コマンドを実行し、共有リポジトリを参照できた。`prlctl capture` によるデスクトップ撮影も成功した。Windows上のフォントproofと実アプリ表示は引き続き未実施。結果と次の操作手順は [Parallels DesktopによるWindows検証](windows-parallels.ja.md) に記録した。
+その後のCLI接続調査（2026-09-23）では、`prlctl exec` でWindows内の読み取り専用コマンドを実行し、共有リポジトリを参照できた。`prlctl capture` によるデスクトップ撮影も成功した。その後、Windows上のブラウザproofをRegular/Boldで実施した。実アプリ表示は未実施。結果は[検証記録](verification-2.0.0a1-2026-09-23.ja.md)、操作手順は [Parallels DesktopによるWindows検証](windows-parallels.ja.md) に記録した。
 
-次の受け入れ項目は、確立したCLI操作経路でこのHTMLをWindowsゲストに表示・撮影すること。その後にWindowsのVS Code・Terminal等、100/125/150/200%で確認する。Bold/Italic、Prettierの実整形、独立したOTS/FontBakery検査、正式ZIP、Nerd Fonts、全角スペース可視化は今後の範囲。
+次の受け入れ項目は、WindowsのVS Code・Terminal等、100/125/150/200%で確認すること。Italic系、Prettierの実整形、独立したOTS/FontBakery検査、正式ZIP、Nerd Fonts、全角スペース可視化は今後の範囲。
 
 ## Python 3.14.6への既定版変更（2026-09-23）
 
 - macOS 26.6.2 / arm64 のPython 3.14.6で、ロック済みの通常・proof依存関係を別の仮想環境に導入し、unittest 4件すべて合格。Regularを独立した出力先に生成し、`check` も合格した。
 - 3.12.11で生成した既存TTFと3.14.6で生成したTTFはSHA-256 `dbb57d5d8a634ecbb5527832ad52d8df06c5ea7b87be54dddedd9e052c549674` で一致し、バイト比較も一致した。検査値はUnicode 12,442文字、advance 0/600/1200が47/1,518/10,877、保持したラテン字形1,743、IVS 10,160組。`build.json` ではPython版記録が3.12.11から3.14.6、同梱Unicodeデータ版が15.0.0から16.0.0へ変わった。
-- `build/proofs/python-3.14-verify/` に3.14.6生成TTFの比較proofを作成し、Chrome 154.0.8037.57で撮影した。OS、表示条件、TTFハッシュ、実使用フォント、旧版・新版・差分画像は同ディレクトリの `manifest.json` と各PNGに記録した。既存の3.12.11生成TTFの画像と、overview/before/after/diffの各画像は寸法・全画素が一致し、新旧Pythonで生成したTTFの表示差を `python-version-diff.png`（全白）に保存した。画像も目視確認した。
+- `build/proofs/python-3.14-verify/` に3.14.6生成TTFの比較proofを作成し、Chrome 154.0.8037.57で撮影した。OS、表示条件、TTFハッシュ、実使用フォント、旧版・新版・差分画像は[保存した証跡](artifacts/verification-2026-09-23/python-3.14-verify/manifest.json)と各PNGに記録した。既存の3.12.11生成TTFの画像と、overview/before/after/diffの各画像は寸法・全画素が一致し、新旧Pythonで生成したTTFの表示差を[python-version-diff.png](artifacts/verification-2026-09-23/python-3.14-verify/python-version-diff.png)（全白）に保存した。画像も目視確認した。
 - CIの実行用uvは、3.14.6の取得に対応する0.12.17に更新した。uv 0.9.20は3.14.6を取得できず、0.12.17で取得可能と確認した。GitHub Actions上の実行は未確認。

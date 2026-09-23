@@ -1,6 +1,6 @@
 # 2.0.0a1 Regular/Bold のMac・Windows表示確認
 
-実施日: 2026-09-23。公開v1.0.0の現物を変更前、2.0.0a1の `SOROEMONO Preview` を変更後として比較した。OSへのフォント登録は行っていない。生成画像はGit管理外の `build/proofs/` に保存した。
+実施日: 2026-09-23。公開v1.0.0の現物を変更前、2.0.0a1の `SOROEMONO Preview` を変更後として比較した。OSへのフォント登録は行っていない。撮影時の出力はGit管理外の `build/proofs/` に置き、画像と環境情報の保存版は[検証証跡](artifacts/verification-2026-09-23/README.md)にGit管理した。
 
 ## 入力と検査
 
@@ -15,7 +15,7 @@
 
 macOS 26.6.2 arm64、Chrome 154.0.8037.57、ヘッドレス、1200×1100 CSS px、deviceScaleFactor 1、ブラウザ倍率1、サイズ14/16/20 CSS px、`font-synthesis:none`、`calt` ON。Regular/Boldとも `FontFace.load()` 成功。Chromiumの `CSS.getPlatformFontsForNode` で表示見本にシステムフォントへのフォールバックがないことを確認した。100px実測幅は両スタイルで旧版 `A=60, 日=120, ｱ=50`、新版 `A=60, 日=120, ｱ=60` px。16px・4行の通常行送りの高さは旧版64pxから新版84pxになった。
 
-比較画像・詳細・環境記録: `build/proofs/regular-20260923/` と `build/proofs/bold-20260923/` の `screenshots.html` / `manifest.json`。実画像で「元」、かな、英数字、半角カナ、罫線、結合文字、通常行送りを見た。半角カナのセル幅と行送り以外にも、丸め・描画位置に小さな画素差がある。日本語の意図しない大きな字形変化はこの見本では見つからなかった。IPAの全組合せは未確認。
+比較画像・詳細・環境記録: [保存したMac Regular/Boldの証跡](artifacts/verification-2026-09-23/README.md)。撮影時の `screenshots.html` / `manifest.json` は `build/proofs/regular-20260923/` と `build/proofs/bold-20260923/` にある。実画像で「元」、かな、英数字、半角カナ、罫線、結合文字、通常行送りを見た。半角カナのセル幅と行送り以外にも、丸め・描画位置に小さな画素差がある。日本語の意図しない大きな字形変化はこの見本では見つからなかった。IPAの全組合せは未確認。
 
 ## Windows 11 Chrome
 
@@ -25,7 +25,7 @@ Parallels Desktop 27.0.2 (58673)、Tools 27.0.2-58673、Windows 11ビルド10.0.
 
 ページ下部までの比較には同じWindowsのChromeヘッドレスで1600×2200 pxの全画面PNGを取得した。before/afterは同一手法・条件で撮影し、差分画像を作った。対話画面の200%表示とヘッドレスの画素は直接比較していない。両スタイルの全ページで「元」、半角カナ、コード、結合文字、罫線、通常行送りを実画像で確認した。文字欠けや明らかな崩れはこの見本では見つからなかった。Windowsでは `FontFace.load()` とページ内の幅検査の成功表示を確認したが、Macで行ったCDPの実使用フォント照会は未実施。収録外文字のフォールバックを完全には除外していない。
 
-Windowsの生画面、全ページ画像、差分、環境情報は `build/proofs/windows-20260923/` に保存した。`regular-before-full.png` / `regular-after-full.png` / `regular-diff-full.png` とBoldの対応ファイルはWindows内の同じChromeで作成した。差分には行送りによる配置の変化が含まれ、個々の字形変更のみを表さない。
+Windowsの生画面、全ページ画像、差分、環境情報は[保存したWindowsの証跡](artifacts/verification-2026-09-23/README.md)を参照。撮影時の出力先は `build/proofs/windows-20260923/`。`regular-before-full.png` / `regular-after-full.png` / `regular-diff-full.png` とBoldの対応ファイルはWindows内の同じChromeで作成した。差分には行送りによる配置の変化が含まれ、個々の字形変更のみを表さない。
 
 | 段階 | 判定 | 範囲 |
 | --- | --- | --- |

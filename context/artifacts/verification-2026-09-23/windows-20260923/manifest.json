@@ -1,0 +1,172 @@
+{
+  "date": "2026-09-23",
+  "git_commit": "b2a181a261d061ec3c9805cf845ed073e89d52c7",
+  "working_tree_dirty": true,
+  "fonts": {
+    "regular": {
+      "before": {
+        "sha256": "83994897f9a4ee58cab502861f47718b4638b1836e379e1479035b4a664ea8d3",
+        "filename": "SOROEMONO-Regular.ttf"
+      },
+      "after": {
+        "sha256": "dbb57d5d8a634ecbb5527832ad52d8df06c5ea7b87be54dddedd9e052c549674",
+        "filename": "SOROEMONOPreview-Regular.ttf"
+      }
+    },
+    "bold": {
+      "before": {
+        "sha256": "320f342c6517885d5358251f231b4c0bf09049095caf35f46bcacf604c950f84",
+        "filename": "SOROEMONO-Bold.ttf"
+      },
+      "after": {
+        "sha256": "f9f7ec6b42daca9969802b73e76ddfc15afd9cbcc8b5f8a464e62990c347237b",
+        "filename": "SOROEMONOPreview-Bold.ttf"
+      }
+    }
+  },
+  "environment": {
+    "host_os": "macOS 26.6.2 arm64",
+    "vm": "Windows 11 ARM in Parallels Desktop",
+    "windows_version": "10.0.26200.9457",
+    "parallels": "27.0.2 (58673)",
+    "parallels_tools": "27.0.2-58673",
+    "chrome": "153.0.8010.53",
+    "interactive_screen_physical_px": [
+      3200,
+      1724
+    ],
+    "guest_screen_logical_px": [
+      1600,
+      862
+    ],
+    "user_log_pixels": 192,
+    "win8_dpi_scaling": 1,
+    "font_smoothing": "2",
+    "font_smoothing_type": 2,
+    "browser_zoom": "not measured; disposable Chrome profile default",
+    "browser_rasterization": "default",
+    "vm_initial_state": "paused",
+    "pause_idle": "on",
+    "vm_settings_changed": false,
+    "vm_final_state": "paused",
+    "temporary_proof_browsers_closed": true
+  },
+  "capture": {
+    "interactive": "prlctl capture, Chrome on logged-in user desktop, 200% Windows display scale; overview/before/after per style",
+    "full_page": "Windows Chrome headless --window-size=1600,2200 --virtual-time-budget=4000; browser DPR not measured",
+    "difference": "absolute RGB difference of before/after full-page pixels, inverted grayscale; white means equal"
+  },
+  "verification": {
+    "font_face_loaded": "green proof status visible in all interactive and full-page images",
+    "widths": "preview A=60, 日=120, ｱ=60 at 100 CSS px per proof script",
+    "windows_platform_fonts_per_node": "not queried",
+    "native_apps": "not tested"
+  },
+  "images": {
+    "bold-after-full.png": {
+      "sha256": "de6b403f103c1a082d2a568201ac740d39aea89b0a4bd0856ccf709798da7f8f",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-after.png": {
+      "sha256": "973b437006e9b8034e66975fa149278fc7921a7e5667f1f9baec31c972269520",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "bold-before-full.png": {
+      "sha256": "03c0de8739a42fc0429ee157b57589efe921b16bd9015fd10bc823a5aee14b76",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-before.png": {
+      "sha256": "505dc5f64afb443e44873bc43fa0229ef7e66b17cec844dab93f67257c100d8e",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "bold-diff-full.png": {
+      "sha256": "fa2ae162f5a96f36c765d24b47985a1476af6788095a865f085185214e8adf2f",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-overview-full.png": {
+      "sha256": "6004cf9486ba8fcfaa5898c61d71df450e21333dc598f9748ce168ebc938d82a",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-overview.png": {
+      "sha256": "4f13a8fad79e75ed6849993edb424647db9cfcde3df78e78ecea86a8bef10fca",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "initial.png": {
+      "sha256": "3716814761a38147d07bf5a7ae03ba3d704fb98219fee83cbff5234682b75d2f",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "regular-after-full.png": {
+      "sha256": "d50a7db679b834d72f27252e39bb38c861cebfe37e014cf51f41eb7e84aae73a",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "regular-after.png": {
+      "sha256": "01ee11c1544db4992bff9581212244a6909934cfd2c9ead8a893f534e79e2e3f",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "regular-before-full.png": {
+      "sha256": "68052aed95412ec28613297e135b99b26207741c098143f44527588286374fba",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "regular-before.png": {
+      "sha256": "a4ae756c4c51cc00c4a4bb3a699643256c2d97bbf3d6a27e396fdadc031c4059",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "regular-diff-full.png": {
+      "sha256": "94beefe312c37462ab8a1931a7762e2035105d2aae807f2a6cc6c6f842fc29bb",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "regular-overview-full.png": {
+      "sha256": "a40b9808002163e80c38e19dce41bd630534af846f10dd64f293288f210c8dff",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "regular-overview.png": {
+      "sha256": "5c726f95a76fc6ae525e8d29d5629f285c5301334745569bf9a2c4a0f25c0328",
+      "size_px": [
+        3200,
+        1724
+      ]
+    }
+  }
+}

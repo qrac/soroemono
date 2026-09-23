@@ -173,6 +173,9 @@
      test_metadata.py
    proofs/                     # 見本生成用のHTMLと文字列
    context/
+     README.md                 # 資料の索引、実装済み
+     progress.md               # 現在の状態、実装済み
+     artifacts/                # 確定した検証証跡、Git管理
      rebuild-plan.ja.md
      font-baseline.ja.md
      font-testing.ja.md

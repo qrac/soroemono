@@ -41,7 +41,7 @@ uv run --locked soroemono capture --proof build/proofs/bold
 
 Windows 11での確認には、Parallels DesktopのCLIと共有フォルダを使う[プロジェクト用Skill](.agents/skills/soroemono-windows-check/SKILL.md)と[検証手順](context/windows-parallels.ja.md)を用意しています。Windows Chromeで両スタイルのブラウザ描画を確認しました。既存Issuesの実アプリでの解消は未検証です。既存のGitHub ActionsはUbuntuでの継続的なビルド・検査用として維持します。
 
-[開発・検証手順](context/development.ja.md) / [再設計計画](context/rebuild-plan.ja.md) / [現行字形の基準](context/font-baseline.ja.md)
+[作業の状態と資料の索引](context/README.md) / [開発・検証手順](context/development.ja.md) / [再設計計画](context/rebuild-plan.ja.md) / [現行字形の基準](context/font-baseline.ja.md)
 
 従来の `build.py` / `build.ini` は調査用に残しています。公開版を再現する手段としては使わず、通常の開発は上記コマンドを使ってください。
 

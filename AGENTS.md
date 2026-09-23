@@ -2,7 +2,7 @@
 
 SOROEMONOは、JetBrains Monoの英数字のバランスを維持し、BIZ UDGothicを組み合わせて半角1:全角2にするエディタ用フォント。
 
-- 計画・調査・仕様・判断の記録は `context/` に置く。`docs/` は作らない。
+- 計画・調査・仕様・判断の記録は `context/` に置く。入口は [contextの索引](context/README.md)、現在の状態は [進捗](context/progress.md) を参照する。`docs/` は作らない。
 - 作業に関係する [再設計計画](context/rebuild-plan.ja.md)、[現行字形の基準](context/font-baseline.ja.md)、[フォント検証計画](context/font-testing.ja.md) を参照する。
 - 文書中の構成案を実装済みとして扱わない。Regular/Bold試作の新ビルド・数値検査・ブラウザproof・撮影は `src/soroemono/` に実装済み。Mac/Windowsのブラウザ表示は確認済み。Windows実アプリ検証、Italic系、正式配布は未完了。実装した部分は文書も更新する。
 - 実行方法と初回結果は [開発・検証手順](context/development.ja.md) を参照する。通常は `uv sync --locked --extra proof`、`uv run --locked soroemono build` / `check` / `proof` / `capture`、`uv run --locked python -m unittest discover -s tests -v` を使う。
@@ -27,7 +27,7 @@ SOROEMONOは、JetBrains Monoの英数字のバランスを維持し、BIZ UDGot
 - 行間は固定line-heightの見本だけで判定しない。通常行送りと実アプリの表示を確認する。
 - Windows固有の不具合はWindows 11の隔離環境で検証する。Linuxの画像やHarfBuzz/OTSの合格だけでWindowsでの解消を断定しない。未実行の検証は明記する。
 - 実際の画像を確認し、意図しない差分を調査する。理由なく基準画像を更新してテストを通さない。
-- 生成画像やスクリーンショットは `build/` 等の生成物ディレクトリへ置き、`context/` は仕様と結果の説明に使う。新しい生成物ディレクトリを導入する際はGit管理方針も設定する。
+- 日常の生成画像やスクリーンショットはGit管理外の `build/` 等へ置く。検証記録に対応する確定済みの画像と環境情報だけを `context/artifacts/` に複製してGit管理し、記録からリンクする。TTFを内包する比較HTMLや試作TTFはここへ入れない。新しい生成物ディレクトリを導入する際はGit管理方針も設定する。
 
 **ビルドと配布**
 
