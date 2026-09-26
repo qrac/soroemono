@@ -4,7 +4,9 @@
 
 ## 実行
 
-リポジトリ直下で実行する。開発・CIの既定Pythonは `.python-version` の3.14.6、依存ライブラリは `uv.lock`、元TTFと公開基準版は `sources.lock.json` で固定する。`pyproject.toml` の `requires-python = ">=3.12"` は対応下限を示し、既定版とは別に維持する。初回の環境構築・基準版取得・ブラウザ取得にはネットワークが必要。それ以降の生成と比較ページ作成はローカルで完結する。
+リポジトリ直下で実行する。以下は `SOROEMONO Preview` のRegular/Boldを生成・検証する手順であり、`dist/` への正式版生成手順ではない。既存の見た目を基準に半角幅・行間・ヒンティングの整合を修正した試作で、macOS/Windowsのブラウザ表示は確認済み。Windows実アプリでの既存Issuesの解消は未検証である。開発・CIの既定Pythonは `.python-version` の3.14.6、依存ライブラリは `uv.lock`、元TTFと公開基準版は `sources.lock.json` で固定する。`pyproject.toml` の `requires-python = ">=3.12"` は対応下限を示し、既定版とは別に維持する。初回の環境構築・基準版取得・ブラウザ取得にはネットワークが必要。それ以降の生成と比較ページ作成はローカルで完結する。
+
+[公式の導入手順](https://docs.astral.sh/uv/getting-started/installation/)に従って、先に `uv` を導入する。`uv run --locked soroemono build` は必要なPythonと通常依存関係を自動で用意・同期するため、ビルドだけなら事前の `uv sync` とPythonの手動インストールは不要。`.python-version` の3.14.6を取得できるuvを使う（0.12.17で確認済み。0.9.20では取得できなかった）。`uv sync --locked --extra proof` はブラウザ撮影まで行う検証環境を先に揃える場合に使う。ブラウザ本体は別途 `playwright install chromium` で取得する。
 
 ```sh
 uv sync --locked --extra proof
@@ -24,6 +26,8 @@ uv run --locked soroemono capture --proof build/proofs/bold
 取得済みの公開ZIPを使う場合は `fetch-baseline --archive /path/to/SOROEMONO_v1.0.0.zip`。アーカイブと中のRegular/Bold両TTFのハッシュを検査する。`build --output /path/to/directory`、`check --font /path/to/font.ttf`、`proof --font /path/to/font.ttf --output /path/to/proof`、`capture --proof /path/to/proof` で出力・検査先を指定できる。Boldの `build` / `check` / `proof` には `--style Bold` を付ける。リポジトリ外からはサブコマンドの前に `--root /path/to/soroemono` を付ける。
 
 macOSの既存Chromeを使う場合は `capture --channel chrome`。新しい一時プロファイルを使い、日常のChromeのプロファイルは利用しない。OSへのフォント登録は行わない。
+
+`build` は元フォントを同梱ファイルから読み、SHA-256を確認する。実行中に元フォントをダウンロードしない。旧版との比較には `fetch-baseline` で公開v1.0.0を別途取得する。Windows 11での確認には[プロジェクト用Skill](../.agents/skills/soroemono-windows-check/SKILL.md)と[Windows検証手順](windows-parallels.ja.md)を使う。
 
 Markdown表の手動確認用見本は `tests/fixtures/markdown-table.md` に置く。現時点でこの見本は自動テストから参照していない。
 

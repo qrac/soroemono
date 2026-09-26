@@ -8,7 +8,7 @@
 | 再設計の方針と未実装の構成案 | [再設計計画](rebuild-plan.ja.md) |
 | 公開v1.0.0の字形・幅 | [現行字形の基準](font-baseline.ja.md) |
 | 検証方針と受け入れ範囲 | [フォント検証計画](font-testing.ja.md) |
-| ビルド・検査・撮影の実行方法 | [開発・検証手順](development.ja.md) |
+| 試作版のビルド・検査・撮影の実行方法 | [開発・検証手順](development.ja.md) |
 | Mac・Windowsブラウザでの確認結果 | [2026-09-23の検証記録](verification-2.0.0a1-2026-09-23.ja.md)と[保存した証跡](artifacts/verification-2026-09-23/README.md) |
 | v2の不要ファイル整理と生成結果の確認 | [2026-09-26の検証記録](verification-v2-cleanup-2026-09-26.ja.md) |
 | Windows VMの操作と次の検証手順 | [Parallels DesktopによるWindows検証](windows-parallels.ja.md) |
