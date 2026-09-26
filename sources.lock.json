@@ -28,6 +28,36 @@
       "sha256": "a5c1c791e3168f20271fb4b7f85987054b985ba4d3f141210be63f084e42cfcd"
     }
   },
+  "italic_fonts": {
+    "latin": {
+      "path": "resource/JetBrainsMono/JetBrainsMono-Italic.ttf",
+      "version": "2.304",
+      "url": "https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip",
+      "archive_sha256": "6f6376c6ed2960ea8a963cd7387ec9d76e3f629125bc33d1fdcd7eb7012f7bbf",
+      "sha256": "9d0a1f7a708e6af183f1193b7e81d40da294f5c67682c085d8401c60aac8ded4"
+    },
+    "japanese": {
+      "path": "resource/BIZUDGothic/BIZUDGothic-Regular.ttf",
+      "version": "1.051",
+      "url": "https://github.com/googlefonts/morisawa-biz-ud-gothic/releases/tag/v1.051",
+      "sha256": "18956be217e02e08ca18dfe71aeb2110173e81c5f5d5c69d4833d854039e462a"
+    }
+  },
+  "bold_italic_fonts": {
+    "latin": {
+      "path": "resource/JetBrainsMono/JetBrainsMono-BoldItalic.ttf",
+      "version": "2.304",
+      "url": "https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip",
+      "archive_sha256": "6f6376c6ed2960ea8a963cd7387ec9d76e3f629125bc33d1fdcd7eb7012f7bbf",
+      "sha256": "4039d5ce0ed225bf9c8b2c8c6436290ae2f356b7e90d70fa666227238324aa3b"
+    },
+    "japanese": {
+      "path": "resource/BIZUDGothic/BIZUDGothic-Bold.ttf",
+      "version": "1.051",
+      "url": "https://github.com/googlefonts/morisawa-biz-ud-gothic/releases/tag/v1.051",
+      "sha256": "a5c1c791e3168f20271fb4b7f85987054b985ba4d3f141210be63f084e42cfcd"
+    }
+  },
   "baseline": {
     "url": "https://github.com/qrac/soroemono/releases/download/1.0.0/SOROEMONO_v1.0.0.zip",
     "archive_sha256": "a04bbf0eaa29d0c26b2dcefdb58deb64bf01e7296e2d407fb3f6ee62a43a6930",

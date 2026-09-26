@@ -1,6 +1,6 @@
 # インストール不要・仮想環境でのフォント検証計画
 
-ユーザーの日常環境のフォントを差し替えず、エージェントが検証し、変更前・変更後・差分のスクリーンショットを提出する運用にする。以下は検証全体の設計。初回実装ではTTF内包HTML、Playwright撮影、フォールバック検出、環境記録を実装し、macOSで実行した。2026-09-23にWindows VM内のRegular/Boldブラウザ描画も確認した。結果は[検証記録](verification-2.0.0a1-2026-09-23.ja.md)。Windows実アプリでの受け入れは未実施。実行手順は [開発・検証手順](development.ja.md)、Windowsの接続と検証手順は [Parallels DesktopによるWindows検証](windows-parallels.ja.md) を参照する。
+ユーザーの日常環境のフォントを差し替えず、エージェントが検証し、変更前・変更後・差分のスクリーンショットを提出する運用にする。以下は検証全体の設計。初回実装ではTTF内包HTML、Playwright撮影、フォールバック検出、環境記録を実装し、macOSで実行した。2026-09-23にWindows VM内のRegular/Bold試作ブラウザ描画を確認した（[検証記録](verification-2.0.0a1-2026-09-23.ja.md)）。2026-09-26に正式ビルド4スタイルのmacOSブラウザ比較を行った（[検証記録](verification-v2-formal-build-2026-09-26.ja.md)）。Windows実アプリでの受け入れは未実施。実行手順は [開発・検証手順](development.ja.md)、Windowsの接続と検証手順は [Parallels DesktopによるWindows検証](windows-parallels.ja.md) を参照する。
 
 1. **日常の比較は、TTFを直接読むブラウザで行う**
 

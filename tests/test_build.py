@@ -6,10 +6,12 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from zipfile import ZipFile
 
 from fontTools.ttLib import TTFont
 
 from soroemono.builder import build
+from soroemono.release import release_package
 from soroemono.sources import digest, fetch_baseline, source_paths, verified
 from soroemono.validation import check
 
@@ -72,6 +74,36 @@ class BuildTests(unittest.TestCase):
         archive.write_bytes(b"not the pinned release")
         with self.assertRaisesRegex(ValueError, "archive SHA-256 mismatch"):
             fetch_baseline(ROOT, archive)
+
+    def test_formal_release_contains_four_verified_styles(self):
+        archive = release_package(ROOT, self.output / "release")
+        rebuilt_archive = release_package(ROOT, self.output / "release-rebuilt")
+        self.assertEqual(digest(archive.read_bytes()), digest(rebuilt_archive.read_bytes()))
+        with ZipFile(archive) as zf:
+            names = set(zf.namelist())
+            expected = {
+                "SOROEMONO-Regular.ttf", "SOROEMONO-Bold.ttf",
+                "SOROEMONO-Italic.ttf", "SOROEMONO-BoldItalic.ttf",
+            }
+            self.assertTrue(expected <= names)
+            self.assertIn("licenses/OFL-JetBrainsMono.txt", names)
+            self.assertIn("licenses/OFL-BIZUDGothic.txt", names)
+            self.assertIn("sources.lock.json", names)
+            self.assertIn("SHA256SUMS", names)
+            for style, name in (("Regular", "SOROEMONO-Regular.ttf"),
+                                ("Bold", "SOROEMONO-Bold.ttf"),
+                                ("Italic", "SOROEMONO-Italic.ttf"),
+                                ("Bold Italic", "SOROEMONO-BoldItalic.ttf")):
+                path = self.output / name
+                path.write_bytes(zf.read(name))
+                font = TTFont(path)
+                self.assertEqual(font["name"].getDebugName(1), "SOROEMONO")
+                self.assertEqual(font["name"].getDebugName(2), style)
+                self.assertEqual(font["name"].getDebugName(5), "Version 2.000")
+                self.assertTrue(check(ROOT, path, style)["passed"])
+            for line in zf.read("SHA256SUMS").decode().splitlines():
+                expected_hash, member = line.split("  ", 1)
+                self.assertEqual(digest(zf.read(member)), expected_hash)
 
 
 if __name__ == "__main__":

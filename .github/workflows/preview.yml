@@ -1,4 +1,4 @@
-name: Regular and Bold preview
+name: SOROEMONO 2.0.0 build
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
 jobs:
   fonts:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
         with:
@@ -21,21 +21,28 @@ jobs:
           version: "0.12.17"
       - run: uv sync --locked --extra proof
       - run: uv run --locked python -m unittest discover -s tests -v
-      - run: uv run --locked soroemono build
-      - run: uv run --locked soroemono check
-      - run: uv run --locked soroemono build --style Bold
-      - run: uv run --locked soroemono check --style Bold
+      - run: uv run --locked soroemono release
+      - run: |
+          for style in Regular Bold Italic "Bold Italic"; do
+            uv run --locked soroemono build --style "$style"
+            uv run --locked soroemono check --style "$style"
+          done
       - run: uv run --locked soroemono fetch-baseline
-      - run: uv run --locked soroemono proof
-      - run: uv run --locked soroemono proof --style Bold
+      - run: |
+          for style in Regular Bold Italic "Bold Italic"; do
+            uv run --locked soroemono proof --style "$style"
+          done
       - run: uv run --locked playwright install --with-deps chromium
-      - run: uv run --locked soroemono capture
-      - run: uv run --locked soroemono capture --proof build/proofs/bold
+      - run: |
+          for proof in regular bold italic bold-italic; do
+            uv run --locked soroemono capture --proof "build/proofs/$proof"
+          done
       - uses: actions/upload-artifact@v7
         with:
-          name: soroemono-regular-bold-preview-linux
+          name: soroemono-2.0.0-linux
           path: |
-            build/preview/
+            dist/
+            build/formal/
             build/proofs/
           if-no-files-found: error
           retention-days: 14

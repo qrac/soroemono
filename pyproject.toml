@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "soroemono"
-version = "2.0.0a1"
-description = "Reproducible JetBrains Mono + BIZ UDGothic font build and proofs"
+version = "2.0.0"
+description = "Reproducible SOROEMONO font build and proofs"
 requires-python = ">=3.12"
 dependencies = ["fonttools==4.64.0", "uharfbuzz>=0.52,<1"]
 

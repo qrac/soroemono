@@ -8,6 +8,7 @@ import subprocess
 
 from fontTools.ttLib import TTFont
 
+from .builder import STYLES
 from .sources import baseline_path, digest
 from .validation import check
 
@@ -21,8 +22,9 @@ SAMPLES = [
 
 
 def make_proof(root: Path, candidate: Path, output: Path | None = None, style: str = "Regular") -> Path:
-    output = output or root / "build" / "proofs" / style.lower()
-    baseline = baseline_path(root, style)
+    output = output or root / "build" / "proofs" / style.lower().replace(" ", "-")
+    baseline_style = style.replace(" Italic", "").replace("Italic", "Regular")
+    baseline = baseline_path(root, baseline_style)
     checks = check(root, candidate, style)
     for font_path in [baseline, candidate]:
         font = TTFont(font_path)
@@ -42,10 +44,11 @@ def make_proof(root: Path, candidate: Path, output: Path | None = None, style: s
     fonts = {"before": baseline, "after": candidate}
     manifest = {
         "style": style,
+        "baseline_style": baseline_style,
         "fonts": {key: {"sha256": digest(path.read_bytes()), "filename": path.name}
                   for key, path in fonts.items()},
         "checks": checks, "samples": SAMPLES,
-        "settings": {"font_sizes_css_px": [14, 16, 20], "font_weight": 700 if style == "Bold" else 400,
+        "settings": {"font_sizes_css_px": [14, 16, 20], "font_weight": STYLES[style],
                      "font_synthesis": "none", "calt": True, "letter_spacing": 0,
                      "line_height": "1.65; normal in the last specimen"},
         "capture": None,
@@ -56,7 +59,7 @@ def make_proof(root: Path, candidate: Path, output: Path | None = None, style: s
     except (OSError, subprocess.CalledProcessError):
         manifest["commit"] = None
     font_css = "\n".join(
-        f"@font-face {{font-family: Proof{key}; src: url(data:font/ttf;base64,{base64.b64encode(path.read_bytes()).decode()}) format('truetype'); font-weight:{700 if style == 'Bold' else 400}; font-style:normal;}}"
+        f"@font-face {{font-family: Proof{key}; src: url(data:font/ttf;base64,{base64.b64encode(path.read_bytes()).decode()}) format('truetype'); font-weight:{STYLES[style]}; font-style:normal;}}"
         for key, path in fonts.items()
     )
     cards = []
@@ -68,7 +71,9 @@ def make_proof(root: Path, candidate: Path, output: Path | None = None, style: s
             specimens.append(f'<div class="cell {mode}" data-mode="{mode}">{content}</div>')
         cards.append(f'<section><h2>{html.escape(label)}</h2><div class="pair">{"".join(specimens)}</div></section>')
     document = TEMPLATE.replace("__FONT_CSS__", font_css).replace("__CARDS__", "".join(cards))
-    document = document.replace("__STYLE__", style).replace("__WEIGHT__", "700" if style == "Bold" else "400")
+    document = document.replace("__STYLE__", style).replace("__WEIGHT__", str(STYLES[style]))
+    document = document.replace("__BASELINE_STYLE__", baseline_style)
+    document = document.replace("__ITALIC_NOTE__", "Italic系は旧版に存在しないため直立字形を基準にしています。" if "Italic" in style else "")
     document = document.replace("__MANIFEST__", json.dumps(manifest, ensure_ascii=False).replace("<", "\\u003c"))
     licenses = "\n\n".join((root / "resource" / name / "OFL.txt").read_text()
                             for name in ["JetBrainsMono", "BIZUDGothic"])
@@ -99,12 +104,12 @@ pre {font-family:inherit;font-weight:__WEIGHT__;font-style:normal;font-synthesis
 .single section {min-height:0} .single.before-only .after,.single.after-only .before {display:none}
 details {margin:20px 0} #metadata {font:12px/1.5 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
 </style><main>
-<div class="eyebrow">SOROEMONO / __STYLE__ / FIRST PREVIEW</div>
+<div class="eyebrow">SOROEMONO / __STYLE__ / 2.0.0</div>
 <h1>日本語の見た目を保ち、文字幅を揃える。</h1>
-<p class="muted">公開 v1.0.0 と新ビルドの比較。フォントはこのHTMLから読み込み、OSへのインストールは不要です。</p>
+<p class="muted">公開 v1.0.0 の __BASELINE_STYLE__ と2.0.0の __STYLE__ を比較。フォントはこのHTMLから読み込み、OSへのインストールは不要です。__ITALIC_NOTE__</p>
 <nav><a href="?mode=overview">並べて比較</a><a href="?mode=before">旧版のみ</a><a href="?mode=after">新版のみ</a></nav>
 <div id="status" role="status">フォントを読み込んでいます…</div>
-<div class="pair labels"><div class="before">BEFORE · v1.0.0</div><div class="after">AFTER · Preview __STYLE__</div></div>
+<div class="pair labels"><div class="before">BEFORE · v1.0.0 __BASELINE_STYLE__</div><div class="after">AFTER · 2.0.0 __STYLE__</div></div>
 <div id="specimens">__CARDS__</div>
 <p class="muted">確認点：元の字形／半角カナの500→600／全角1200／濁点とIVS／通常行送り。Windows実アプリでの受け入れ確認は別途必要です。</p>
 <details><summary>フォントと表示環境の記録</summary><pre id="metadata"></pre></details>
@@ -128,7 +133,7 @@ if (mode === 'before' || mode === 'after') document.body.className = `single ${m
      ctx.font = `__WEIGHT__ 100px Proof${key}`;
      metrics[key] = Object.fromEntries(['A','日','ｱ'].map(s => [s,ctx.measureText(s).width]));
    }
-   if (Math.abs(metrics.after.A-60)>.01 || Math.abs(metrics.after['日']-120)>.01 || Math.abs(metrics.after['ｱ']-60)>.01) throw Error('Unexpected preview cell widths');
+   if (Math.abs(metrics.after.A-60)>.01 || Math.abs(metrics.after['日']-120)>.01 || Math.abs(metrics.after['ｱ']-60)>.01) throw Error('Unexpected 2.0.0 cell widths');
    window.proofState = {ready:true,error:null,metrics,userAgent:navigator.userAgent,
      devicePixelRatio,viewport:[innerWidth,innerHeight],screen:[screen.width,screen.height],
      normalLineBoxes:[...document.querySelectorAll('.normal')].map(e=>({mode:e.parentElement.dataset.mode,height:e.getBoundingClientRect().height}))};

@@ -1,4 +1,4 @@
-"""Regular and Bold previews: preserve Latin input, transform Japanese input."""
+"""Build the four static SOROEMONO 2.0.0 styles from locked inputs."""
 
 from copy import deepcopy
 import json
@@ -17,17 +17,19 @@ from fontTools.ttLib import TTFont
 from fontTools.ttLib.tables import otTables
 from fontTools.ttLib.tables._g_l_y_f import Glyph, GlyphCoordinates
 
-from .sources import digest, lock, source_paths
+from .sources import STYLE_SOURCES, digest, lock, source_paths
 
-FAMILY = "SOROEMONO Preview"
-FILENAME = "SOROEMONOPreview-Regular.ttf"
-STYLES = {"Regular": 400, "Bold": 700}
+FAMILY = "SOROEMONO"
+STYLES = {"Regular": 400, "Bold": 700, "Italic": 400, "Bold Italic": 700}
+ITALIC_STYLES = {"Italic", "Bold Italic"}
+# A nine-degree oblique for BIZ glyphs. Latin italics come from JetBrains Mono.
+JAPANESE_SHEAR = 0.1583844403
 
 
 def filename(style: str) -> str:
     if style not in STYLES:
         raise ValueError(f"Unsupported style: {style}")
-    return f"SOROEMONOPreview-{style}.ttf"
+    return f"SOROEMONO-{style.replace(' ', '')}.ttf"
 
 
 JP_OVERRIDES = {0xFF5B, 0xFF5D}
@@ -45,14 +47,16 @@ def set_mapping(font: TTFont, cp: int, name: str | None) -> None:
                 table.cmap[cp] = name
 
 
-def transformed(font: TTFont, name: str, sx: float, sy: float, dx: float) -> Glyph:
+def transformed(font: TTFont, name: str, sx: float, sy: float, dx: float,
+                shear: float = 0) -> Glyph:
     original = font["glyf"][name]
     coordinates, endpoints, flags = original.getCoordinates(font["glyf"])
     result = Glyph()
     result.numberOfContours = len(endpoints)
     if coordinates:
         result.coordinates = GlyphCoordinates(
-            [(otRound(x * sx + dx), otRound(y * sy)) for x, y in coordinates]
+            [(otRound(x * sx + dx + y * sy * shear), otRound(y * sy))
+             for x, y in coordinates]
         )
         result.endPtsOfContours = list(endpoints)
         result.flags = flags[:]
@@ -61,7 +65,7 @@ def transformed(font: TTFont, name: str, sx: float, sy: float, dx: float) -> Gly
     return result
 
 
-def prepare_japanese(font: TTFont, latin: TTFont) -> dict[int, str]:
+def prepare_japanese(font: TTFont, latin: TTFont, style: str) -> dict[int, str]:
     """Keep Unicode aliases, layout dependencies and UVS targets through subsetting."""
     cmap = font.getBestCmap()
     selected = set(cmap) - set(latin.getBestCmap()) | JP_OVERRIDES
@@ -101,7 +105,8 @@ def prepare_japanese(font: TTFont, latin: TTFont) -> dict[int, str]:
             raise ValueError(f"Unclassified Japanese glyph width: {name}={width}")
         if name in mark_names:
             advance = 0
-        glyph = transformed(font, name, sx, 1000 / upm, dx)
+        glyph = transformed(font, name, sx, 1000 / upm, dx,
+                            JAPANESE_SHEAR if style in ITALIC_STYLES else 0)
         updates[name] = (glyph, (advance, getattr(glyph, "xMin", 0)))
     for name, (glyph, metrics) in updates.items():
         font["glyf"][name] = glyph
@@ -201,8 +206,8 @@ def metadata(font: TTFont, latin: TTFont, japanese: TTFont, style: str) -> None:
     names.names = [n for n in names.names if n.nameID >= 256]
     copyright_text = "\n".join(f["name"].getDebugName(0) for f in [latin, japanese])
     values = {
-        0: copyright_text, 1: FAMILY, 2: style, 3: f"SOROEMONO-2.000-alpha1-{style}",
-        4: FAMILY + " " + style, 5: "Version 2.000; alpha1", 6: f"SOROEMONOPreview-{style}",
+        0: copyright_text, 1: FAMILY, 2: style, 3: f"SOROEMONO-2.000-{style.replace(' ', '')}",
+        4: FAMILY + " " + style, 5: "Version 2.000", 6: f"SOROEMONO-{style.replace(' ', '')}",
         13: "This Font Software is licensed under the SIL Open Font License, Version 1.1.",
         14: "https://openfontlicense.org", 16: FAMILY, 17: style,
     }
@@ -211,12 +216,15 @@ def metadata(font: TTFont, latin: TTFont, japanese: TTFont, style: str) -> None:
         names.setName(value, name_id, 0, 4, 0)
     head, hhea, os2 = font["head"], font["hhea"], font["OS/2"]
     head.fontRevision, head.created, head.modified = 2.0, TIMESTAMP, TIMESTAMP
-    head.macStyle = 1 if style == "Bold" else 0
+    bold = STYLES[style] == 700
+    italic = style in ITALIC_STYLES
+    head.macStyle = (1 if bold else 0) | (2 if italic else 0)
     hhea.ascent, hhea.descent, hhea.lineGap = 1020, -300, 0
     os2.sTypoAscender, os2.sTypoDescender, os2.sTypoLineGap = 1020, -300, 0
-    os2.fsSelection = (1 << 7) | ((1 << 5) if style == "Bold" else (1 << 6))
+    os2.fsSelection = (1 << 7) | ((1 << 5) if bold else 0) | ((1 << 0) if italic else 0) | ((1 << 6) if style == "Regular" else 0)
     os2.usWeightClass = STYLES[style]
     os2.usWidthClass = 5
+    font["post"].italicAngle = -9 if italic else 0
     bounds = [font["glyf"][name] for name in font.getGlyphOrder() if font["glyf"][name].numberOfContours]
     os2.usWinAscent = max(1020, max(g.yMax for g in bounds))
     os2.usWinDescent = max(300, -min(g.yMin for g in bounds))
@@ -246,13 +254,13 @@ def sort_layout_features(font: TTFont) -> None:
 
 def build(root: Path, output_dir: Path | None = None, style: str = "Regular") -> Path:
     paths = source_paths(root, style)
-    output_dir = output_dir or root / "build" / "preview"
+    output_dir = output_dir or root / "build" / "formal"
     output_dir.mkdir(parents=True, exist_ok=True)
     latin = TTFont(paths["latin"], recalcTimestamp=False)
     japanese = TTFont(paths["japanese"], recalcTimestamp=False)
     original_latin = TTFont(paths["latin"], recalcTimestamp=False)
     original_japanese = TTFont(paths["japanese"], recalcTimestamp=False)
-    marks = prepare_japanese(japanese, latin)
+    marks = prepare_japanese(japanese, latin, style)
     for cp in JP_OVERRIDES:
         set_mapping(latin, cp, None)
     for cp in sorted(WIDE_LATIN):
@@ -278,8 +286,9 @@ def build(root: Path, output_dir: Path | None = None, style: str = "Regular") ->
         raise ValueError("Refusing to overwrite an input font")
     font.save(output)
     report = {
-        "version": "2.0.0a1", "style": style, "sha256": digest(output.read_bytes()),
-        "sources": lock(root)["fonts" if style == "Regular" else "bold_fonts"], "japanese_features": JP_FEATURES,
+        "version": "2.0.0", "style": style, "sha256": digest(output.read_bytes()),
+        "sources": lock(root)[STYLE_SOURCES[style]], "japanese_features": JP_FEATURES,
+        "japanese_shear": JAPANESE_SHEAR if style in ITALIC_STYLES else 0,
         "tools": {"python": platform.python_version(), "fonttools": fonttools_version,
                   "unicode": unicodedata.unidata_version, "uv_lock_sha256": digest((root / "uv.lock").read_bytes())},
         "overrides": {f"U+{cp:04X}": "BIZ UDGothic" for cp in sorted(JP_OVERRIDES)},
@@ -290,7 +299,7 @@ def build(root: Path, output_dir: Path | None = None, style: str = "Regular") ->
         "limitations": ["Additional IPA mark anchors need visual review",
                         "Windows native app acceptance not automated yet"],
     }
-    report_name = "build.json" if style == "Regular" else "build-bold.json"
+    report_name = f"build-{style.lower().replace(' ', '-')}.json"
     (output_dir / report_name).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
     for name in ["JetBrainsMono", "BIZUDGothic"]:
         shutil.copyfile(root / "resource" / name / "OFL.txt", output_dir / f"OFL-{name}.txt")

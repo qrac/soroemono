@@ -9,7 +9,7 @@ from fontTools.ttLib import TTFont
 from fontTools.misc.roundTools import otRound
 import uharfbuzz as hb
 
-from .builder import FAMILY, JP_OVERRIDES, WIDE_LATIN, STYLES
+from .builder import FAMILY, ITALIC_STYLES, JAPANESE_SHEAR, JP_OVERRIDES, WIDE_LATIN, STYLES
 from .sources import digest, source_paths
 
 
@@ -105,7 +105,9 @@ def check(root: Path, path: Path, style: str = "Regular") -> dict:
             # BIZ has post format 3; generated names change after subsetting.
             # Compare the resolved outline, not the temporary glyph name.
             coords, ends, flags = outline(japanese, source)
-            expected = (tuple((otRound(x * 1080 / 2048 + 60), otRound(y * 1000 / 2048))
+            shear = JAPANESE_SHEAR if style in ITALIC_STYLES else 0
+            expected = (tuple((otRound(x * 1080 / 2048 + 60 + y * 1000 / 2048 * shear),
+                               otRound(y * 1000 / 2048))
                               for x, y in coords), ends, flags)
             require(outline(font, target) == expected, f"IVS target outline changed: U+{base:X}/U+{vs:X}")
             compared.add((source, target))
@@ -122,13 +124,19 @@ def check(root: Path, path: Path, style: str = "Regular") -> dict:
     bounds = [font["glyf"][n] for n in font.getGlyphOrder() if font["glyf"][n].numberOfContours]
     require(os2.usWinAscent >= max(g.yMax for g in bounds), "Win ascent clips a glyph")
     require(os2.usWinDescent >= -min(g.yMin for g in bounds), "Win descent clips a glyph")
-    require(font["name"].getDebugName(1) == FAMILY, "Preview family must be distinct")
+    require(font["name"].getDebugName(1) == FAMILY, "Family name mismatch")
     require(font["name"].getDebugName(2) == style, "Style name mismatch")
     require(font["name"].getDebugName(17) == style, "Typographic style name mismatch")
     require(os2.usWeightClass == STYLES[style], "Weight class mismatch")
-    require(bool(font["head"].macStyle & 1) == (style == "Bold"), "macStyle bold flag mismatch")
-    require(bool(os2.fsSelection & (1 << 5)) == (style == "Bold"), "fsSelection bold flag mismatch")
+    bold = STYLES[style] == 700
+    italic = style in ITALIC_STYLES
+    require(bool(font["head"].macStyle & 1) == bold, "macStyle bold flag mismatch")
+    require(bool(font["head"].macStyle & 2) == italic, "macStyle italic flag mismatch")
+    require(bool(os2.fsSelection & (1 << 5)) == bold, "fsSelection bold flag mismatch")
+    require(bool(os2.fsSelection & 1) == italic, "fsSelection italic flag mismatch")
     require(bool(os2.fsSelection & (1 << 6)) == (style == "Regular"), "fsSelection regular flag mismatch")
+    require(font["post"].italicAngle == (-9 if italic else 0), "Italic angle mismatch")
+    require(font["name"].getDebugName(5) == "Version 2.000", "Version name mismatch")
     result = {"passed": not failures, "sha256": digest(path.read_bytes()), "counts": counts,
               "failures": failures, "harfbuzz": hb.version_string(),
               "scope": "Static metrics, input preservation and shaping; not Windows rasterization acceptance"}

@@ -7,6 +7,10 @@ from pathlib import Path
 import urllib.request
 import zipfile
 
+STYLE_SOURCES = {
+    "Regular": "fonts", "Bold": "bold_fonts",
+    "Italic": "italic_fonts", "Bold Italic": "bold_italic_fonts",
+}
 
 def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -23,9 +27,9 @@ def lock(root: Path) -> dict:
 
 
 def source_paths(root: Path, style: str = "Regular") -> dict[str, Path]:
-    if style not in {"Regular", "Bold"}:
+    if style not in STYLE_SOURCES:
         raise ValueError(f"Unsupported style: {style}")
-    key = "fonts" if style == "Regular" else "bold_fonts"
+    key = STYLE_SOURCES[style]
     return {
         key: verified(root / spec["path"], spec["sha256"])
         for key, spec in lock(root)[key].items()
