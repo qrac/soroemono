@@ -1,11 +1,12 @@
 # SOROEMONOの進捗
 
-更新: 2026-09-23
+更新: 2026-09-26
 
 ## 現在の状態
 
 - 公開v1.0.0のRegular/Boldを比較基準として固定した。新しい生成工程では `SOROEMONO Preview` のRegular/Boldを生成・数値検査できる。
 - macOSとWindows 11 VMのChromeで、Regular/Boldのブラウザproofを撮影・確認した。[検証結果](verification-2.0.0a1-2026-09-23.ja.md)と[画像・環境情報](artifacts/verification-2026-09-23/README.md)を保存済み。
+- v2から旧FontForge用の `build.py` / `build.ini` と、未使用のNoto Sans JP／LINE Seed JP入力を除外した。旧実装はGit履歴に残る。v2が使うJetBrains Mono／BIZ UDGothicの入力とOFLは保持する。[削除前後の生成・画像検証](verification-v2-cleanup-2026-09-26.ja.md)ではTTFとブラウザ画像が一致した。
 - Windows実アプリでの表示、Issue #2/#6の解消、Italic/Bold Italic、4スタイル認識、正式配布は未完了。ブラウザ表示の確認を実アプリでの合格と扱わない。
 
 ## 次の検証

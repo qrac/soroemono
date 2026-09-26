@@ -43,7 +43,7 @@ Windows 11での確認には、Parallels DesktopのCLIと共有フォルダを�
 
 [作業の状態と資料の索引](context/README.md) / [開発・検証手順](context/development.ja.md) / [再設計計画](context/rebuild-plan.ja.md) / [現行字形の基準](context/font-baseline.ja.md)
 
-従来の `build.py` / `build.ini` は調査用に残しています。公開版を再現する手段としては使わず、通常の開発は上記コマンドを使ってください。
+v1のFontForge用 `build.py` / `build.ini` はv2では使わないため削除しました。旧実装はGit履歴で参照できます。通常の開発には上記コマンドを使ってください。
 
 ## Respect
 

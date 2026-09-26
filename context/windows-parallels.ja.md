@@ -19,7 +19,7 @@
 
 ## 実行と判定
 
-1. **Macで比較入力を用意する。** [開発・検証手順](development.ja.md) の新工程でRegularの `build`、`check`、公開v1.0.0の `fetch-baseline`、`proof` を行う。旧 `build.py` は英数字も拡大し、出力先を削除するため使わない。公開版とPreview版のハッシュを `build/proofs/regular/manifest.json` で確認する。`report.html` はTTFとライセンスを内包するため、ゲストでPythonやFontForgeを実行する必要はない。
+1. **Macで比較入力を用意する。** [開発・検証手順](development.ja.md) の新工程でRegularの `build`、`check`、公開v1.0.0の `fetch-baseline`、`proof` を行う。Git履歴に残る旧 `build.py` は英数字も拡大し、出力先を削除するため使わない。公開版とPreview版のハッシュを `build/proofs/regular/manifest.json` で確認する。`report.html` はTTFとライセンスを内包するため、ゲストでPythonやFontForgeを実行する必要はない。
 2. **VMと入力経路を再発見する。** `prlctl list --all`、`prlctl list -i <VM>` とゲスト内の読み取り専用コマンドで、起動状態、Tools、共有名、HTMLの読取可否を確かめる。上表のVM名と共有パスは調査時の値であり、固定値にはしない。ゲストコマンドが待ち続けたら中断してVM状態を確認し、一時停止中なら再開して一度だけ再試行する。VM設定を変更した場合は初期状態へ戻す。
 3. **Windowsブラウザでproofを表示する。** 共有上の `build/proofs/regular/report.html` をWindowsのブラウザで開く。`?mode=overview`、`?mode=before`、`?mode=after` を同じ解像度・拡大率・ブラウザ倍率で表示する。ページの成功表示、実測値、文字欠け、幅、行間、「元」、半角カナ、結合文字を確認する。フォント読込エラーやフォールバックの疑いがあれば合格にしない。可能ならブラウザの使用フォント情報も取得する。
 4. **画面と環境を保存する。** VMが動作中で各モードの画面が更新されたことを確認してから、`prlctl capture <VM> --file <PNG>` の元画像を `build/proofs/windows-<run-id>/` に保存する。一時停止中の古い画面をproofに使わない。各モードの全画面画像を残したうえで、同じ範囲に切り出した比較画像と差分を作る。TTFのSHA-256、Gitコミットと未コミット変更、Windowsビルド、ブラウザ版、画面解像度、DPI・Windows拡大率、ブラウザ倍率、描画設定、Parallels/Tools版を対応づける。取得できない値は推測せず未取得と記す。検証記録として確定した画像と環境情報は `context/artifacts/` に複製する。
