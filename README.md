@@ -13,7 +13,7 @@ JetBrains Monoに対してBIZ UDGothicを1:2に調整して合わせたエディ
 
 ## How To Use
 
-[Releases](https://github.com/qrac/soroemono/releases) のAssetsから公開済みのzipファイルをダウンロードしてご利用ください。ファイルをフォント管理ツールにインストール後、Font Family に SOROEMONO を入力すれば適応されます。
+[Releases](https://github.com/qrac/soroemono/releases) のAssetsから公開済みのzipファイルをダウンロードしてご利用ください。ファイルをフォント管理ツールにインストール後、Font Familyに `SOROEMONO` を入力すれば適応されます。
 
 ## Build
 
