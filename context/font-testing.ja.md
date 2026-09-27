@@ -1,6 +1,6 @@
 # インストール不要・仮想環境でのフォント検証計画
 
-ユーザーの日常環境のフォントを差し替えず、エージェントが検証し、変更前・変更後・差分のスクリーンショットを提出する運用にする。以下は検証全体の設計。初回実装ではTTF内包HTML、Playwright撮影、フォールバック検出、環境記録を実装し、macOSで実行した。2026-09-23にWindows VM内のRegular/Bold試作ブラウザ描画を確認した（[検証記録](verification-2.0.0a1-2026-09-23.ja.md)）。2026-09-26に正式ビルド4スタイルのmacOSブラウザ比較を行った（[検証記録](verification-v2-formal-build-2026-09-26.ja.md)）。2026-09-27にはWindows実アプリ3種でIssue #2の行間改善とメモ帳での日本語送り拡大という回帰、4スタイル認識、WindowsヘッドレスChromeでIssue #6の部分的な改善を確認した（[検証記録](verification-v2-windows-2026-09-27.ja.md)）。#2の回帰修正と#6の報告条件全体での解消判定は残る。実行手順は [開発・検証手順](development.ja.md)、Windowsの接続と検証手順は [Parallels DesktopによるWindows検証](windows-parallels.ja.md) を参照する。
+ユーザーの日常環境のフォントを差し替えず、エージェントが検証し、変更前・変更後・差分のスクリーンショットを提出する運用にする。以下は検証全体の設計。初回実装ではTTF内包HTML、Playwright撮影、フォールバック検出、環境記録を実装し、macOSで実行した。2026-09-23にWindows VM内のRegular/Bold試作ブラウザ描画を確認した（[検証記録](verification-2.0.0a1-2026-09-23.ja.md)）。2026-09-26に正式ビルド4スタイルのmacOSブラウザ比較を行った（[検証記録](verification-v2-formal-build-2026-09-26.ja.md)）。2026-09-27にはWindows実アプリ3種でIssue #2の行間改善とメモ帳での日本語送り拡大という回帰、4スタイル認識、WindowsヘッドレスChromeでIssue #6の部分的な改善を確認した（[検証記録](verification-v2-windows-2026-09-27.ja.md)）。#2の回帰修正と#6の報告条件全体での解消判定は残る。共通コマンドは [開発・検証手順](development.ja.md)、Mac・Windowsの分担と現行の実行手順は [Windows検証・Git受け渡し手順](windows-verification.ja.md) を参照する。
 
 1. **日常の比較は、TTFを直接読むブラウザで行う**
 
@@ -14,13 +14,13 @@
 
 2. **Windowsの問題は、Windows 11 VMで確認する**
 
-   スナップショットに戻せるWindows 11 VMを、#2/#6の受け入れ検証環境にする。OSビルド、ブラウザ・アプリの版、画面解像度、DPI、ClearType、仮想GPU、リモート接続の有無を記録する。比較元と変更後は同じ環境・同じ設定で撮影する。
+   スナップショットに戻せるWindows 11 VMを、#2/#6の受け入れ検証環境にする。2026-09-27からはWindows内のCodexがローカルcloneでビルド・操作・撮影を担当し、Mac側は開発・修正と結果の確認を担当する。Parallels DesktopはVMの実行環境とし、MacからのCLI遠隔操作や共有作業ツリーを前提にしない。OSビルド、ブラウザ・アプリの版、画面解像度、DPI、ClearType、仮想GPU、リモート接続の有無を記録する。比較元と変更後は同じ環境・同じ設定で撮影する。
 
-   WindowsブラウザでもTTFの直接読み込みを使う。VS Code、Windows Terminal、メモ帳を試す場合は、VM内だけへ試験フォントを登録し、使い捨てのアプリ設定で起動・撮影する。フォント更新後はアプリを起動し直す。検証後はスナップショットに戻す。ユーザーの日常OSにインストールしたり、既存フォントを削除したりする必要はない。
+   WindowsブラウザでもTTFの直接読み込みを使う。VS Code、Windows Terminal、メモ帳を試す場合は、VM内だけへ試験フォントを登録し、使い捨てのアプリ設定で起動・撮影する。フォント更新後はアプリを起動し直す。検証後は結果と必要な未コミット作業をVM外へ保全してからスナップショットに戻す。ユーザーの日常OSにインストールしたり、既存フォントを削除したりする必要はない。
 
    自作のDirectWrite検証アプリであれば、Custom Font Collectionによりシステムへインストールせずに描画できる。ただし、それだけではWindows Terminal等のフォント列挙・選択・スタイル認識まで検証したことにはならない。[DirectWrite公式資料](https://learn.microsoft.com/en-us/windows/win32/directwrite/custom-font-collections)
 
-   Windowsホストを使える場合はWindows Sandboxも候補になる。読み取り専用の入力フォルダ、結果出力フォルダ、LogonCommandを設定できる。ただしmacOS上でそのまま動く仕組みではないため、このMacからの作業は別途利用できるWindows 11 VMまたはリモート実行環境を用意する設計にする。[Windows Sandbox公式資料](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-configure-using-wsb-file)
+   Windowsホストを使える場合はWindows Sandboxも隔離方法の候補になる。読み取り専用の入力フォルダ、結果出力フォルダ、LogonCommandを設定できる。採用する場合もWindows側で実行条件を確認し、現在のWindows 11 VMと同じ環境とみなさない。[Windows Sandbox公式資料](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-configure-using-wsb-file)
 
    GitHub ActionsのWindowsランナーを利用する場合も、実際のOSと対話デスクトップの利用可否を確認する。Windows Server上のブラウザ撮影をWindows 11の実アプリ試験と同等に扱わない。GUI自動化が必要なジョブは、対話セッションを管理できる専用VMで実行する。
 
@@ -34,15 +34,16 @@
    | before.png / after.png | 切り抜き前の原寸スクリーンショット |
    | diff.png | 同じOS・描画条件における画素差分 |
    | details/ | 「元」、半角カナ、濁点、罫線、行間等の詳細画像 |
-   | report.html | 画像、検査結果、意図した変更と意図しない差を確認できるレポート |
+   | report.md | 確定画像へのリンク、実行結果、意図した変更と回帰、未検証事項をまとめた報告 |
+   | report.html | TTF内包の比較ページ。ローカルの `build/` に置き、Git保存版には含めない |
    | manifest.json | TTFハッシュ、コミット、OS、アプリ、表示設定、使用機能、テスト文字列 |
 
-   日常の成果物は `build/proofs/<run-id>/` にまとめ、CIではダウンロードできる成果物として保存する。確定した検証記録の画像と環境情報は `context/artifacts/<run-id>/` に複製してGit管理する（[2026-09-23の保存例](artifacts/verification-2026-09-23/README.md)）。エージェントは実際に確認した代表画像を会話に提示し、全レポートへリンクする。現物のスクリーンショットの代わりに生成画像や手描きの文字を使わない。拡大見本には原寸を併記する。
+   日常の成果物は各cloneの `build/proofs/<run-id>/` にまとめ、CIではダウンロードできる成果物として保存する。今後の確定画像・環境情報・報告は `context/artifacts/<run-id>/mac/` と `context/artifacts/<run-id>/win/` に分けてGit管理する。Windows側は `win/` のみを更新し、共通の進捗・索引はMac側が受領後に更新する。[2026-09-23の証跡](artifacts/verification-2026-09-23/README.md)等の既存パスは変更しない。エージェントは実際に確認した代表画像を会話に提示し、全レポートへリンクする。現物のスクリーンショットの代わりに生成画像や手描きの文字を使わない。拡大見本には原寸を併記する。
 
    初期基準は公開v1.0.0。スクリーンショットの基準画像はOS・ブラウザ・描画設定ごとに持つ。LinuxとWindowsを画素一致させる判定にはしない。差分が出た場合は、入力や環境の変化を調べてから判断し、テストを通すためだけに基準画像を更新しない。[Playwrightの視覚比較](https://playwright.dev/docs/test-snapshots)
 
    古い版に既知の不具合があるので、すべての画素差を失敗にも、すべての差を改善にも分類しない。維持する輪郭・幅の数値検査と、修正対象の描画・行間の画像検査を組み合わせる。検証できなかったOS・アプリは未検証として残す。
 
-4. **導入順序**
+4. **実装済みの範囲と次の導入**
 
-   まず現行TTFを使うインストール不要の比較ページと撮影コマンドを実装し、現在の見た目を保存する。次に新しいRegularを同じページへ追加して差分を提出する。その後、Windows 11 VMへの転送・アプリ起動・撮影・結果回収を自動化し、#2/#6の検証へつなげる。VMが未準備でもブラウザproofの実装は進められるが、Windows確認済みとは報告しない。
+   4スタイルの生成・数値検査・TTF直接読込の比較ページ・撮影は実装済み。Windowsでは従来のMacからの操作でブラウザと一部実アプリを確認した。次はWindows内のCodexと独立cloneで固定依存関係の導入・ビルド・撮影・Gitによる報告の受け渡しを確認する。この新運用の初回実行は未確認であり、手順を整えたことを実行済みと扱わない。

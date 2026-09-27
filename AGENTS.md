@@ -4,9 +4,17 @@ SOROEMONOは、JetBrains Monoの英数字のバランスを維持し、BIZ UDGot
 
 - 計画・調査・仕様・判断の記録は `context/` に置く。入口は [contextの索引](context/README.md)、現在の状態は [進捗](context/progress.md) を参照する。`docs/` は作らない。
 - 作業に関係する [再設計計画](context/rebuild-plan.ja.md)、[現行字形の基準](context/font-baseline.ja.md)、[フォント検証計画](context/font-testing.ja.md) を参照する。
-- 文書中の構成案を実装済みとして扱わない。v2.0.0の4スタイル生成・数値検査・ブラウザproof・撮影・ZIP梱包は `src/soroemono/` に実装済み。正式版のmacOSブラウザ表示と、試作版Regular/BoldのMac/Windowsブラウザ表示を確認済み。Windows実アプリ検証と正式配布の公開は未完了。実装した部分は文書も更新する。
+- 文書中の構成案を実装済みとして扱わない。v2.0.0の4スタイル生成・数値検査・ブラウザproof・撮影・ZIP梱包は `src/soroemono/` に実装済み。正式版4スタイルのMac/Windowsブラウザ表示とWindows実アプリの一部を確認済み。Windowsメモ帳の文字送り回帰、Issue #5/#6の残検証、正式配布の公開は未完了。実装した部分は文書も更新する。
 - 実行方法と結果は [開発・検証手順](context/development.ja.md) と[正式ビルド検証記録](context/verification-v2-formal-build-2026-09-26.ja.md)を参照する。通常は `uv sync --locked --extra proof`、`uv run --locked soroemono build` / `check` / `proof` / `capture` / `release`、`uv run --locked python -m unittest discover -s tests -v` を使う。
 - 説明・調査記録は原則日本語で書く。事実、原因候補、未検証事項を区別する。
+
+**Mac・Windowsの分担**
+
+- MacとWindows内のCodexはそれぞれ独立したローカルcloneを使い、同じ `v2` ブランチをGitで受け渡す。共有フォルダ上の同じ作業ツリーや `.venv` を共用しない。運用は [Windows検証・Git受け渡し手順](context/windows-verification.ja.md) に従う。
+- Mac側はソース・テスト・依存関係・共通文書と `context/artifacts/<run-id>/mac/` を担当する。Windows側は原則検証専用で、Git管理する変更は `context/artifacts/<run-id>/win/` 内の報告・確定画像・環境情報に限定する。修正が必要なら同ディレクトリの `report.md` に再現条件と候補を記し、Mac側で修正する。
+- `AGENTS.md`、`context/progress.md`、索引、共通手順、ロックファイルはMac側で更新する。Windows側の生成物はローカルの `build/` 等へ置く。新規の検証記録はOS別ディレクトリに保存し、既存の証跡は移動・上書きしない。
+- 検証対象のコミットとTTFハッシュを記録する。結果をコミットした後、push前に `git pull --rebase` で同期し、競合時は他方の変更を上書きしない。同期後のHEADを検証済みと読み替えない。
+- Windows上のビルド・アプリ操作・撮影はWindows側で行う。Parallels DesktopはWindows 11を動かす環境として使い、Mac側からのVM遠隔操作を通常手順にしない。
 
 **字形と幅**
 

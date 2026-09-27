@@ -1,12 +1,13 @@
 # v2.0.0の開発・検証手順
 
-更新: 2026-09-26。Regular/Bold試作時の手順と初回実測値は[旧記録](development-preview-2026-09-23.ja.md)へ保存した。現在のビルドは `SOROEMONO` の4スタイルを生成する。公開v1.0.0は比較基準として保持し、旧 `build.py` は実行しない。
+更新: 2026-09-27。Regular/Bold試作時の手順と初回実測値は[旧記録](development-preview-2026-09-23.ja.md)へ保存した。現在のビルドは `SOROEMONO` の4スタイルを生成する。公開v1.0.0は比較基準として保持し、旧 `build.py` は実行しない。
 
 ## 環境と入力
 
 - Pythonは `.python-version` の3.14.6、依存関係は `uv.lock` に固定する。`uv` 0.12.17で確認済み。`requires-python >=3.12` は対応下限。
 - 元TTFの版・SHA-256は `sources.lock.json` に固定する。JetBrains Mono 2.304のRegular/Bold/Italic/Bold ItalicとBIZ UDGothic 1.051のRegular/Boldを使用する。入力取得は通常のビルドに混ぜない。
 - ブラウザ撮影には `uv sync --locked --extra proof` と `uv run --locked playwright install chromium` が必要。基準版は `uv run --locked soroemono fetch-baseline` で別途取得する。取得後の生成・検査はローカル入力のみを読む。
+- MacとWindowsは別々のローカルcloneで実行し、`.venv`・`build/`・ブラウザ本体を共有しない。Windows側のビルド環境構築は新運用で未確認。固定版を導入できない場合は失敗したコマンド・OS/CPU構成を報告し、Windows側でロックや入力を変更しない。
 
 ## コマンド
 
@@ -32,6 +33,6 @@ uv run --locked soroemono capture --proof build/proofs/bold-italic
 
 `release` は各スタイルを2回生成してバイト一致を確認し、生成TTFの数値・シェーピング検査が通った場合だけ決まった時刻・順序でZIPを作る。Italic系の日本語はBIZの直立字形を9度傾ける。英数字はJetBrains Monoの純正Italic/Bold Italicを使う。公開v1.0.0にはItalic系がないため、そのproofの変更前は対応する直立スタイルであり、斜体同士の比較ではない。
 
-ブラウザproofはOSにフォントを登録せず、Font Loading APIと実測幅を確認する。`capture` は実使用フォントを検査し、`before.png`、`after.png`、`diff.png` と `manifest.json` を保存する。日常の生成物はGit管理外。確定した検証画像・環境情報だけを `context/artifacts/` に複製する。Windows実アプリの受け入れ手順は[Windows検証](windows-parallels.ja.md)を参照する。
+ブラウザproofはOSにフォントを登録せず、Font Loading APIと実測幅を確認する。`capture` は実使用フォントを検査し、`before.png`、`after.png`、`diff.png` と `manifest.json` を保存する。日常の生成物はGit管理外。確定した検証画像・環境情報と報告は `context/artifacts/<run-id>/mac/` または `win/` に保存する。Windows側の実行・実アプリ受け入れ・Git同期は[Windows検証・Git受け渡し手順](windows-verification.ja.md)を参照する。
 
 今回の実測と未検証項目は[正式ビルド検証記録](verification-v2-formal-build-2026-09-26.ja.md)に記録する。

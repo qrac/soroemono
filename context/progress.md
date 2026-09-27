@@ -4,6 +4,7 @@
 
 ## 現在の状態
 
+- 2026-09-27に検証運用を変更した。Mac側で開発・共通文書更新、Windows内のCodexでWindows検証を行い、独立したcloneから同じ `v2` ブランチで受け渡す。新規報告は `context/artifacts/<run-id>/mac/` と `win/` に分離する。MacからVMを操作するプロジェクトSkillは削除し、[Windows検証・Git受け渡し手順](windows-verification.ja.md)へ切り替えた。Windows側Codexの設置・ローカルビルド・新方式での初回受け渡しは未確認。
 - 公開v1.0.0のRegular/Boldを比較基準として固定した。新しい生成工程は正式名義 `SOROEMONO` のRegular/Bold/Italic/Bold Italicを生成・数値検査し、同一入力から再現可能なv2.0.0 ZIPに梱包できる。[正式ビルドの記録](verification-v2-formal-build-2026-09-26.ja.md)を参照。
 - macOSとWindows 11 VMのChromeで、Regular/Boldのブラウザproofを撮影・確認した。[検証結果](verification-2.0.0a1-2026-09-23.ja.md)と[画像・環境情報](artifacts/verification-2026-09-23/README.md)を保存済み。
 - v2から旧FontForge用の `build.py` / `build.ini` と、未使用のNoto Sans JP／LINE Seed JP入力を除外した。旧実装はGit履歴に残る。v2が使うJetBrains Mono／BIZ UDGothicの入力とOFLは保持する。[削除前後の生成・画像検証](verification-v2-cleanup-2026-09-26.ja.md)ではTTFとブラウザ画像が一致した。
@@ -12,7 +13,8 @@
 
 ## 次の検証
 
-- Windows 11 VMでIssue #2のメモ帳における日本語の送り拡大を修正し、Windows Terminal等での等幅認識と行間改善が維持されるか確かめる。Issue #6の公開版の欠けを報告条件どおり再現し、正式版と同条件で比較する。特にOS拡大率100%を確認する。#5のVS Code等での自動Italic/Bold Italic切替も撮影する。検証方法と環境記録は[Windows検証手順](windows-parallels.ja.md)に従う。
+- Windows側で独立clone・固定依存関係・復元可能な検証環境を確認し、対象コミットを記録して初回のビルド・検証結果を `context/artifacts/<run-id>/win/report.md` へ保存する。Mac側が受領し、この進捗へ反映する。
+- Issue #2のメモ帳における日本語の送り拡大はMac側で修正案を作り、Windows側でWindows Terminal等の等幅認識と行間改善が維持されるか確かめる。Issue #6の公開版の欠けを報告条件どおり再現し、正式版と同条件で比較する。特にOS拡大率100%を確認する。#5のVS Code等での自動Italic/Bold Italic切替も撮影する。検証方法と環境記録は[Windows検証・Git受け渡し手順](windows-verification.ja.md)に従う。
 - OTS/FontBakeryの独立検査、CI上の実行、他OSでのリリース前確認は未実施。これらの受け入れ後に公開を判断する。
 
 実行コマンドは[開発・検証手順](development.ja.md)、設計上の基準は[再設計計画](rebuild-plan.ja.md)と[現行字形の基準](font-baseline.ja.md)を参照する。

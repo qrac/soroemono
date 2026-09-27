@@ -29,7 +29,7 @@ uv run --locked soroemono capture --proof build/proofs/bold
 
 macOSの既存Chromeを使う場合は `capture --channel chrome`。新しい一時プロファイルを使い、日常のChromeのプロファイルは利用しない。OSへのフォント登録は行わない。
 
-`build` は元フォントを同梱ファイルから読み、SHA-256を確認する。実行中に元フォントをダウンロードしない。旧版との比較には `fetch-baseline` で公開v1.0.0を別途取得する。Windows 11での確認には[プロジェクト用Skill](../.agents/skills/soroemono-windows-check/SKILL.md)と[Windows検証手順](windows-parallels.ja.md)を使う。
+`build` は元フォントを同梱ファイルから読み、SHA-256を確認する。実行中に元フォントをダウンロードしない。旧版との比較には `fetch-baseline` で公開v1.0.0を別途取得する。当時のWindows確認はMacからVMを操作するSkillと手順を使った。これらは2026-09-27に廃止し、現行の [Windows検証・Git受け渡し手順](windows-verification.ja.md)へ切り替えた。
 
 Markdown表の手動確認用見本は `tests/fixtures/markdown-table.md` に置く。現時点でこの見本は自動テストから参照していない。
 
@@ -74,7 +74,7 @@ Markdown表の手動確認用見本は `tests/fixtures/markdown-table.md` に置
 - 固定line-heightでも旧版と新版で描画のベースライン位置に画素差がある。これは行メトリクス変更とラスタライズを含む差で、diffの全画素一致を合格条件にはしない。英数字の輪郭・配置・ヒント保持は別途TTFの数値比較で確認している。
 - ここまでが2026-09-22の初回結果。後続のRegular/BoldのMac/Windowsブラウザ検証結果は[2026-09-23の検証記録](verification-2.0.0a1-2026-09-23.ja.md)を参照。
 
-その後のCLI接続調査（2026-09-23）では、`prlctl exec` でWindows内の読み取り専用コマンドを実行し、共有リポジトリを参照できた。`prlctl capture` によるデスクトップ撮影も成功した。その後、Windows上のブラウザproofをRegular/Boldで実施した。実アプリ表示は未実施。結果は[検証記録](verification-2.0.0a1-2026-09-23.ja.md)、操作手順は [Parallels DesktopによるWindows検証](windows-parallels.ja.md) に記録した。
+その後のCLI接続調査（2026-09-23）では、`prlctl exec` でWindows内の読み取り専用コマンドを実行し、共有リポジトリを参照できた。`prlctl capture` によるデスクトップ撮影も成功した。その後、Windows上のブラウザproofをRegular/Boldで実施した。当時は実アプリ表示は未実施。結果と実行環境は[検証記録](verification-2.0.0a1-2026-09-23.ja.md)に保存した。このCLI接続は過去の実績として残し、今後の操作入口にはしない。
 
 次の受け入れ項目は、WindowsのVS Code・Terminal等、100/125/150/200%で確認すること。Italic系、Prettierの実整形、独立したOTS/FontBakery検査、正式ZIP、Nerd Fonts、全角スペース可視化は今後の範囲。
 

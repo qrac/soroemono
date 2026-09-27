@@ -6,6 +6,8 @@
 
 2026-09-22の追加方針: 現在のSOROEMONOの見た目を出発点にする。まず公開v1.0.0を比較基準として字形・配置を再現し、不具合修正とデザイン変更を分ける。ユーザーの日常環境でのフォント差し替えを前提にせず、ブラウザへの直接読み込みと仮想環境で検証し、スクリーンショットを提出する。寸法は [現行字形の基準](font-baseline.ja.md)、検証環境は [フォント検証計画](font-testing.ja.md) を参照する。プロジェクトの計画・調査・仕様は `context/` に置く。
 
+2026-09-27の運用変更: Mac側は開発・修正、Windows内のCodexはWindows検証を担当し、独立cloneと同じ `v2` ブランチで受け渡す。報告は `context/artifacts/<run-id>/mac/` と `win/` に分け、共通文書はMac側で更新する。MacからのVM遠隔操作用Skillを廃止し、[Windows検証・Git受け渡し手順](windows-verification.ja.md)を現行手順とする。新運用の初回実行は未確認。
+
 1. **現在の問題と、確認できた事実**
 
    | 対象 | 確認結果 | 設計への反映 |
@@ -144,7 +146,7 @@
 
    HarfBuzzは整形、OTSはファイルの健全性を検証する道具であり、Windowsのラスタライズ不具合が直った証明にはならない。#2/#6は実アプリの記録をリリース条件にする。[HarfBuzz](https://harfbuzz.github.io/utilities.html)、[OTS](https://github.com/khaledhosny/ots)、[FontBakery](https://github.com/fonttools/fontbakery)
 
-   ユーザーによるインストール・差し替え・スクリーンショット採取を通常の検証手順にしない。日常の比較はTTFを直接読むHTML proofとPlaywright、Windows固有の確認は隔離したWindows 11 VMで自動化する。エージェントは実際の変更前・変更後・差分PNGと検証環境情報を提出する。Linuxコンテナの結果をWindows確認済みと扱わない。実行できていない環境は未検証と明記する。詳細は [フォント検証計画](font-testing.ja.md) に記載する。
+   ユーザーによるインストール・差し替え・スクリーンショット採取を通常の検証手順にしない。日常の比較はTTFを直接読むHTML proofとPlaywrightを使い、Windows固有の確認は隔離したWindows 11 VM内のCodexが担当する。エージェントは実際の変更前・変更後・差分PNGと検証環境情報をOS別の報告先へ保存し、Gitで受け渡す。Linuxコンテナの結果をWindows確認済みと扱わない。実行できていない環境は未検証と明記する。詳細は [フォント検証計画](font-testing.ja.md) に記載する。
 
 7. **リポジトリと配布の構成案**
 
