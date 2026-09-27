@@ -2,7 +2,7 @@
 
 更新: 2026-09-27。[参照会話「Codex 2箇所運用比較」](chatgpt-conversation://6ab91659-5be0-83ee-954d-a8aad044191b)を受け、Macで開発、Windows内のCodexで検証し、Gitで結果を受け渡す運用にする。Parallels DesktopはWindows 11の実行環境として残す。Macからの `prlctl` や共有フォルダによる遠隔操作を通常手順から外し、専用Skillは削除した。
 
-これは運用方針と実行手順の変更であり、Windows側Codexの設置、Windowsローカルでのビルド、新方式での受け渡し成功を示す記録ではない。従来方式で確認した結果は [2026-09-27のWindows検証記録](verification-v2-windows-2026-09-27.ja.md)、残作業は [進捗](progress.md)、判定基準は [フォント検証計画](font-testing.ja.md) を参照する。
+これは運用方針と実行手順の変更であり、Windows側Codexの設置、Windowsローカルでのビルド、新方式での受け渡し成功を示す記録ではない。従来方式で確認した結果は [2026-09-27のWindows検証記録](artifacts/windows-v2-2026-09-27/win/report.md)、残作業は [進捗](progress.md)、判定基準は [フォント検証計画](font-testing.ja.md) を参照する。
 
 ## 担当と保存先
 
@@ -30,7 +30,7 @@ context/artifacts/<run-id>/
     └── apps/…
 ```
 
-`mac/` と `win/` は該当する検証を実施したときに作る。共有するrun直下の報告ファイルは置かない。作業中の生成物は既存のGit管理外の `build/` / `dist/` に保存し、確定画像・環境情報・報告だけを複製する。TTF、ZIP、TTFを内包するHTMLはコミットしない。過去の証跡は当時の場所に保ち、新配置への一括移動は行わない。
+`mac/` と `win/` は該当する検証を実施したときに作る。共有するrun直下にはOS別報告への索引だけを置く。作業中の生成物は既存のGit管理外の `build/` / `dist/` に保存し、確定画像・環境情報・報告だけを複製する。TTF、ZIP、TTFを内包するHTMLはコミットしない。2026-09-27以前の記録もOS別に整理した。移動前の混合記録はGit履歴に残し、旧文書パスには移動先への案内を残す。既存画像・manifestの内容は変更せず、再検証では過去の証跡を上書きしない。
 
 ## Gitでの受け渡し
 

@@ -35,4 +35,4 @@ uv run --locked soroemono capture --proof build/proofs/bold-italic
 
 ブラウザproofはOSにフォントを登録せず、Font Loading APIと実測幅を確認する。`capture` は実使用フォントを検査し、`before.png`、`after.png`、`diff.png` と `manifest.json` を保存する。日常の生成物はGit管理外。確定した検証画像・環境情報と報告は `context/artifacts/<run-id>/mac/` または `win/` に保存する。Windows側の実行・実アプリ受け入れ・Git同期は[Windows検証・Git受け渡し手順](windows-verification.ja.md)を参照する。
 
-今回の実測と未検証項目は[正式ビルド検証記録](verification-v2-formal-build-2026-09-26.ja.md)に記録する。
+今回の実測と未検証項目は[正式ビルド検証記録](artifacts/v2-formal-build-2026-09-26/mac/report.md)に記録する。

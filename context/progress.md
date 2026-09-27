@@ -4,11 +4,11 @@
 
 ## 現在の状態
 
-- 2026-09-27に検証運用を変更した。Mac側で開発・共通文書更新、Windows内のCodexでWindows検証を行い、独立したcloneから同じ `v2` ブランチで受け渡す。新規報告は `context/artifacts/<run-id>/mac/` と `win/` に分離する。MacからVMを操作するプロジェクトSkillは削除し、[Windows検証・Git受け渡し手順](windows-verification.ja.md)へ切り替えた。Windows側Codexの設置・ローカルビルド・新方式での初回受け渡しは未確認。
-- 公開v1.0.0のRegular/Boldを比較基準として固定した。新しい生成工程は正式名義 `SOROEMONO` のRegular/Bold/Italic/Bold Italicを生成・数値検査し、同一入力から再現可能なv2.0.0 ZIPに梱包できる。[正式ビルドの記録](verification-v2-formal-build-2026-09-26.ja.md)を参照。
-- macOSとWindows 11 VMのChromeで、Regular/Boldのブラウザproofを撮影・確認した。[検証結果](verification-2.0.0a1-2026-09-23.ja.md)と[画像・環境情報](artifacts/verification-2026-09-23/README.md)を保存済み。
-- v2から旧FontForge用の `build.py` / `build.ini` と、未使用のNoto Sans JP／LINE Seed JP入力を除外した。旧実装はGit履歴に残る。v2が使うJetBrains Mono／BIZ UDGothicの入力とOFLは保持する。[削除前後の生成・画像検証](verification-v2-cleanup-2026-09-26.ja.md)ではTTFとブラウザ画像が一致した。
-- macOS Chromeで4スタイルの直接読み込み・幅と描画の比較を実施した。Windows 11 VMでも正式版4スタイルのChrome描画と、GDI・メモ帳での4スタイル列挙を確認した。公開v1.0.0と正式v2.0.0を分けてVMに登録し、OS拡大率200%のWindows Terminal、VS Codeターミナル、メモ帳でIssue #2の行間改善を撮影した。一方、正式v2のメモ帳では日本語の文字送りが公開版の約1.9倍になる回帰を発見した。メタデータ2項目を両方変えた試験版では送りが戻るが、他アプリへの影響は未検証で、正式版は変更していない。#2の全体判定は保留。[Windows検証記録](verification-v2-windows-2026-09-27.ja.md)と[証跡](artifacts/windows-v2-2026-09-27/README.md)を参照。試験後、VMはスナップショットから元の `paused` 状態へ戻した。
+- 2026-09-27に検証運用を変更した。Mac側で開発・共通文書更新、Windows内のCodexでWindows検証を行い、独立したcloneから同じ `v2` ブランチで受け渡す。過去の検証記録・証跡を含めて `context/artifacts/<run-id>/mac/` と `win/` に分離した。画像とmanifestの内容は維持し、旧文書パスには移動先への案内を残した。MacからVMを操作するプロジェクトSkillは削除し、[Windows検証・Git受け渡し手順](windows-verification.ja.md)へ切り替えた。Windows側Codexの設置・ローカルビルド・新方式での初回受け渡しは未確認。
+- 公開v1.0.0のRegular/Boldを比較基準として固定した。新しい生成工程は正式名義 `SOROEMONO` のRegular/Bold/Italic/Bold Italicを生成・数値検査し、同一入力から再現可能なv2.0.0 ZIPに梱包できる。[正式ビルドの記録](artifacts/v2-formal-build-2026-09-26/mac/report.md)を参照。
+- macOSとWindows 11 VMのChromeで、Regular/Boldのブラウザproofを撮影・確認した。[Macの検証結果](artifacts/verification-2026-09-23/mac/report.md)と[Windowsの検証結果](artifacts/verification-2026-09-23/win/report.md)をOS別の画像・環境情報とともに保存済み。
+- v2から旧FontForge用の `build.py` / `build.ini` と、未使用のNoto Sans JP／LINE Seed JP入力を除外した。旧実装はGit履歴に残る。v2が使うJetBrains Mono／BIZ UDGothicの入力とOFLは保持する。[削除前後の生成・画像検証](artifacts/v2-cleanup-2026-09-26/mac/report.md)ではTTFとブラウザ画像が一致した。
+- macOS Chromeで4スタイルの直接読み込み・幅と描画の比較を実施した。Windows 11 VMでも正式版4スタイルのChrome描画と、GDI・メモ帳での4スタイル列挙を確認した。公開v1.0.0と正式v2.0.0を分けてVMに登録し、OS拡大率200%のWindows Terminal、VS Codeターミナル、メモ帳でIssue #2の行間改善を撮影した。一方、正式v2のメモ帳では日本語の文字送りが公開版の約1.9倍になる回帰を発見した。メタデータ2項目を両方変えた試験版では送りが戻るが、他アプリへの影響は未検証で、正式版は変更していない。#2の全体判定は保留。[Windows検証記録](artifacts/windows-v2-2026-09-27/win/report.md)と[証跡](artifacts/windows-v2-2026-09-27/win/README.md)を参照。試験後、VMはスナップショットから元の `paused` 状態へ戻した。
 - Issue #6はWindowsヘッドレスChromeで公開版の「元」の欠けと新版の改善を確認したが、OS拡大率200%の対話表示では公開版の欠けを再現できなかった。OS拡大率100%は未検証で、報告条件全体での解消判定は未完了。Issue #5のVS Code等での自動斜体切替、配布公開も未完了。
 
 ## 次の検証

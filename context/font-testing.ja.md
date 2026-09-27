@@ -1,6 +1,6 @@
 # インストール不要・仮想環境でのフォント検証計画
 
-ユーザーの日常環境のフォントを差し替えず、エージェントが検証し、変更前・変更後・差分のスクリーンショットを提出する運用にする。以下は検証全体の設計。初回実装ではTTF内包HTML、Playwright撮影、フォールバック検出、環境記録を実装し、macOSで実行した。2026-09-23にWindows VM内のRegular/Bold試作ブラウザ描画を確認した（[検証記録](verification-2.0.0a1-2026-09-23.ja.md)）。2026-09-26に正式ビルド4スタイルのmacOSブラウザ比較を行った（[検証記録](verification-v2-formal-build-2026-09-26.ja.md)）。2026-09-27にはWindows実アプリ3種でIssue #2の行間改善とメモ帳での日本語送り拡大という回帰、4スタイル認識、WindowsヘッドレスChromeでIssue #6の部分的な改善を確認した（[検証記録](verification-v2-windows-2026-09-27.ja.md)）。#2の回帰修正と#6の報告条件全体での解消判定は残る。共通コマンドは [開発・検証手順](development.ja.md)、Mac・Windowsの分担と現行の実行手順は [Windows検証・Git受け渡し手順](windows-verification.ja.md) を参照する。
+ユーザーの日常環境のフォントを差し替えず、エージェントが検証し、変更前・変更後・差分のスクリーンショットを提出する運用にする。以下は検証全体の設計。初回実装ではTTF内包HTML、Playwright撮影、フォールバック検出、環境記録を実装し、macOSで実行した。2026-09-23にWindows VM内のRegular/Bold試作ブラウザ描画を確認した（[Windows検証記録](artifacts/verification-2026-09-23/win/report.md)）。Mac側の同じ試作版の結果は[Mac検証記録](artifacts/verification-2026-09-23/mac/report.md)に分けた。2026-09-26に正式ビルド4スタイルのmacOSブラウザ比較を行った（[検証記録](artifacts/v2-formal-build-2026-09-26/mac/report.md)）。2026-09-27にはWindows実アプリ3種でIssue #2の行間改善とメモ帳での日本語送り拡大という回帰、4スタイル認識、WindowsヘッドレスChromeでIssue #6の部分的な改善を確認した（[検証記録](artifacts/windows-v2-2026-09-27/win/report.md)）。#2の回帰修正と#6の報告条件全体での解消判定は残る。共通コマンドは [開発・検証手順](development.ja.md)、Mac・Windowsの分担と現行の実行手順は [Windows検証・Git受け渡し手順](windows-verification.ja.md) を参照する。
 
 1. **日常の比較は、TTFを直接読むブラウザで行う**
 
@@ -38,7 +38,7 @@
    | report.html | TTF内包の比較ページ。ローカルの `build/` に置き、Git保存版には含めない |
    | manifest.json | TTFハッシュ、コミット、OS、アプリ、表示設定、使用機能、テスト文字列 |
 
-   日常の成果物は各cloneの `build/proofs/<run-id>/` にまとめ、CIではダウンロードできる成果物として保存する。今後の確定画像・環境情報・報告は `context/artifacts/<run-id>/mac/` と `context/artifacts/<run-id>/win/` に分けてGit管理する。Windows側は `win/` のみを更新し、共通の進捗・索引はMac側が受領後に更新する。[2026-09-23の証跡](artifacts/verification-2026-09-23/README.md)等の既存パスは変更しない。エージェントは実際に確認した代表画像を会話に提示し、全レポートへリンクする。現物のスクリーンショットの代わりに生成画像や手描きの文字を使わない。拡大見本には原寸を併記する。
+   日常の成果物は各cloneの `build/proofs/<run-id>/` にまとめ、CIではダウンロードできる成果物として保存する。確定画像・環境情報・報告は `context/artifacts/<run-id>/mac/` と `context/artifacts/<run-id>/win/` に分けてGit管理する。Windows側は `win/` のみを更新し、共通の進捗・索引はMac側が受領後に更新する。[2026-09-23の証跡](artifacts/verification-2026-09-23/README.md)等の過去の証跡もOS別に整理済み。画像・manifestの内容は変更していない。エージェントは実際に確認した代表画像を会話に提示し、全レポートへリンクする。現物のスクリーンショットの代わりに生成画像や手描きの文字を使わない。拡大見本には原寸を併記する。
 
    初期基準は公開v1.0.0。スクリーンショットの基準画像はOS・ブラウザ・描画設定ごとに持つ。LinuxとWindowsを画素一致させる判定にはしない。差分が出た場合は、入力や環境の変化を調べてから判断し、テストを通すためだけに基準画像を更新しない。[Playwrightの視覚比較](https://playwright.dev/docs/test-snapshots)
 

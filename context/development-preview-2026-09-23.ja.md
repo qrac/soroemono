@@ -44,7 +44,7 @@ Markdown表の手動確認用見本は `tests/fixtures/markdown-table.md` に置
 - BIZ由来の結合文字には追加GPOSを作成。かなの濁点は右上、追加IPAは結合クラスに応じた上・下・重ね合わせの暫定アンカー。かなの合成不能な例もproofへ入れる。IPA全組合せ、複数マークの積み重ねは受け入れ未完了。
 - 行送りはhhea/Typoを1020/-300/0、USE_TYPO_METRICSを有効化。Winのクリッピング範囲は全グリフの外接矩形から計算する（今回1120/400）。結合後の全組合せのクリッピングまでは保証しない。
 - 別ファミリー `SOROEMONO Preview`、両入力の著作権、OFL、入力・ツール情報を出力。TTFの時刻を固定し、同一環境の再ビルドをバイト比較する。
-- Boldは固定したJetBrains Mono BoldとBIZ UDGothic Boldから同じ工程で生成する。Regularと同じファミリー・行メトリクスに、Boldの名前・ウェイト700・スタイルフラグを設定する。Mac/Windows画像比較は[2026-09-23の検証記録](verification-2.0.0a1-2026-09-23.ja.md)を参照。
+- Boldは固定したJetBrains Mono BoldとBIZ UDGothic Boldから同じ工程で生成する。Regularと同じファミリー・行メトリクスに、Boldの名前・ウェイト700・スタイルフラグを設定する。画像比較は[Macの検証記録](artifacts/verification-2026-09-23/mac/report.md)と[Windowsの検証記録](artifacts/verification-2026-09-23/win/report.md)を参照。
 
 ## 出力
 
@@ -72,9 +72,9 @@ Markdown表の手動確認用見本は `tests/fixtures/markdown-table.md` に置
 - 16px、4行、`line-height: normal` の高さは64pxから84pxへ変化。画像上でも旧版の詰まった行間から余裕が増えている。
 - 日本語の大きさ・配置は従来の変換を基準に維持。今回確認した「元・日・あ・ア」のxMaxは旧版より1フォント単位小さい。例えば「元」は旧版x=87..1104、新版87..1103。半角「ｱ」の輪郭は旧版30..471から新版80..521へ移動し、横幅441は一致。
 - 固定line-heightでも旧版と新版で描画のベースライン位置に画素差がある。これは行メトリクス変更とラスタライズを含む差で、diffの全画素一致を合格条件にはしない。英数字の輪郭・配置・ヒント保持は別途TTFの数値比較で確認している。
-- ここまでが2026-09-22の初回結果。後続のRegular/BoldのMac/Windowsブラウザ検証結果は[2026-09-23の検証記録](verification-2.0.0a1-2026-09-23.ja.md)を参照。
+- ここまでが2026-09-22の初回結果。後続のRegular/Boldブラウザ検証結果は[Mac](artifacts/verification-2026-09-23/mac/report.md)と[Windows](artifacts/verification-2026-09-23/win/report.md)の記録を参照。
 
-その後のCLI接続調査（2026-09-23）では、`prlctl exec` でWindows内の読み取り専用コマンドを実行し、共有リポジトリを参照できた。`prlctl capture` によるデスクトップ撮影も成功した。その後、Windows上のブラウザproofをRegular/Boldで実施した。当時は実アプリ表示は未実施。結果と実行環境は[検証記録](verification-2.0.0a1-2026-09-23.ja.md)に保存した。このCLI接続は過去の実績として残し、今後の操作入口にはしない。
+その後のCLI接続調査（2026-09-23）では、`prlctl exec` でWindows内の読み取り専用コマンドを実行し、共有リポジトリを参照できた。`prlctl capture` によるデスクトップ撮影も成功した。その後、Windows上のブラウザproofをRegular/Boldで実施した。当時は実アプリ表示は未実施。結果と実行環境は[Windows検証記録](artifacts/verification-2026-09-23/win/report.md)に保存した。このCLI接続は過去の実績として残し、今後の操作入口にはしない。
 
 次の受け入れ項目は、WindowsのVS Code・Terminal等、100/125/150/200%で確認すること。Italic系、Prettierの実整形、独立したOTS/FontBakery検査、正式ZIP、Nerd Fonts、全角スペース可視化は今後の範囲。
 
@@ -82,5 +82,5 @@ Markdown表の手動確認用見本は `tests/fixtures/markdown-table.md` に置
 
 - macOS 26.6.2 / arm64 のPython 3.14.6で、ロック済みの通常・proof依存関係を別の仮想環境に導入し、unittest 4件すべて合格。Regularを独立した出力先に生成し、`check` も合格した。
 - 3.12.11で生成した既存TTFと3.14.6で生成したTTFはSHA-256 `dbb57d5d8a634ecbb5527832ad52d8df06c5ea7b87be54dddedd9e052c549674` で一致し、バイト比較も一致した。検査値はUnicode 12,442文字、advance 0/600/1200が47/1,518/10,877、保持したラテン字形1,743、IVS 10,160組。`build.json` ではPython版記録が3.12.11から3.14.6、同梱Unicodeデータ版が15.0.0から16.0.0へ変わった。
-- `build/proofs/python-3.14-verify/` に3.14.6生成TTFの比較proofを作成し、Chrome 154.0.8037.57で撮影した。OS、表示条件、TTFハッシュ、実使用フォント、旧版・新版・差分画像は[保存した証跡](artifacts/verification-2026-09-23/python-3.14-verify/manifest.json)と各PNGに記録した。既存の3.12.11生成TTFの画像と、overview/before/after/diffの各画像は寸法・全画素が一致し、新旧Pythonで生成したTTFの表示差を[python-version-diff.png](artifacts/verification-2026-09-23/python-3.14-verify/python-version-diff.png)（全白）に保存した。画像も目視確認した。
+- `build/proofs/python-3.14-verify/` に3.14.6生成TTFの比較proofを作成し、Chrome 154.0.8037.57で撮影した。OS、表示条件、TTFハッシュ、実使用フォント、旧版・新版・差分画像は[保存した証跡](artifacts/verification-2026-09-23/mac/python-3.14-verify/manifest.json)と各PNGに記録した。既存の3.12.11生成TTFの画像と、overview/before/after/diffの各画像は寸法・全画素が一致し、新旧Pythonで生成したTTFの表示差を[python-version-diff.png](artifacts/verification-2026-09-23/mac/python-3.14-verify/python-version-diff.png)（全白）に保存した。画像も目視確認した。
 - CIの実行用uvは、3.14.6の取得に対応する0.12.17に更新した。uv 0.9.20は3.14.6を取得できず、0.12.17で取得可能と確認した。GitHub Actions上の実行は未確認。

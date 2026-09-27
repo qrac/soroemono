@@ -1,6 +1,6 @@
 # SOROEMONO 再設計計画
 
-調査日: 2026-09-22。対象: ローカルの `fb1378e`、GitHub Issues #1–#6、そのコメント、公開リリース `1.0.0`、同梱の元フォント。以下は再設計の全体計画。Regular試作とブラウザ比較の初回実装・実測結果は [試作時の開発記録](development-preview-2026-09-23.ja.md) に記録した。2026-09-23にBold試作とMac/Windowsブラウザ表示を追加確認した（[検証記録](verification-2.0.0a1-2026-09-23.ja.md)）。Windows実アプリでの不具合解消は未確認。
+調査日: 2026-09-22。対象: ローカルの `fb1378e`、GitHub Issues #1–#6、そのコメント、公開リリース `1.0.0`、同梱の元フォント。以下は再設計の全体計画。Regular試作とブラウザ比較の初回実装・実測結果は [試作時の開発記録](development-preview-2026-09-23.ja.md) に記録した。2026-09-23にBold試作とMac/Windowsブラウザ表示を追加確認した（[Macの検証記録](artifacts/verification-2026-09-23/mac/report.md)、[Windowsの検証記録](artifacts/verification-2026-09-23/win/report.md)）。Windows実アプリでの不具合解消は未確認。
 
 **推奨は、JetBrains Monoを基準にした、Python + fontTools中心のビルドへの刷新。** JetBrains Monoの英数字の輪郭・幅・字形切り替え・描画命令を維持し、BIZ UDGothicから採用する文字だけを加工して追加する。フォントを単に合成するスクリプトから、出典と幅の仕様を検証してフォントを生成する仕組みに変える。
 
@@ -216,4 +216,4 @@
 
    プレビューには既存版と区別できる一時ファミリー名を使い、フォントキャッシュの混同を避ける。正式版はSOROEMONOの名称を継続し、旧版の削除・置き換え方法を説明する。最初の判断点は、Regularの小さな試作で「JetBrains Monoを保ったまま、半角カナ・日本語・Windowsの描画を正常化できるか」を証明すること。その確認後に全スタイルと配布基盤へ投資する。
 
-   初回実装ではRegularの生成、数値・シェーピング検査、ブラウザproof、macOSでの旧版・新版・差分撮影まで実施した。2026-09-23にBoldの生成・検査とMac/WindowsでのRegular/Boldブラウザ比較を追加した。2026-09-26に4スタイルと正式名義のZIP生成を実装し、macOS Chromeで直接読み込みの比較を行った。CI設定は更新したがGitHub上での実行は未確認。Windows実アプリの受け入れと公開は未完了。詳細は [開発・検証手順](development.ja.md) と[正式ビルド検証記録](verification-v2-formal-build-2026-09-26.ja.md)を参照する。
+   初回実装ではRegularの生成、数値・シェーピング検査、ブラウザproof、macOSでの旧版・新版・差分撮影まで実施した。2026-09-23にBoldの生成・検査とMac/WindowsでのRegular/Boldブラウザ比較を追加した。2026-09-26に4スタイルと正式名義のZIP生成を実装し、macOS Chromeで直接読み込みの比較を行った。CI設定は更新したがGitHub上での実行は未確認。Windows実アプリの受け入れと公開は未完了。詳細は [開発・検証手順](development.ja.md) と[正式ビルド検証記録](artifacts/v2-formal-build-2026-09-26/mac/report.md)を参照する。
