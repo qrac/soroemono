@@ -1,0 +1,38 @@
+﻿{
+    "timestamp_utc":  "2026-09-27T06:38:07.9768841Z",
+    "windows":  "Microsoft Windows NT 10.0.26200.0",
+    "user":  "qrac",
+    "screen":  {
+                   "width":  1600,
+                   "height":  862
+               },
+    "dpi":  {
+                "LogPixels":  192,
+                "Win8DpiScaling":  1,
+                "FontSmoothing":  "2",
+                "FontSmoothingType":  2
+            },
+    "chrome":  [
+                   {
+                       "path":  "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+                       "version":  "154.0.8037.57"
+                   }
+               ],
+    "vscode":  [
+                   {
+                       "path":  "C:\\Users\\qrac\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+                       "version":  "1.104.0"
+                   }
+               ],
+    "terminal":  [
+                     {
+                         "Name":  "Microsoft.WindowsTerminal",
+                         "Version":  "1.24.11911.0",
+                         "InstallLocation":  "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.11911.0_arm64__8wekyb3d8bbwe"
+                     }
+                 ],
+    "fonts":  [
+
+              ],
+    "proof_exists":  true
+}

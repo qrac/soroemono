@@ -13,6 +13,7 @@
 | Mac・Windowsブラウザでの確認結果 | [2026-09-23の検証記録](verification-2.0.0a1-2026-09-23.ja.md)と[保存した証跡](artifacts/verification-2026-09-23/README.md) |
 | v2の不要ファイル整理と生成結果の確認 | [2026-09-26の検証記録](verification-v2-cleanup-2026-09-26.ja.md) |
 | v2.0.0の正式ビルド実装と検証 | [正式ビルド検証記録](verification-v2-formal-build-2026-09-26.ja.md) |
+| v2.0.0のWindows 11実アプリとIssues #2/#5/#6 | [2026-09-27の検証記録](verification-v2-windows-2026-09-27.ja.md)と[保存した証跡](artifacts/windows-v2-2026-09-27/README.md) |
 | Windows VMの操作と次の検証手順 | [Parallels DesktopによるWindows検証](windows-parallels.ja.md) |
 
 ## 更新方針

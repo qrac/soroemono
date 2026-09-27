@@ -1,0 +1,391 @@
+{
+  "date": "2026-09-27",
+  "git_commit": "11d59658170ad3a225a2ab87b64a61665badb8a2",
+  "working_tree_dirty": false,
+  "vm": {
+    "name": "Windows 11",
+    "parallels": "27.0.2 (58673)",
+    "tools": "27.0.2-58673",
+    "snapshot_id": "4d58b575-1858-410f-8052-9fcdc76bd227",
+    "initial_state": "paused",
+    "pause_idle": "on",
+    "final_state": "paused after snapshot restore",
+    "test_changes_retained": false
+  },
+  "environment": {
+    "timestamp_utc": "2026-09-27T06:38:07.9768841Z",
+    "windows": "Microsoft Windows NT 10.0.26200.0",
+    "user": "qrac",
+    "screen": {
+      "width": 1600,
+      "height": 862
+    },
+    "dpi": {
+      "LogPixels": 192,
+      "Win8DpiScaling": 1,
+      "FontSmoothing": "2",
+      "FontSmoothingType": 2
+    },
+    "chrome": [
+      {
+        "path": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+        "version": "154.0.8037.57"
+      }
+    ],
+    "vscode": [
+      {
+        "path": "C:\\Users\\qrac\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+        "version": "1.104.0"
+      }
+    ],
+    "terminal": [
+      {
+        "Name": "Microsoft.WindowsTerminal",
+        "Version": "1.24.11911.0",
+        "InstallLocation": "C:\\Program Files\\WindowsApps\\Microsoft.WindowsTerminal_1.24.11911.0_arm64__8wekyb3d8bbwe"
+      }
+    ],
+    "fonts": [],
+    "proof_exists": true
+  },
+  "windows_build": "10.0.26200.9457",
+  "fonts": {
+    "v1": {
+      "SOROEMONO-Bold.ttf": "320f342c6517885d5358251f231b4c0bf09049095caf35f46bcacf604c950f84",
+      "SOROEMONO-Regular.ttf": "83994897f9a4ee58cab502861f47718b4638b1836e379e1479035b4a664ea8d3"
+    },
+    "v2": {
+      "SOROEMONO-Bold.ttf": "bce5467676cdddfc10a054b56f2ccc8ad75be053489ca4e0e9c51965cd9c1a13",
+      "SOROEMONO-BoldItalic.ttf": "847568ee0f4daf922a3d3cea9a71f60ce8b4d7a9886bcc56e01102f62787ad43",
+      "SOROEMONO-Italic.ttf": "846a900fef548abc964941475e800f6a44ed1fba5486a21724d6a8f2becb2ab6",
+      "SOROEMONO-Regular.ttf": "56f46b6042efc0911317895aa7dbcd281af3f4ba129925316d8422f96e6b1ea1"
+    }
+  },
+  "browser_proof": {
+    "headless_window_css_px": [
+      1600,
+      2200
+    ],
+    "interactive_windows_scale_percent": 200,
+    "headless_device_scale_factor": "not measured",
+    "font_load_and_width_status": "green OK visible in all overview screenshots",
+    "fallback_check": "FontFace.load and width check; platform font usage not queried"
+  },
+  "images": {
+    "regular-overview-full.png": {
+      "sha256": "68399ea39bc8b8f89ccd46e7661874c3a9612265289d2cef7c97c3267683d752",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "regular-before-full.png": {
+      "sha256": "0264acd75f78263d8a5fb09b0d030ed228a82917e2ba0b8fd9475430a957593a",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "regular-after-full.png": {
+      "sha256": "7de6154bb251c64db5313c7bdb05202545645cc77768fd9db9346db7c9540e91",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "regular-diff-full.png": {
+      "sha256": "5dec612363680b71f76c1a15495b76ba757349142265da7b18547df7a56ef2c2",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-overview-full.png": {
+      "sha256": "c116750b7d7269374679ca31104d8497cc7ce8a96946ecd4509259c9a6e2f9c8",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-before-full.png": {
+      "sha256": "1990a655b1d038743ca6cf33df1452d8366b7ee738f8ff6afceb749f151017fe",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-after-full.png": {
+      "sha256": "36c7d2d367e403b624eadddbacb150efe537692cc3ce46e6986ec8417297907e",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-diff-full.png": {
+      "sha256": "50773abb4608fd1c9370915e2342ace355ba19e15799f62dd9ba1332a4649065",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "italic-overview-full.png": {
+      "sha256": "e1ea41ff43b32d3673c5ed84e6b122a06deb2073cad85dfbfd282d1b3db42596",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "italic-before-full.png": {
+      "sha256": "d56344d727ca7fd9c0352dfc7c23b673ef5fd8ababb059b55c76b3cc1170019a",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "italic-after-full.png": {
+      "sha256": "df7e064e639ccc88ccf6b001a34a184191408c9a5e59b838003ac40f22d88d3e",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "italic-diff-full.png": {
+      "sha256": "c2b2fa136c368d8b8e2ea1a667efcf5e8a3a7a230c32f8a5033165b1170bd05e",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-italic-overview-full.png": {
+      "sha256": "c625ada065b6c1045d9ea8c4b3f391b58fde57f3df63d2737e2131f78f4a860f",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-italic-before-full.png": {
+      "sha256": "fb5c1cdcca7602bc37f826322a519e90431ad88380cf4bf90fffeec7ab88d052",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-italic-after-full.png": {
+      "sha256": "f27b251ae51588046c7d80a48e15a27e38a714114f722059af4a59102e2dcf96",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "bold-italic-diff-full.png": {
+      "sha256": "af5c4f6adf99c258a16092f728d101fa516eb1e9aa04fc0e7ab00480989ed5b9",
+      "size_px": [
+        1600,
+        2200
+      ]
+    },
+    "regular-glyphs-headless-detail.png": {
+      "sha256": "19a771547918629b3361fee196828f4ddf1f98e3129d879c3c82fd77e069267e",
+      "size_px": [
+        1145,
+        290
+      ]
+    },
+    "regular-overview-interactive-200.png": {
+      "sha256": "2595712f6bd0ae1dc5a2eac1da937bdb6c7a161f2b2316984c981f687393de35",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "vscode-editor-v1-200.png": {
+      "sha256": "7a56d4c89b3d48ea01253f8960fdedff9f0116049c30838a6f99e124dd7ceada",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "vscode-editor-v2-200.png": {
+      "sha256": "b6b15d4cae8ccbb0186dfacddac1b3d0a3a171e2232a2e4e1798a12c1d40b22e",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "vscode-terminal-v1-200.png": {
+      "sha256": "4c38d0826ccbbdcdf156e2ef4dc3025000ddeaf972bbf02d37f2a366bf302465",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "vscode-terminal-v2-200.png": {
+      "sha256": "0bcd4271d6f21b165ed4bc030a0c63579c469b31d9099f185460a720b4c402e7",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "windows-terminal-v1-200.png": {
+      "sha256": "98819a1a1613f714993c26056a1d2511f9a49668be52755a93a354e0b3298cee",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "windows-terminal-v2-200.png": {
+      "sha256": "4aee44b6f854208ff801fa4448b7d333d3354eb832e6efac649393dcf6e4ea5e",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "windows-terminal-v1-detail-200.png": {
+      "sha256": "16d7e1e34a406213027bfa83e3591442fcac6929c452e4bc5cdb418bbbc4d8d8",
+      "size_px": [
+        1250,
+        700
+      ]
+    },
+    "windows-terminal-v2-detail-200.png": {
+      "sha256": "95f58dfca18b4810f81d8ac2f22e94de9d5f11d4bcedd3249dd7195817c250d3",
+      "size_px": [
+        1250,
+        700
+      ]
+    },
+    "windows-terminal-diff-detail-200.png": {
+      "sha256": "4bc3ea3a617232a9fc983aa5f45627a376247bd7ca831d16b9c2edee8c26f9f8",
+      "size_px": [
+        1250,
+        700
+      ]
+    },
+    "notepad-v1-200.png": {
+      "sha256": "650424b96aa16a381c636f7ffcf67581e909117a0eb6c44b4d4471554cd45a41",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "notepad-v2-200.png": {
+      "sha256": "eb152d1ff2b3067f9c4e16b741517b7a448213490734693dda05f12bbe98dc57",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "notepad-v1-detail-200.png": {
+      "sha256": "56bbf90682bb2cbf658f75442ddf4932301f67695d4f662db157bb77227904a2",
+      "size_px": [
+        2020,
+        700
+      ]
+    },
+    "notepad-v2-detail-200.png": {
+      "sha256": "63869391f8d8b4274fbcf9fb487b81d3a0e406465614a9753094346360041b19",
+      "size_px": [
+        2020,
+        700
+      ]
+    },
+    "notepad-diff-detail-200.png": {
+      "sha256": "3b6550873c315b1fa192c71c7c95e982954db8bd3e14e3cfdaa00817532840bf",
+      "size_px": [
+        2020,
+        700
+      ]
+    },
+    "notepad-v2-four-styles-200.png": {
+      "sha256": "0c8a24a147d9019ef9df89246112f2ab5b2d158bbb3063a85b611cb9e4809079",
+      "size_px": [
+        3200,
+        1724
+      ]
+    },
+    "notepad-v2-post0-detail-200.png": {
+      "sha256": "63869391f8d8b4274fbcf9fb487b81d3a0e406465614a9753094346360041b19",
+      "size_px": [
+        2020,
+        700
+      ]
+    },
+    "notepad-v2-panose0-detail-200.png": {
+      "sha256": "63869391f8d8b4274fbcf9fb487b81d3a0e406465614a9753094346360041b19",
+      "size_px": [
+        2020,
+        700
+      ]
+    },
+    "notepad-v2-mono0-detail-200.png": {
+      "sha256": "49b94bb7bd36411c9f382b0965b95666ddf16069a907a8b8a00ad79720ec0a22",
+      "size_px": [
+        2020,
+        700
+      ]
+    },
+    "notepad-v2-mono0-diff-detail-200.png": {
+      "sha256": "f7f08dc944b05d28ced53894eef6c7e34b5eaa51e8587b517b96a486e076ffae",
+      "size_px": [
+        2020,
+        700
+      ]
+    }
+  },
+  "capture_size_px": [
+    3200,
+    1724
+  ],
+  "native_app": {
+    "test_user": "qrac (Parallels --current-user, Windows session 1)",
+    "registration": "Per-user font registry and LOCALAPPDATA, one version at a time with snapshot restore between versions",
+    "windows_scale_percent": 200,
+    "vscode": {
+      "font_size": 20,
+      "editor_line_height": 0,
+      "terminal_line_height": 1,
+      "extensions": "disabled",
+      "user_data": "disposable profile"
+    },
+    "windows_terminal": {
+      "font_face": "SOROEMONO",
+      "font_size": 20
+    },
+    "notepad": {
+      "version": "11.2606.15.0",
+      "font_family": "SOROEMONO",
+      "style": "Regular",
+      "font_size": 20,
+      "zoom_percent": 100,
+      "sample": "same UTF-8 text file content in both versions"
+    },
+    "direct_used_font_api_query": "not performed for native apps; family settings, per-user registration, GDI enumeration and distinctive layout were checked"
+  },
+  "notepad_metadata_experiment": {
+    "scope": "Regular only; isolated Windows user-font registration and snapshot restore for each variant; experimental TTFs are not release files",
+    "formal_v2_regular_sha256": "56f46b6042efc0911317895aa7dbcd281af3f4ba129925316d8422f96e6b1ea1",
+    "public_v1_regular_sha256": "83994897f9a4ee58cab502861f47718b4638b1836e379e1479035b4a664ea8d3",
+    "variants": {
+      "post0": {
+        "sha256": "5102d42456553e0e2d202f31b93b1bb478ca9c4853d103ee222b62e663a4ed0f",
+        "post_isFixedPitch": 0,
+        "OS2_panose_bProportion": 9,
+        "detail_vs_formal_v2": "pixel-identical"
+      },
+      "panose0": {
+        "sha256": "8de97e0cdfb3ae3071a3805da1b693ba6fb331cb7cc2d653202b2191ddd95a8b",
+        "post_isFixedPitch": 1,
+        "OS2_panose_bProportion": 0,
+        "detail_vs_formal_v2": "pixel-identical"
+      },
+      "mono0": {
+        "sha256": "60e74d4589464831a80e967bddcf4a70c4829708e68baa70c71d77677ba8388c",
+        "post_isFixedPitch": 0,
+        "OS2_panose_bProportion": 0,
+        "detail_vs_formal_v2": "Japanese advance restored to approximately public v1 spacing while v2 line pitch remains"
+      }
+    },
+    "unchanged_tables": "All compiled font tables except post, OS/2, and head asserted identical to formal v2 for each variant",
+    "native_app_internal_cause": "not directly observed"
+  }
+}

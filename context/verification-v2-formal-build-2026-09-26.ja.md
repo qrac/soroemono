@@ -36,3 +36,5 @@ macOS 26.6.2 / arm64、Chrome 154.0.8037.57のヘッドレス表示。1200×1100
 
 - Windows 11 VMは確認時点で一時停止中で、復元用スナップショットがなかった。フォント登録を伴うVS Code、Windows Terminal、メモ帳の4スタイル認識、Issue #2/#6の描画確認は未実施。既存のWindowsブラウザ試作検証を正式版の実アプリ合格と扱わない。
 - OTS/FontBakeryの独立検査、GitHub Actionsの実行、他OSの最終確認、GitHub Releasesへの公開は未実施。ZIPを生成できることと、公開の受け入れ完了は別に扱う。
+
+後続のWindows実アプリ比較とIssue別の結果は[2026-09-27の検証記録](verification-v2-windows-2026-09-27.ja.md)に追記した。この節は2026-09-26時点の残作業を示す。
