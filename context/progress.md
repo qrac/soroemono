@@ -14,7 +14,7 @@
 ## 次の検証
 
 - Windows側で独立clone・固定依存関係・復元可能な検証環境を確認し、対象コミットを記録して初回のビルド・検証結果を `context/artifacts/<run-id>/win/report.md` へ保存する。Mac側が受領し、この進捗へ反映する。
-- Issue #2のメモ帳における日本語の送り拡大はMac側で修正案を作り、Windows側でWindows Terminal等の等幅認識と行間改善が維持されるか確かめる。Issue #6の公開版の欠けを報告条件どおり再現し、正式版と同条件で比較する。特にOS拡大率100%を確認する。#5のVS Code等での自動Italic/Bold Italic切替も撮影する。検証方法と環境記録は[Windows検証・Git受け渡し手順](windows-verification.ja.md)に従う。
-- OTS/FontBakeryの独立検査、CI上の実行、他OSでのリリース前確認は未実施。これらの受け入れ後に公開を判断する。
+- Issue #2のメモ帳における日本語の送り拡大はMac側で修正案を作り、そのIssueの検証時にWindows Terminal等の等幅認識と行間改善が維持されるか確かめる。Issue #6に着手するときは公開版の欠けを報告条件どおり再現し、正式版と同条件で比較する。#5に着手するときはVS Code等での自動Italic/Bold Italic切替を撮影する。検証方法と環境記録は[Windows検証・Git受け渡し手順](windows-verification.ja.md)に従う。
+- 通常の合格条件は[再設計計画の第6節](rebuild-plan.ja.md)に従い、自動検査とMac・Windowsのブラウザproofで判定する。OTS/FontBakeryの独立検査、CI上の実行、他OSの追加確認は未実施で、一律の公開条件にはしない。未解決Issueと未検証範囲を明示したうえで公開を判断する。正式配布公開は未実施。
 
 実行コマンドは[開発・検証手順](development.ja.md)、設計上の基準は[再設計計画](rebuild-plan.ja.md)と[現行字形の基準](font-baseline.ja.md)を参照する。
