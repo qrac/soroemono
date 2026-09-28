@@ -13,7 +13,7 @@ SOROEMONOは、JetBrains Monoの英数字のバランスを維持し、BIZ UDGot
 - MacとWindows内のCodexはそれぞれ独立したローカルcloneを使い、同じ `v2` ブランチをGitで受け渡す。共有フォルダ上の同じ作業ツリーや `.venv` を共用しない。運用は [Windows検証・Git受け渡し手順](context/windows-verification.ja.md) に従う。
 - Mac側はソース・テスト・依存関係・共通文書と `context/artifacts/<run-id>/mac/` を担当する。Windows側は原則検証専用で、Git管理する変更は `context/artifacts/<run-id>/win/` 内の報告・確定画像・環境情報に限定する。修正が必要なら同ディレクトリの `report.md` に再現条件と候補を記し、Mac側で修正する。
 - `AGENTS.md`、`context/progress.md`、索引、共通手順、ロックファイルはMac側で更新する。Windows側の生成物はローカルの `build/` 等へ置く。検証記録はOS別ディレクトリに保存する。2026-09-27以前の証跡もOS別に整理済みで、画像とmanifestの内容は維持した。再検証では以前の証跡を上書きしない。
-- 検証対象のコミットとTTFハッシュを記録する。結果をコミットした後、push前に `git pull --rebase` で同期し、競合時は他方の変更を上書きしない。同期後のHEADを検証済みと読み替えない。
+- 検証対象のコミットとTTFハッシュを記録する。同期後のHEADを検証済みと読み替えない。コミット・pushはユーザーから明示的に指示された場合だけ行う。
 - Windows上のビルド・アプリ操作・撮影はWindows側で行う。Parallels DesktopはWindows 11を動かす環境として使い、Mac側からのVM遠隔操作を通常手順にしない。
 
 **字形と幅**
