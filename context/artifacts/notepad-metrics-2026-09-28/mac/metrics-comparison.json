@@ -1,0 +1,3000 @@
+{
+  "base_commit": "ff26ca177117fa8edfb47d2a8e14f6bf7b12ea88",
+  "working_tree_dirty": true,
+  "python": "3.14.6",
+  "uv": "uv 0.9.20 (765a96723 2025-12-29)",
+  "source_files": {
+    "src/soroemono/builder.py": "a214ca05f3f34a058a395c1ddd9ca325364eb345bcbc1fe5a27b774621c389d8",
+    "src/soroemono/validation.py": "a41891a5418b5c208af4d5bf88a1eff3703a70a0f416219f41784678f18dd6d0",
+    "tests/test_build.py": "82e1fc961077baf90eca6026e3c5d3381f9e9d55c2ad3c65e1cf1d6dc1279de3",
+    "uv.lock": "90767254d510f20230978563ca00c1158225b6c3c336398e48f615c4c3bd318c",
+    "sources.lock.json": "8e397ccf2251e80ca72e55eff74402bdbf208624ce673a60a819ab6d5f6d448d"
+  },
+  "archive_sha256": "b137decc684a1dcb1921ad7b38e6b4acf54ba95c2e9b4b451c312045a5f01043",
+  "styles": {
+    "Regular": {
+      "before": {
+        "filename": "SOROEMONO-Regular.ttf",
+        "sha256": "56f46b6042efc0911317895aa7dbcd281af3f4ba129925316d8422f96e6b1ea1",
+        "head": {
+          "tableVersion": 1.0,
+          "fontRevision": 2.0,
+          "checkSumAdjustment": 3368129145,
+          "magicNumber": 1594834165,
+          "flags": 11,
+          "unitsPerEm": 1000,
+          "created": 3806352000,
+          "modified": 3806352000,
+          "xMin": -1735,
+          "yMin": -400,
+          "xMax": 1140,
+          "yMax": 1120,
+          "macStyle": 0,
+          "lowestRecPPEM": 9,
+          "fontDirectionHint": 2,
+          "indexToLocFormat": 1,
+          "glyphDataFormat": 0
+        },
+        "hhea": {
+          "tableVersion": 65536,
+          "ascent": 1020,
+          "descent": -300,
+          "lineGap": 0,
+          "advanceWidthMax": 1200,
+          "minLeftSideBearing": -1735,
+          "minRightSideBearing": -526,
+          "xMaxExtent": 1140,
+          "caretSlopeRise": 1,
+          "caretSlopeRun": 0,
+          "caretOffset": 0,
+          "reserved0": 0,
+          "reserved1": 0,
+          "reserved2": 0,
+          "reserved3": 0,
+          "metricDataFormat": 0,
+          "numberOfHMetrics": 13148
+        },
+        "maxp": {
+          "tableVersion": 65536,
+          "numGlyphs": 13151,
+          "maxPoints": 440,
+          "maxContours": 110,
+          "maxCompositePoints": 135,
+          "maxCompositeContours": 6,
+          "maxZones": 2,
+          "maxTwilightPoints": 660,
+          "maxStorage": 1014,
+          "maxFunctionDefs": 141,
+          "maxInstructionDefs": 0,
+          "maxStackElements": 1376,
+          "maxSizeOfInstructions": 3596,
+          "maxComponentElements": 3,
+          "maxComponentDepth": 1
+        },
+        "OS/2": {
+          "tableTag": "OS/2",
+          "version": 4,
+          "xAvgCharWidth": 1115,
+          "usWeightClass": 400,
+          "usWidthClass": 5,
+          "fsType": 0,
+          "ySubscriptXSize": 650,
+          "ySubscriptYSize": 600,
+          "ySubscriptXOffset": 0,
+          "ySubscriptYOffset": 75,
+          "ySuperscriptXSize": 650,
+          "ySuperscriptYSize": 600,
+          "ySuperscriptXOffset": 0,
+          "ySuperscriptYOffset": 350,
+          "yStrikeoutSize": 50,
+          "yStrikeoutPosition": 320,
+          "sFamilyClass": 0,
+          "ulUnicodeRange1": 3758359295,
+          "ulUnicodeRange2": 986185211,
+          "ulUnicodeRange3": 33554494,
+          "ulUnicodeRange4": 0,
+          "achVendID": "JB\u0000\u0000",
+          "fsSelection": 192,
+          "usFirstCharIndex": 13,
+          "usLastCharIndex": 65535,
+          "sTypoAscender": 1020,
+          "sTypoDescender": -300,
+          "sTypoLineGap": 0,
+          "usWinAscent": 1120,
+          "usWinDescent": 400,
+          "ulCodePageRange1": 537002399,
+          "ulCodePageRange2": 3755409408,
+          "sxHeight": 1108,
+          "sCapHeight": 1567,
+          "usDefaultChar": 0,
+          "usBreakChar": 32,
+          "usMaxContext": 6
+        },
+        "panose": {
+          "bFamilyType": 2,
+          "bSerifStyle": 0,
+          "bWeight": 0,
+          "bProportion": 9,
+          "bContrast": 0,
+          "bStrokeVariation": 0,
+          "bArmStyle": 0,
+          "bLetterForm": 0,
+          "bMidline": 0,
+          "bXHeight": 0
+        },
+        "post": {
+          "formatType": 2.0,
+          "isFixedPitch": 1,
+          "italicAngle": 0.0
+        },
+        "cmap": {
+          "characters": 12442,
+          "subtables": [
+            {
+              "format": 14,
+              "platform": 0,
+              "encoding": 5,
+              "entries": 10160
+            },
+            {
+              "format": 4,
+              "platform": 3,
+              "encoding": 1,
+              "entries": 12082
+            },
+            {
+              "format": 12,
+              "platform": 3,
+              "encoding": 10,
+              "entries": 12442
+            }
+          ]
+        },
+        "hmtx": {
+          "unicode_advances": {
+            "0": 47,
+            "600": 1518,
+            "1200": 10877
+          },
+          "all_glyph_advances": {
+            "0": 92,
+            "600": 1857,
+            "1200": 11202
+          },
+          "samples": {
+            "A": 600,
+            " ": 600,
+            "元": 1200,
+            "日": 1200,
+            "ｱ": 600
+          }
+        },
+        "tables": {
+          "head": {
+            "sha256": "db0d8cb14f7a0e05f56dcd7b0be4bcbc8e9b19d0675c94df0162f94b0c35a6b3",
+            "bytes": 54
+          },
+          "hhea": {
+            "sha256": "31c38f6158a78d196a4b39e5e2c4cd85ce3bcfed189063b6dfb011a4cafa2799",
+            "bytes": 36
+          },
+          "maxp": {
+            "sha256": "add47dd93f1b638d856f6bdf359d67f2033d48c8f01eaa94b09f9a0d791360a0",
+            "bytes": 32
+          },
+          "OS/2": {
+            "sha256": "ecc0cf3458e5c7ed7185b72e6fc78bab3f4bb0fe8ccb941b14d9f4cf46f41bd0",
+            "bytes": 96
+          },
+          "hmtx": {
+            "sha256": "0126b0736c239995ed44b2b9217416d80445fc3a00d4ae52e1ead6d4f5f7999d",
+            "bytes": 52598
+          },
+          "cmap": {
+            "sha256": "f56c10b460674b5da887c3ae1ccd2b2ca5b91c536a0b9f0df7b4853fd4b3b178",
+            "bytes": 213105
+          },
+          "fpgm": {
+            "sha256": "24c7d2293020be24d28f973149e99b5e04536533dfb66a518191cc7fa206f99b",
+            "bytes": 3596
+          },
+          "prep": {
+            "sha256": "e282e040eb0146fa56caddc3a32d4a4e4a8cc8a204431fcf76aeb56651f24e63",
+            "bytes": 214
+          },
+          "cvt ": {
+            "sha256": "4bbb02ce688ff1eeadf8ff5a4a31f55d62041f653e31ac46c08ec18dd5d9c09f",
+            "bytes": 168
+          },
+          "loca": {
+            "sha256": "e63708534f07b29ab3648995f72ae1cdb52d85c8b9299e86713bc42e1ac69cb5",
+            "bytes": 52608
+          },
+          "glyf": {
+            "sha256": "2d87a62688cfe7e9c21d42e40047667d31b8c19ccbfe8528982153bbbe3760f9",
+            "bytes": 3001287
+          },
+          "name": {
+            "sha256": "604d45db7d829cff0edf25a47865c05713c54e7c21f202e1f8e94d06a807c359",
+            "bytes": 1359
+          },
+          "post": {
+            "sha256": "38fafec110921ea806e406ba322e92b166b8d9b9160ab4f7214bbf626734d2e1",
+            "bytes": 134271
+          },
+          "gasp": {
+            "sha256": "4ca731f86ad506ac0e320283dc9461926346de3c4d91d539ea7f6620d3826940",
+            "bytes": 8
+          },
+          "GDEF": {
+            "sha256": "ff0d32be993030cb1b6476180d1999407c3c06452d09d6315f57f5c9e97d2e8f",
+            "bytes": 584
+          },
+          "GPOS": {
+            "sha256": "99904167c0bbae07c880d6c7ee782a86806896c545e49e5f2c0e90d865143d23",
+            "bytes": 119706
+          },
+          "GSUB": {
+            "sha256": "fb4a97c9258ee18decfcca4d8c0ea5b47278b51f402dd2e0c47269978e4bb12c",
+            "bytes": 32280
+          }
+        }
+      },
+      "after": {
+        "filename": "SOROEMONO-Regular.ttf",
+        "sha256": "209cb5666ab6ec80f8270d954565920bcc185cf8d4c3adc049419b78486afc43",
+        "head": {
+          "tableVersion": 1.0,
+          "fontRevision": 2.0,
+          "checkSumAdjustment": 3368130175,
+          "magicNumber": 1594834165,
+          "flags": 11,
+          "unitsPerEm": 1000,
+          "created": 3806352000,
+          "modified": 3806352000,
+          "xMin": -1735,
+          "yMin": -400,
+          "xMax": 1140,
+          "yMax": 1120,
+          "macStyle": 0,
+          "lowestRecPPEM": 9,
+          "fontDirectionHint": 2,
+          "indexToLocFormat": 1,
+          "glyphDataFormat": 0
+        },
+        "hhea": {
+          "tableVersion": 65536,
+          "ascent": 1020,
+          "descent": -300,
+          "lineGap": 0,
+          "advanceWidthMax": 1200,
+          "minLeftSideBearing": -1735,
+          "minRightSideBearing": -526,
+          "xMaxExtent": 1140,
+          "caretSlopeRise": 1,
+          "caretSlopeRun": 0,
+          "caretOffset": 0,
+          "reserved0": 0,
+          "reserved1": 0,
+          "reserved2": 0,
+          "reserved3": 0,
+          "metricDataFormat": 0,
+          "numberOfHMetrics": 13148
+        },
+        "maxp": {
+          "tableVersion": 65536,
+          "numGlyphs": 13151,
+          "maxPoints": 440,
+          "maxContours": 110,
+          "maxCompositePoints": 135,
+          "maxCompositeContours": 6,
+          "maxZones": 2,
+          "maxTwilightPoints": 660,
+          "maxStorage": 1014,
+          "maxFunctionDefs": 141,
+          "maxInstructionDefs": 0,
+          "maxStackElements": 1376,
+          "maxSizeOfInstructions": 3596,
+          "maxComponentElements": 3,
+          "maxComponentDepth": 1
+        },
+        "OS/2": {
+          "tableTag": "OS/2",
+          "version": 4,
+          "xAvgCharWidth": 600,
+          "usWeightClass": 400,
+          "usWidthClass": 5,
+          "fsType": 0,
+          "ySubscriptXSize": 650,
+          "ySubscriptYSize": 600,
+          "ySubscriptXOffset": 0,
+          "ySubscriptYOffset": 75,
+          "ySuperscriptXSize": 650,
+          "ySuperscriptYSize": 600,
+          "ySuperscriptXOffset": 0,
+          "ySuperscriptYOffset": 350,
+          "yStrikeoutSize": 50,
+          "yStrikeoutPosition": 320,
+          "sFamilyClass": 0,
+          "ulUnicodeRange1": 3758359295,
+          "ulUnicodeRange2": 986185211,
+          "ulUnicodeRange3": 33554494,
+          "ulUnicodeRange4": 0,
+          "achVendID": "JB\u0000\u0000",
+          "fsSelection": 192,
+          "usFirstCharIndex": 13,
+          "usLastCharIndex": 65535,
+          "sTypoAscender": 1020,
+          "sTypoDescender": -300,
+          "sTypoLineGap": 0,
+          "usWinAscent": 1120,
+          "usWinDescent": 400,
+          "ulCodePageRange1": 537002399,
+          "ulCodePageRange2": 3755409408,
+          "sxHeight": 1108,
+          "sCapHeight": 1567,
+          "usDefaultChar": 0,
+          "usBreakChar": 32,
+          "usMaxContext": 6
+        },
+        "panose": {
+          "bFamilyType": 2,
+          "bSerifStyle": 0,
+          "bWeight": 0,
+          "bProportion": 9,
+          "bContrast": 0,
+          "bStrokeVariation": 0,
+          "bArmStyle": 0,
+          "bLetterForm": 0,
+          "bMidline": 0,
+          "bXHeight": 0
+        },
+        "post": {
+          "formatType": 2.0,
+          "isFixedPitch": 1,
+          "italicAngle": 0.0
+        },
+        "cmap": {
+          "characters": 12442,
+          "subtables": [
+            {
+              "format": 14,
+              "platform": 0,
+              "encoding": 5,
+              "entries": 10160
+            },
+            {
+              "format": 4,
+              "platform": 3,
+              "encoding": 1,
+              "entries": 12082
+            },
+            {
+              "format": 12,
+              "platform": 3,
+              "encoding": 10,
+              "entries": 12442
+            }
+          ]
+        },
+        "hmtx": {
+          "unicode_advances": {
+            "0": 47,
+            "600": 1518,
+            "1200": 10877
+          },
+          "all_glyph_advances": {
+            "0": 92,
+            "600": 1857,
+            "1200": 11202
+          },
+          "samples": {
+            "A": 600,
+            " ": 600,
+            "元": 1200,
+            "日": 1200,
+            "ｱ": 600
+          }
+        },
+        "tables": {
+          "head": {
+            "sha256": "3beec7583db03cf5e5f073d7111670017406ef330e8da66fa89ebc76dc5b91c6",
+            "bytes": 54
+          },
+          "hhea": {
+            "sha256": "31c38f6158a78d196a4b39e5e2c4cd85ce3bcfed189063b6dfb011a4cafa2799",
+            "bytes": 36
+          },
+          "maxp": {
+            "sha256": "add47dd93f1b638d856f6bdf359d67f2033d48c8f01eaa94b09f9a0d791360a0",
+            "bytes": 32
+          },
+          "OS/2": {
+            "sha256": "85c45e1616fc5d333b719e09212babd70c4254baecfcac365312403202099eac",
+            "bytes": 96
+          },
+          "hmtx": {
+            "sha256": "0126b0736c239995ed44b2b9217416d80445fc3a00d4ae52e1ead6d4f5f7999d",
+            "bytes": 52598
+          },
+          "cmap": {
+            "sha256": "f56c10b460674b5da887c3ae1ccd2b2ca5b91c536a0b9f0df7b4853fd4b3b178",
+            "bytes": 213105
+          },
+          "fpgm": {
+            "sha256": "24c7d2293020be24d28f973149e99b5e04536533dfb66a518191cc7fa206f99b",
+            "bytes": 3596
+          },
+          "prep": {
+            "sha256": "e282e040eb0146fa56caddc3a32d4a4e4a8cc8a204431fcf76aeb56651f24e63",
+            "bytes": 214
+          },
+          "cvt ": {
+            "sha256": "4bbb02ce688ff1eeadf8ff5a4a31f55d62041f653e31ac46c08ec18dd5d9c09f",
+            "bytes": 168
+          },
+          "loca": {
+            "sha256": "e63708534f07b29ab3648995f72ae1cdb52d85c8b9299e86713bc42e1ac69cb5",
+            "bytes": 52608
+          },
+          "glyf": {
+            "sha256": "2d87a62688cfe7e9c21d42e40047667d31b8c19ccbfe8528982153bbbe3760f9",
+            "bytes": 3001287
+          },
+          "name": {
+            "sha256": "604d45db7d829cff0edf25a47865c05713c54e7c21f202e1f8e94d06a807c359",
+            "bytes": 1359
+          },
+          "post": {
+            "sha256": "38fafec110921ea806e406ba322e92b166b8d9b9160ab4f7214bbf626734d2e1",
+            "bytes": 134271
+          },
+          "gasp": {
+            "sha256": "4ca731f86ad506ac0e320283dc9461926346de3c4d91d539ea7f6620d3826940",
+            "bytes": 8
+          },
+          "GDEF": {
+            "sha256": "ff0d32be993030cb1b6476180d1999407c3c06452d09d6315f57f5c9e97d2e8f",
+            "bytes": 584
+          },
+          "GPOS": {
+            "sha256": "99904167c0bbae07c880d6c7ee782a86806896c545e49e5f2c0e90d865143d23",
+            "bytes": 119706
+          },
+          "GSUB": {
+            "sha256": "fb4a97c9258ee18decfcca4d8c0ea5b47278b51f402dd2e0c47269978e4bb12c",
+            "bytes": 32280
+          }
+        }
+      },
+      "changed_tables": [
+        "head",
+        "OS/2"
+      ],
+      "only_xAvgCharWidth_and_checkSumAdjustment_changed": true
+    },
+    "Bold": {
+      "before": {
+        "filename": "SOROEMONO-Bold.ttf",
+        "sha256": "bce5467676cdddfc10a054b56f2ccc8ad75be053489ca4e0e9c51965cd9c1a13",
+        "head": {
+          "tableVersion": 1.0,
+          "fontRevision": 2.0,
+          "checkSumAdjustment": 1075891341,
+          "magicNumber": 1594834165,
+          "flags": 11,
+          "unitsPerEm": 1000,
+          "created": 3806352000,
+          "modified": 3806352000,
+          "xMin": -1728,
+          "yMin": -400,
+          "xMax": 1140,
+          "yMax": 1120,
+          "macStyle": 1,
+          "lowestRecPPEM": 9,
+          "fontDirectionHint": 2,
+          "indexToLocFormat": 1,
+          "glyphDataFormat": 0
+        },
+        "hhea": {
+          "tableVersion": 65536,
+          "ascent": 1020,
+          "descent": -300,
+          "lineGap": 0,
+          "advanceWidthMax": 1200,
+          "minLeftSideBearing": -1728,
+          "minRightSideBearing": -526,
+          "xMaxExtent": 1140,
+          "caretSlopeRise": 1,
+          "caretSlopeRun": 0,
+          "caretOffset": 0,
+          "reserved0": 0,
+          "reserved1": 0,
+          "reserved2": 0,
+          "reserved3": 0,
+          "metricDataFormat": 0,
+          "numberOfHMetrics": 13148
+        },
+        "maxp": {
+          "tableVersion": 65536,
+          "numGlyphs": 13151,
+          "maxPoints": 440,
+          "maxContours": 110,
+          "maxCompositePoints": 123,
+          "maxCompositeContours": 6,
+          "maxZones": 2,
+          "maxTwilightPoints": 660,
+          "maxStorage": 1014,
+          "maxFunctionDefs": 141,
+          "maxInstructionDefs": 0,
+          "maxStackElements": 1376,
+          "maxSizeOfInstructions": 3596,
+          "maxComponentElements": 3,
+          "maxComponentDepth": 1
+        },
+        "OS/2": {
+          "tableTag": "OS/2",
+          "version": 4,
+          "xAvgCharWidth": 1115,
+          "usWeightClass": 700,
+          "usWidthClass": 5,
+          "fsType": 0,
+          "ySubscriptXSize": 650,
+          "ySubscriptYSize": 600,
+          "ySubscriptXOffset": 0,
+          "ySubscriptYOffset": 75,
+          "ySuperscriptXSize": 650,
+          "ySuperscriptYSize": 600,
+          "ySuperscriptXOffset": 0,
+          "ySuperscriptYOffset": 350,
+          "yStrikeoutSize": 50,
+          "yStrikeoutPosition": 320,
+          "sFamilyClass": 0,
+          "ulUnicodeRange1": 3758359295,
+          "ulUnicodeRange2": 986185211,
+          "ulUnicodeRange3": 33554494,
+          "ulUnicodeRange4": 0,
+          "achVendID": "JB\u0000\u0000",
+          "fsSelection": 160,
+          "usFirstCharIndex": 13,
+          "usLastCharIndex": 65535,
+          "sTypoAscender": 1020,
+          "sTypoDescender": -300,
+          "sTypoLineGap": 0,
+          "usWinAscent": 1120,
+          "usWinDescent": 400,
+          "ulCodePageRange1": 537002399,
+          "ulCodePageRange2": 3755409408,
+          "sxHeight": 1108,
+          "sCapHeight": 1567,
+          "usDefaultChar": 0,
+          "usBreakChar": 32,
+          "usMaxContext": 6
+        },
+        "panose": {
+          "bFamilyType": 2,
+          "bSerifStyle": 0,
+          "bWeight": 0,
+          "bProportion": 9,
+          "bContrast": 0,
+          "bStrokeVariation": 0,
+          "bArmStyle": 0,
+          "bLetterForm": 0,
+          "bMidline": 0,
+          "bXHeight": 0
+        },
+        "post": {
+          "formatType": 2.0,
+          "isFixedPitch": 1,
+          "italicAngle": 0.0
+        },
+        "cmap": {
+          "characters": 12442,
+          "subtables": [
+            {
+              "format": 14,
+              "platform": 0,
+              "encoding": 5,
+              "entries": 10160
+            },
+            {
+              "format": 4,
+              "platform": 3,
+              "encoding": 1,
+              "entries": 12082
+            },
+            {
+              "format": 12,
+              "platform": 3,
+              "encoding": 10,
+              "entries": 12442
+            }
+          ]
+        },
+        "hmtx": {
+          "unicode_advances": {
+            "0": 47,
+            "600": 1518,
+            "1200": 10877
+          },
+          "all_glyph_advances": {
+            "0": 92,
+            "600": 1857,
+            "1200": 11202
+          },
+          "samples": {
+            "A": 600,
+            " ": 600,
+            "元": 1200,
+            "日": 1200,
+            "ｱ": 600
+          }
+        },
+        "tables": {
+          "head": {
+            "sha256": "df3af3c1c0b48e334ad78329404ce4dfc4bafd4b6764dda0caaabedd4ca69f14",
+            "bytes": 54
+          },
+          "hhea": {
+            "sha256": "2197ac7caadfd3944b5e72d2a00cb87c64cee75c5f9c9fd252edad42dd47e562",
+            "bytes": 36
+          },
+          "maxp": {
+            "sha256": "e436093fd65668ec6b368935b70455111a0c952b2f55c9c9c20f895a55180387",
+            "bytes": 32
+          },
+          "OS/2": {
+            "sha256": "e9828a258e289d2b9b9b3b570bfa2fb6c72d8e49c059c36d3596f73fccd4ae10",
+            "bytes": 96
+          },
+          "hmtx": {
+            "sha256": "1b2064f7bf7cfe6f13436c6b131aa726e7af336848674aecf6a60d2078d59fda",
+            "bytes": 52598
+          },
+          "cmap": {
+            "sha256": "f56c10b460674b5da887c3ae1ccd2b2ca5b91c536a0b9f0df7b4853fd4b3b178",
+            "bytes": 213105
+          },
+          "fpgm": {
+            "sha256": "24c7d2293020be24d28f973149e99b5e04536533dfb66a518191cc7fa206f99b",
+            "bytes": 3596
+          },
+          "prep": {
+            "sha256": "e282e040eb0146fa56caddc3a32d4a4e4a8cc8a204431fcf76aeb56651f24e63",
+            "bytes": 214
+          },
+          "cvt ": {
+            "sha256": "e2b5a0cc6bf356bbbb2532723758eeaae3c83192771338ef61c7d25174d55739",
+            "bytes": 168
+          },
+          "loca": {
+            "sha256": "807292b89ddb55218aa671a5b8a421a603f30d09638ab62aa793f30e04a54503",
+            "bytes": 52608
+          },
+          "glyf": {
+            "sha256": "ec74b09a4e80bc5c283d8c44a1f00e19b628f396388c885f96bc56968e9ecafa",
+            "bytes": 3001483
+          },
+          "name": {
+            "sha256": "3317f1e7d1a6891271c77061f0ea999a296e7beb6770deedcb206a4203314446",
+            "bytes": 1335
+          },
+          "post": {
+            "sha256": "38fafec110921ea806e406ba322e92b166b8d9b9160ab4f7214bbf626734d2e1",
+            "bytes": 134271
+          },
+          "gasp": {
+            "sha256": "4ca731f86ad506ac0e320283dc9461926346de3c4d91d539ea7f6620d3826940",
+            "bytes": 8
+          },
+          "GDEF": {
+            "sha256": "ff0d32be993030cb1b6476180d1999407c3c06452d09d6315f57f5c9e97d2e8f",
+            "bytes": 584
+          },
+          "GPOS": {
+            "sha256": "6b15cbda5328c42db54332f49bf7303d14a8a68e64c93d47f841117d261fc804",
+            "bytes": 119958
+          },
+          "GSUB": {
+            "sha256": "fb4a97c9258ee18decfcca4d8c0ea5b47278b51f402dd2e0c47269978e4bb12c",
+            "bytes": 32280
+          }
+        }
+      },
+      "after": {
+        "filename": "SOROEMONO-Bold.ttf",
+        "sha256": "3c58fc099294e4a2f5bac0b30c638927ede87afbdb96bfecdc5c75a6234f5e87",
+        "head": {
+          "tableVersion": 1.0,
+          "fontRevision": 2.0,
+          "checkSumAdjustment": 1075892371,
+          "magicNumber": 1594834165,
+          "flags": 11,
+          "unitsPerEm": 1000,
+          "created": 3806352000,
+          "modified": 3806352000,
+          "xMin": -1728,
+          "yMin": -400,
+          "xMax": 1140,
+          "yMax": 1120,
+          "macStyle": 1,
+          "lowestRecPPEM": 9,
+          "fontDirectionHint": 2,
+          "indexToLocFormat": 1,
+          "glyphDataFormat": 0
+        },
+        "hhea": {
+          "tableVersion": 65536,
+          "ascent": 1020,
+          "descent": -300,
+          "lineGap": 0,
+          "advanceWidthMax": 1200,
+          "minLeftSideBearing": -1728,
+          "minRightSideBearing": -526,
+          "xMaxExtent": 1140,
+          "caretSlopeRise": 1,
+          "caretSlopeRun": 0,
+          "caretOffset": 0,
+          "reserved0": 0,
+          "reserved1": 0,
+          "reserved2": 0,
+          "reserved3": 0,
+          "metricDataFormat": 0,
+          "numberOfHMetrics": 13148
+        },
+        "maxp": {
+          "tableVersion": 65536,
+          "numGlyphs": 13151,
+          "maxPoints": 440,
+          "maxContours": 110,
+          "maxCompositePoints": 123,
+          "maxCompositeContours": 6,
+          "maxZones": 2,
+          "maxTwilightPoints": 660,
+          "maxStorage": 1014,
+          "maxFunctionDefs": 141,
+          "maxInstructionDefs": 0,
+          "maxStackElements": 1376,
+          "maxSizeOfInstructions": 3596,
+          "maxComponentElements": 3,
+          "maxComponentDepth": 1
+        },
+        "OS/2": {
+          "tableTag": "OS/2",
+          "version": 4,
+          "xAvgCharWidth": 600,
+          "usWeightClass": 700,
+          "usWidthClass": 5,
+          "fsType": 0,
+          "ySubscriptXSize": 650,
+          "ySubscriptYSize": 600,
+          "ySubscriptXOffset": 0,
+          "ySubscriptYOffset": 75,
+          "ySuperscriptXSize": 650,
+          "ySuperscriptYSize": 600,
+          "ySuperscriptXOffset": 0,
+          "ySuperscriptYOffset": 350,
+          "yStrikeoutSize": 50,
+          "yStrikeoutPosition": 320,
+          "sFamilyClass": 0,
+          "ulUnicodeRange1": 3758359295,
+          "ulUnicodeRange2": 986185211,
+          "ulUnicodeRange3": 33554494,
+          "ulUnicodeRange4": 0,
+          "achVendID": "JB\u0000\u0000",
+          "fsSelection": 160,
+          "usFirstCharIndex": 13,
+          "usLastCharIndex": 65535,
+          "sTypoAscender": 1020,
+          "sTypoDescender": -300,
+          "sTypoLineGap": 0,
+          "usWinAscent": 1120,
+          "usWinDescent": 400,
+          "ulCodePageRange1": 537002399,
+          "ulCodePageRange2": 3755409408,
+          "sxHeight": 1108,
+          "sCapHeight": 1567,
+          "usDefaultChar": 0,
+          "usBreakChar": 32,
+          "usMaxContext": 6
+        },
+        "panose": {
+          "bFamilyType": 2,
+          "bSerifStyle": 0,
+          "bWeight": 0,
+          "bProportion": 9,
+          "bContrast": 0,
+          "bStrokeVariation": 0,
+          "bArmStyle": 0,
+          "bLetterForm": 0,
+          "bMidline": 0,
+          "bXHeight": 0
+        },
+        "post": {
+          "formatType": 2.0,
+          "isFixedPitch": 1,
+          "italicAngle": 0.0
+        },
+        "cmap": {
+          "characters": 12442,
+          "subtables": [
+            {
+              "format": 14,
+              "platform": 0,
+              "encoding": 5,
+              "entries": 10160
+            },
+            {
+              "format": 4,
+              "platform": 3,
+              "encoding": 1,
+              "entries": 12082
+            },
+            {
+              "format": 12,
+              "platform": 3,
+              "encoding": 10,
+              "entries": 12442
+            }
+          ]
+        },
+        "hmtx": {
+          "unicode_advances": {
+            "0": 47,
+            "600": 1518,
+            "1200": 10877
+          },
+          "all_glyph_advances": {
+            "0": 92,
+            "600": 1857,
+            "1200": 11202
+          },
+          "samples": {
+            "A": 600,
+            " ": 600,
+            "元": 1200,
+            "日": 1200,
+            "ｱ": 600
+          }
+        },
+        "tables": {
+          "head": {
+            "sha256": "801d5e49be59c8d51d4a6fcbf90a88c2b1ef522e6c17aae0af81c2b4be2e85c9",
+            "bytes": 54
+          },
+          "hhea": {
+            "sha256": "2197ac7caadfd3944b5e72d2a00cb87c64cee75c5f9c9fd252edad42dd47e562",
+            "bytes": 36
+          },
+          "maxp": {
+            "sha256": "e436093fd65668ec6b368935b70455111a0c952b2f55c9c9c20f895a55180387",
+            "bytes": 32
+          },
+          "OS/2": {
+            "sha256": "961260246f586e5008c8cd47e1173bcd9707607365b4eb6e3aaad283a385538e",
+            "bytes": 96
+          },
+          "hmtx": {
+            "sha256": "1b2064f7bf7cfe6f13436c6b131aa726e7af336848674aecf6a60d2078d59fda",
+            "bytes": 52598
+          },
+          "cmap": {
+            "sha256": "f56c10b460674b5da887c3ae1ccd2b2ca5b91c536a0b9f0df7b4853fd4b3b178",
+            "bytes": 213105
+          },
+          "fpgm": {
+            "sha256": "24c7d2293020be24d28f973149e99b5e04536533dfb66a518191cc7fa206f99b",
+            "bytes": 3596
+          },
+          "prep": {
+            "sha256": "e282e040eb0146fa56caddc3a32d4a4e4a8cc8a204431fcf76aeb56651f24e63",
+            "bytes": 214
+          },
+          "cvt ": {
+            "sha256": "e2b5a0cc6bf356bbbb2532723758eeaae3c83192771338ef61c7d25174d55739",
+            "bytes": 168
+          },
+          "loca": {
+            "sha256": "807292b89ddb55218aa671a5b8a421a603f30d09638ab62aa793f30e04a54503",
+            "bytes": 52608
+          },
+          "glyf": {
+            "sha256": "ec74b09a4e80bc5c283d8c44a1f00e19b628f396388c885f96bc56968e9ecafa",
+            "bytes": 3001483
+          },
+          "name": {
+            "sha256": "3317f1e7d1a6891271c77061f0ea999a296e7beb6770deedcb206a4203314446",
+            "bytes": 1335
+          },
+          "post": {
+            "sha256": "38fafec110921ea806e406ba322e92b166b8d9b9160ab4f7214bbf626734d2e1",
+            "bytes": 134271
+          },
+          "gasp": {
+            "sha256": "4ca731f86ad506ac0e320283dc9461926346de3c4d91d539ea7f6620d3826940",
+            "bytes": 8
+          },
+          "GDEF": {
+            "sha256": "ff0d32be993030cb1b6476180d1999407c3c06452d09d6315f57f5c9e97d2e8f",
+            "bytes": 584
+          },
+          "GPOS": {
+            "sha256": "6b15cbda5328c42db54332f49bf7303d14a8a68e64c93d47f841117d261fc804",
+            "bytes": 119958
+          },
+          "GSUB": {
+            "sha256": "fb4a97c9258ee18decfcca4d8c0ea5b47278b51f402dd2e0c47269978e4bb12c",
+            "bytes": 32280
+          }
+        }
+      },
+      "changed_tables": [
+        "head",
+        "OS/2"
+      ],
+      "only_xAvgCharWidth_and_checkSumAdjustment_changed": true
+    },
+    "Italic": {
+      "before": {
+        "filename": "SOROEMONO-Italic.ttf",
+        "sha256": "846a900fef548abc964941475e800f6a44ed1fba5486a21724d6a8f2becb2ab6",
+        "head": {
+          "tableVersion": 1.0,
+          "fontRevision": 2.0,
+          "checkSumAdjustment": 3155583912,
+          "magicNumber": 1594834165,
+          "flags": 11,
+          "unitsPerEm": 1000,
+          "created": 3806352000,
+          "modified": 3806352000,
+          "xMin": -1746,
+          "yMin": -400,
+          "xMax": 1279,
+          "yMax": 1120,
+          "macStyle": 2,
+          "lowestRecPPEM": 9,
+          "fontDirectionHint": 2,
+          "indexToLocFormat": 1,
+          "glyphDataFormat": 0
+        },
+        "hhea": {
+          "tableVersion": 65536,
+          "ascent": 1020,
+          "descent": -300,
+          "lineGap": 0,
+          "advanceWidthMax": 1200,
+          "minLeftSideBearing": -1746,
+          "minRightSideBearing": -665,
+          "xMaxExtent": 1279,
+          "caretSlopeRise": 1000,
+          "caretSlopeRun": 158,
+          "caretOffset": 0,
+          "reserved0": 0,
+          "reserved1": 0,
+          "reserved2": 0,
+          "reserved3": 0,
+          "metricDataFormat": 0,
+          "numberOfHMetrics": 13135
+        },
+        "maxp": {
+          "tableVersion": 65536,
+          "numGlyphs": 13138,
+          "maxPoints": 440,
+          "maxContours": 110,
+          "maxCompositePoints": 135,
+          "maxCompositeContours": 6,
+          "maxZones": 2,
+          "maxTwilightPoints": 660,
+          "maxStorage": 1014,
+          "maxFunctionDefs": 141,
+          "maxInstructionDefs": 0,
+          "maxStackElements": 1376,
+          "maxSizeOfInstructions": 3596,
+          "maxComponentElements": 3,
+          "maxComponentDepth": 1
+        },
+        "OS/2": {
+          "tableTag": "OS/2",
+          "version": 4,
+          "xAvgCharWidth": 1115,
+          "usWeightClass": 400,
+          "usWidthClass": 5,
+          "fsType": 0,
+          "ySubscriptXSize": 650,
+          "ySubscriptYSize": 600,
+          "ySubscriptXOffset": -12,
+          "ySubscriptYOffset": 75,
+          "ySuperscriptXSize": 650,
+          "ySuperscriptYSize": 600,
+          "ySuperscriptXOffset": 55,
+          "ySuperscriptYOffset": 350,
+          "yStrikeoutSize": 50,
+          "yStrikeoutPosition": 320,
+          "sFamilyClass": 0,
+          "ulUnicodeRange1": 3758359295,
+          "ulUnicodeRange2": 986185211,
+          "ulUnicodeRange3": 33554494,
+          "ulUnicodeRange4": 0,
+          "achVendID": "JB\u0000\u0000",
+          "fsSelection": 129,
+          "usFirstCharIndex": 13,
+          "usLastCharIndex": 65535,
+          "sTypoAscender": 1020,
+          "sTypoDescender": -300,
+          "sTypoLineGap": 0,
+          "usWinAscent": 1120,
+          "usWinDescent": 400,
+          "ulCodePageRange1": 537002399,
+          "ulCodePageRange2": 3755409408,
+          "sxHeight": 1108,
+          "sCapHeight": 1567,
+          "usDefaultChar": 0,
+          "usBreakChar": 32,
+          "usMaxContext": 6
+        },
+        "panose": {
+          "bFamilyType": 2,
+          "bSerifStyle": 0,
+          "bWeight": 0,
+          "bProportion": 9,
+          "bContrast": 0,
+          "bStrokeVariation": 0,
+          "bArmStyle": 0,
+          "bLetterForm": 0,
+          "bMidline": 0,
+          "bXHeight": 0
+        },
+        "post": {
+          "formatType": 2.0,
+          "isFixedPitch": 1,
+          "italicAngle": -9.0
+        },
+        "cmap": {
+          "characters": 12442,
+          "subtables": [
+            {
+              "format": 14,
+              "platform": 0,
+              "encoding": 5,
+              "entries": 10160
+            },
+            {
+              "format": 4,
+              "platform": 3,
+              "encoding": 1,
+              "entries": 12082
+            },
+            {
+              "format": 12,
+              "platform": 3,
+              "encoding": 10,
+              "entries": 12442
+            }
+          ]
+        },
+        "hmtx": {
+          "unicode_advances": {
+            "0": 47,
+            "600": 1518,
+            "1200": 10877
+          },
+          "all_glyph_advances": {
+            "0": 92,
+            "600": 1844,
+            "1200": 11202
+          },
+          "samples": {
+            "A": 600,
+            " ": 600,
+            "元": 1200,
+            "日": 1200,
+            "ｱ": 600
+          }
+        },
+        "tables": {
+          "head": {
+            "sha256": "a0d9bea6bd8678ba3bf943759ccd26c4a0d2e9c927224fe307cd2215e1e08f67",
+            "bytes": 54
+          },
+          "hhea": {
+            "sha256": "2361b908c382c1158da7f486211861af81cb030ffe64a741c6c6872f23fc54ee",
+            "bytes": 36
+          },
+          "maxp": {
+            "sha256": "972fdb41d21fb758c08b99896de99edb0e3fc19220e167404142e246073002de",
+            "bytes": 32
+          },
+          "OS/2": {
+            "sha256": "fcf342e05386e38774d9b3da9b1ee6a1baedd059db4a05eb7ac93fed7843f6a9",
+            "bytes": 96
+          },
+          "hmtx": {
+            "sha256": "784735ff2dd7066312fe46456bf3b125eb68f6bb2506b78daa61201e25d72837",
+            "bytes": 52546
+          },
+          "cmap": {
+            "sha256": "c6158e8338c67790e8f21740621250b2a4cfc012aa3dc9b93ae9a8b4ab12a334",
+            "bytes": 213105
+          },
+          "fpgm": {
+            "sha256": "24c7d2293020be24d28f973149e99b5e04536533dfb66a518191cc7fa206f99b",
+            "bytes": 3596
+          },
+          "prep": {
+            "sha256": "e282e040eb0146fa56caddc3a32d4a4e4a8cc8a204431fcf76aeb56651f24e63",
+            "bytes": 214
+          },
+          "cvt ": {
+            "sha256": "888533e882085d8b651ac3ac10b79660954342ccc8787cc2e812f39508954174",
+            "bytes": 168
+          },
+          "loca": {
+            "sha256": "ebc6dbccfd9b57afaa6442517bf6eec1c756033be6828bd7b72784dcaaf9c8a2",
+            "bytes": 52556
+          },
+          "glyf": {
+            "sha256": "6e1eea1c051386cbd144d192362de589d86159c219e48716ab70a371787e7991",
+            "bytes": 3213249
+          },
+          "name": {
+            "sha256": "79b9548a80f32ebd96097187e67e42c2dc5fdaa4749b8fdeb5e63894eff23c60",
+            "bytes": 1351
+          },
+          "post": {
+            "sha256": "62dcf41cb7378235be543b19e1e8de7b9864dfdcd45382caf488a60ed84f3365",
+            "bytes": 134108
+          },
+          "gasp": {
+            "sha256": "4ca731f86ad506ac0e320283dc9461926346de3c4d91d539ea7f6620d3826940",
+            "bytes": 8
+          },
+          "GDEF": {
+            "sha256": "f0828bf1e14459ddc495f436197d38c847d5589e0e557e41e369284c287374f4",
+            "bytes": 578
+          },
+          "GPOS": {
+            "sha256": "ba4812b161a03c3af886bb0531b07a896699b1e0e9896fe53ccdaca389fdd2f6",
+            "bytes": 119774
+          },
+          "GSUB": {
+            "sha256": "48aa528a7e730e965f2b2f0f34cf297980594a638468d354bdc8735870ca97a3",
+            "bytes": 32066
+          }
+        }
+      },
+      "after": {
+        "filename": "SOROEMONO-Italic.ttf",
+        "sha256": "15a03a7486788baec0b9687579130e4fbaa7de0c5f351549692ac280fac72ea2",
+        "head": {
+          "tableVersion": 1.0,
+          "fontRevision": 2.0,
+          "checkSumAdjustment": 3155584942,
+          "magicNumber": 1594834165,
+          "flags": 11,
+          "unitsPerEm": 1000,
+          "created": 3806352000,
+          "modified": 3806352000,
+          "xMin": -1746,
+          "yMin": -400,
+          "xMax": 1279,
+          "yMax": 1120,
+          "macStyle": 2,
+          "lowestRecPPEM": 9,
+          "fontDirectionHint": 2,
+          "indexToLocFormat": 1,
+          "glyphDataFormat": 0
+        },
+        "hhea": {
+          "tableVersion": 65536,
+          "ascent": 1020,
+          "descent": -300,
+          "lineGap": 0,
+          "advanceWidthMax": 1200,
+          "minLeftSideBearing": -1746,
+          "minRightSideBearing": -665,
+          "xMaxExtent": 1279,
+          "caretSlopeRise": 1000,
+          "caretSlopeRun": 158,
+          "caretOffset": 0,
+          "reserved0": 0,
+          "reserved1": 0,
+          "reserved2": 0,
+          "reserved3": 0,
+          "metricDataFormat": 0,
+          "numberOfHMetrics": 13135
+        },
+        "maxp": {
+          "tableVersion": 65536,
+          "numGlyphs": 13138,
+          "maxPoints": 440,
+          "maxContours": 110,
+          "maxCompositePoints": 135,
+          "maxCompositeContours": 6,
+          "maxZones": 2,
+          "maxTwilightPoints": 660,
+          "maxStorage": 1014,
+          "maxFunctionDefs": 141,
+          "maxInstructionDefs": 0,
+          "maxStackElements": 1376,
+          "maxSizeOfInstructions": 3596,
+          "maxComponentElements": 3,
+          "maxComponentDepth": 1
+        },
+        "OS/2": {
+          "tableTag": "OS/2",
+          "version": 4,
+          "xAvgCharWidth": 600,
+          "usWeightClass": 400,
+          "usWidthClass": 5,
+          "fsType": 0,
+          "ySubscriptXSize": 650,
+          "ySubscriptYSize": 600,
+          "ySubscriptXOffset": -12,
+          "ySubscriptYOffset": 75,
+          "ySuperscriptXSize": 650,
+          "ySuperscriptYSize": 600,
+          "ySuperscriptXOffset": 55,
+          "ySuperscriptYOffset": 350,
+          "yStrikeoutSize": 50,
+          "yStrikeoutPosition": 320,
+          "sFamilyClass": 0,
+          "ulUnicodeRange1": 3758359295,
+          "ulUnicodeRange2": 986185211,
+          "ulUnicodeRange3": 33554494,
+          "ulUnicodeRange4": 0,
+          "achVendID": "JB\u0000\u0000",
+          "fsSelection": 129,
+          "usFirstCharIndex": 13,
+          "usLastCharIndex": 65535,
+          "sTypoAscender": 1020,
+          "sTypoDescender": -300,
+          "sTypoLineGap": 0,
+          "usWinAscent": 1120,
+          "usWinDescent": 400,
+          "ulCodePageRange1": 537002399,
+          "ulCodePageRange2": 3755409408,
+          "sxHeight": 1108,
+          "sCapHeight": 1567,
+          "usDefaultChar": 0,
+          "usBreakChar": 32,
+          "usMaxContext": 6
+        },
+        "panose": {
+          "bFamilyType": 2,
+          "bSerifStyle": 0,
+          "bWeight": 0,
+          "bProportion": 9,
+          "bContrast": 0,
+          "bStrokeVariation": 0,
+          "bArmStyle": 0,
+          "bLetterForm": 0,
+          "bMidline": 0,
+          "bXHeight": 0
+        },
+        "post": {
+          "formatType": 2.0,
+          "isFixedPitch": 1,
+          "italicAngle": -9.0
+        },
+        "cmap": {
+          "characters": 12442,
+          "subtables": [
+            {
+              "format": 14,
+              "platform": 0,
+              "encoding": 5,
+              "entries": 10160
+            },
+            {
+              "format": 4,
+              "platform": 3,
+              "encoding": 1,
+              "entries": 12082
+            },
+            {
+              "format": 12,
+              "platform": 3,
+              "encoding": 10,
+              "entries": 12442
+            }
+          ]
+        },
+        "hmtx": {
+          "unicode_advances": {
+            "0": 47,
+            "600": 1518,
+            "1200": 10877
+          },
+          "all_glyph_advances": {
+            "0": 92,
+            "600": 1844,
+            "1200": 11202
+          },
+          "samples": {
+            "A": 600,
+            " ": 600,
+            "元": 1200,
+            "日": 1200,
+            "ｱ": 600
+          }
+        },
+        "tables": {
+          "head": {
+            "sha256": "f82bb5856d5cc1335b31626c257490f4f66d867455d82fc369d61fa55d8043ed",
+            "bytes": 54
+          },
+          "hhea": {
+            "sha256": "2361b908c382c1158da7f486211861af81cb030ffe64a741c6c6872f23fc54ee",
+            "bytes": 36
+          },
+          "maxp": {
+            "sha256": "972fdb41d21fb758c08b99896de99edb0e3fc19220e167404142e246073002de",
+            "bytes": 32
+          },
+          "OS/2": {
+            "sha256": "f9f1e5337b3120d6551ba882c065e9ef6f7fa9c4feb13dbc49c1f28f6da8ca90",
+            "bytes": 96
+          },
+          "hmtx": {
+            "sha256": "784735ff2dd7066312fe46456bf3b125eb68f6bb2506b78daa61201e25d72837",
+            "bytes": 52546
+          },
+          "cmap": {
+            "sha256": "c6158e8338c67790e8f21740621250b2a4cfc012aa3dc9b93ae9a8b4ab12a334",
+            "bytes": 213105
+          },
+          "fpgm": {
+            "sha256": "24c7d2293020be24d28f973149e99b5e04536533dfb66a518191cc7fa206f99b",
+            "bytes": 3596
+          },
+          "prep": {
+            "sha256": "e282e040eb0146fa56caddc3a32d4a4e4a8cc8a204431fcf76aeb56651f24e63",
+            "bytes": 214
+          },
+          "cvt ": {
+            "sha256": "888533e882085d8b651ac3ac10b79660954342ccc8787cc2e812f39508954174",
+            "bytes": 168
+          },
+          "loca": {
+            "sha256": "ebc6dbccfd9b57afaa6442517bf6eec1c756033be6828bd7b72784dcaaf9c8a2",
+            "bytes": 52556
+          },
+          "glyf": {
+            "sha256": "6e1eea1c051386cbd144d192362de589d86159c219e48716ab70a371787e7991",
+            "bytes": 3213249
+          },
+          "name": {
+            "sha256": "79b9548a80f32ebd96097187e67e42c2dc5fdaa4749b8fdeb5e63894eff23c60",
+            "bytes": 1351
+          },
+          "post": {
+            "sha256": "62dcf41cb7378235be543b19e1e8de7b9864dfdcd45382caf488a60ed84f3365",
+            "bytes": 134108
+          },
+          "gasp": {
+            "sha256": "4ca731f86ad506ac0e320283dc9461926346de3c4d91d539ea7f6620d3826940",
+            "bytes": 8
+          },
+          "GDEF": {
+            "sha256": "f0828bf1e14459ddc495f436197d38c847d5589e0e557e41e369284c287374f4",
+            "bytes": 578
+          },
+          "GPOS": {
+            "sha256": "ba4812b161a03c3af886bb0531b07a896699b1e0e9896fe53ccdaca389fdd2f6",
+            "bytes": 119774
+          },
+          "GSUB": {
+            "sha256": "48aa528a7e730e965f2b2f0f34cf297980594a638468d354bdc8735870ca97a3",
+            "bytes": 32066
+          }
+        }
+      },
+      "changed_tables": [
+        "head",
+        "OS/2"
+      ],
+      "only_xAvgCharWidth_and_checkSumAdjustment_changed": true
+    },
+    "Bold Italic": {
+      "before": {
+        "filename": "SOROEMONO-BoldItalic.ttf",
+        "sha256": "847568ee0f4daf922a3d3cea9a71f60ce8b4d7a9886bcc56e01102f62787ad43",
+        "head": {
+          "tableVersion": 1.0,
+          "fontRevision": 2.0,
+          "checkSumAdjustment": 3561197273,
+          "magicNumber": 1594834165,
+          "flags": 11,
+          "unitsPerEm": 1000,
+          "created": 3806352000,
+          "modified": 3806352000,
+          "xMin": -1738,
+          "yMin": -400,
+          "xMax": 1279,
+          "yMax": 1120,
+          "macStyle": 3,
+          "lowestRecPPEM": 9,
+          "fontDirectionHint": 2,
+          "indexToLocFormat": 1,
+          "glyphDataFormat": 0
+        },
+        "hhea": {
+          "tableVersion": 65536,
+          "ascent": 1020,
+          "descent": -300,
+          "lineGap": 0,
+          "advanceWidthMax": 1200,
+          "minLeftSideBearing": -1738,
+          "minRightSideBearing": -665,
+          "xMaxExtent": 1279,
+          "caretSlopeRise": 1000,
+          "caretSlopeRun": 158,
+          "caretOffset": 0,
+          "reserved0": 0,
+          "reserved1": 0,
+          "reserved2": 0,
+          "reserved3": 0,
+          "metricDataFormat": 0,
+          "numberOfHMetrics": 13135
+        },
+        "maxp": {
+          "tableVersion": 65536,
+          "numGlyphs": 13138,
+          "maxPoints": 440,
+          "maxContours": 110,
+          "maxCompositePoints": 123,
+          "maxCompositeContours": 6,
+          "maxZones": 2,
+          "maxTwilightPoints": 660,
+          "maxStorage": 1014,
+          "maxFunctionDefs": 141,
+          "maxInstructionDefs": 0,
+          "maxStackElements": 1376,
+          "maxSizeOfInstructions": 3596,
+          "maxComponentElements": 3,
+          "maxComponentDepth": 1
+        },
+        "OS/2": {
+          "tableTag": "OS/2",
+          "version": 4,
+          "xAvgCharWidth": 1115,
+          "usWeightClass": 700,
+          "usWidthClass": 5,
+          "fsType": 0,
+          "ySubscriptXSize": 650,
+          "ySubscriptYSize": 600,
+          "ySubscriptXOffset": -12,
+          "ySubscriptYOffset": 75,
+          "ySuperscriptXSize": 650,
+          "ySuperscriptYSize": 600,
+          "ySuperscriptXOffset": 55,
+          "ySuperscriptYOffset": 350,
+          "yStrikeoutSize": 50,
+          "yStrikeoutPosition": 320,
+          "sFamilyClass": 0,
+          "ulUnicodeRange1": 3758359295,
+          "ulUnicodeRange2": 986185211,
+          "ulUnicodeRange3": 33554494,
+          "ulUnicodeRange4": 0,
+          "achVendID": "JB\u0000\u0000",
+          "fsSelection": 161,
+          "usFirstCharIndex": 13,
+          "usLastCharIndex": 65535,
+          "sTypoAscender": 1020,
+          "sTypoDescender": -300,
+          "sTypoLineGap": 0,
+          "usWinAscent": 1120,
+          "usWinDescent": 400,
+          "ulCodePageRange1": 537002399,
+          "ulCodePageRange2": 3755409408,
+          "sxHeight": 1108,
+          "sCapHeight": 1567,
+          "usDefaultChar": 0,
+          "usBreakChar": 32,
+          "usMaxContext": 6
+        },
+        "panose": {
+          "bFamilyType": 2,
+          "bSerifStyle": 0,
+          "bWeight": 0,
+          "bProportion": 9,
+          "bContrast": 0,
+          "bStrokeVariation": 0,
+          "bArmStyle": 0,
+          "bLetterForm": 0,
+          "bMidline": 0,
+          "bXHeight": 0
+        },
+        "post": {
+          "formatType": 2.0,
+          "isFixedPitch": 1,
+          "italicAngle": -9.0
+        },
+        "cmap": {
+          "characters": 12442,
+          "subtables": [
+            {
+              "format": 14,
+              "platform": 0,
+              "encoding": 5,
+              "entries": 10160
+            },
+            {
+              "format": 4,
+              "platform": 3,
+              "encoding": 1,
+              "entries": 12082
+            },
+            {
+              "format": 12,
+              "platform": 3,
+              "encoding": 10,
+              "entries": 12442
+            }
+          ]
+        },
+        "hmtx": {
+          "unicode_advances": {
+            "0": 47,
+            "600": 1518,
+            "1200": 10877
+          },
+          "all_glyph_advances": {
+            "0": 92,
+            "600": 1844,
+            "1200": 11202
+          },
+          "samples": {
+            "A": 600,
+            " ": 600,
+            "元": 1200,
+            "日": 1200,
+            "ｱ": 600
+          }
+        },
+        "tables": {
+          "head": {
+            "sha256": "a126b1ae5acfd1f5d29e28a1f6ae5a2e86634a7404e208a8c5ef2e6d2ef46501",
+            "bytes": 54
+          },
+          "hhea": {
+            "sha256": "66696057e837bacae19ac7ba7da0d0c0d748378c068bbc1ebfadd0beb898910d",
+            "bytes": 36
+          },
+          "maxp": {
+            "sha256": "58f94583495c11b5703aa67a00402878c4a7975c4ed1a405bc9dfe4a18c4e5f0",
+            "bytes": 32
+          },
+          "OS/2": {
+            "sha256": "732f6dcf9b38975bef9ee0c14c6f7590781a311c6bead93a89eeabd5dd5d2958",
+            "bytes": 96
+          },
+          "hmtx": {
+            "sha256": "21773f07881a7dbb4b92d220b5a7707fe91f749c400065ed2ccbca4964eb4e6e",
+            "bytes": 52546
+          },
+          "cmap": {
+            "sha256": "c6158e8338c67790e8f21740621250b2a4cfc012aa3dc9b93ae9a8b4ab12a334",
+            "bytes": 213105
+          },
+          "fpgm": {
+            "sha256": "24c7d2293020be24d28f973149e99b5e04536533dfb66a518191cc7fa206f99b",
+            "bytes": 3596
+          },
+          "prep": {
+            "sha256": "e282e040eb0146fa56caddc3a32d4a4e4a8cc8a204431fcf76aeb56651f24e63",
+            "bytes": 214
+          },
+          "cvt ": {
+            "sha256": "142282ec023d348935e037c505adfdb362a37c97ae07ebe586d0ecbbcdc5d22d",
+            "bytes": 168
+          },
+          "loca": {
+            "sha256": "29714fcf173ed4aac910cb4291faceb9bd9220d50709da8771a89f19cf6336f5",
+            "bytes": 52556
+          },
+          "glyf": {
+            "sha256": "31031c01bdbfd539e538262f3abbe7b093436674f944fbbcc08c9dc9b23818ae",
+            "bytes": 3214398
+          },
+          "name": {
+            "sha256": "0acf63445fde78f5a04a27dec88c38ac9a2fa2470de353a63596b3d79e48d271",
+            "bytes": 1387
+          },
+          "post": {
+            "sha256": "62dcf41cb7378235be543b19e1e8de7b9864dfdcd45382caf488a60ed84f3365",
+            "bytes": 134108
+          },
+          "gasp": {
+            "sha256": "4ca731f86ad506ac0e320283dc9461926346de3c4d91d539ea7f6620d3826940",
+            "bytes": 8
+          },
+          "GDEF": {
+            "sha256": "f0828bf1e14459ddc495f436197d38c847d5589e0e557e41e369284c287374f4",
+            "bytes": 578
+          },
+          "GPOS": {
+            "sha256": "f7a23996ee4071d956ce5901b93b7809f96722a8025503d6450d2049f6b1af74",
+            "bytes": 119996
+          },
+          "GSUB": {
+            "sha256": "48aa528a7e730e965f2b2f0f34cf297980594a638468d354bdc8735870ca97a3",
+            "bytes": 32066
+          }
+        }
+      },
+      "after": {
+        "filename": "SOROEMONO-BoldItalic.ttf",
+        "sha256": "4c8b510b284a9f2314dc7300dc8843e36434f611a5f7759be73f0a630683b071",
+        "head": {
+          "tableVersion": 1.0,
+          "fontRevision": 2.0,
+          "checkSumAdjustment": 3561198303,
+          "magicNumber": 1594834165,
+          "flags": 11,
+          "unitsPerEm": 1000,
+          "created": 3806352000,
+          "modified": 3806352000,
+          "xMin": -1738,
+          "yMin": -400,
+          "xMax": 1279,
+          "yMax": 1120,
+          "macStyle": 3,
+          "lowestRecPPEM": 9,
+          "fontDirectionHint": 2,
+          "indexToLocFormat": 1,
+          "glyphDataFormat": 0
+        },
+        "hhea": {
+          "tableVersion": 65536,
+          "ascent": 1020,
+          "descent": -300,
+          "lineGap": 0,
+          "advanceWidthMax": 1200,
+          "minLeftSideBearing": -1738,
+          "minRightSideBearing": -665,
+          "xMaxExtent": 1279,
+          "caretSlopeRise": 1000,
+          "caretSlopeRun": 158,
+          "caretOffset": 0,
+          "reserved0": 0,
+          "reserved1": 0,
+          "reserved2": 0,
+          "reserved3": 0,
+          "metricDataFormat": 0,
+          "numberOfHMetrics": 13135
+        },
+        "maxp": {
+          "tableVersion": 65536,
+          "numGlyphs": 13138,
+          "maxPoints": 440,
+          "maxContours": 110,
+          "maxCompositePoints": 123,
+          "maxCompositeContours": 6,
+          "maxZones": 2,
+          "maxTwilightPoints": 660,
+          "maxStorage": 1014,
+          "maxFunctionDefs": 141,
+          "maxInstructionDefs": 0,
+          "maxStackElements": 1376,
+          "maxSizeOfInstructions": 3596,
+          "maxComponentElements": 3,
+          "maxComponentDepth": 1
+        },
+        "OS/2": {
+          "tableTag": "OS/2",
+          "version": 4,
+          "xAvgCharWidth": 600,
+          "usWeightClass": 700,
+          "usWidthClass": 5,
+          "fsType": 0,
+          "ySubscriptXSize": 650,
+          "ySubscriptYSize": 600,
+          "ySubscriptXOffset": -12,
+          "ySubscriptYOffset": 75,
+          "ySuperscriptXSize": 650,
+          "ySuperscriptYSize": 600,
+          "ySuperscriptXOffset": 55,
+          "ySuperscriptYOffset": 350,
+          "yStrikeoutSize": 50,
+          "yStrikeoutPosition": 320,
+          "sFamilyClass": 0,
+          "ulUnicodeRange1": 3758359295,
+          "ulUnicodeRange2": 986185211,
+          "ulUnicodeRange3": 33554494,
+          "ulUnicodeRange4": 0,
+          "achVendID": "JB\u0000\u0000",
+          "fsSelection": 161,
+          "usFirstCharIndex": 13,
+          "usLastCharIndex": 65535,
+          "sTypoAscender": 1020,
+          "sTypoDescender": -300,
+          "sTypoLineGap": 0,
+          "usWinAscent": 1120,
+          "usWinDescent": 400,
+          "ulCodePageRange1": 537002399,
+          "ulCodePageRange2": 3755409408,
+          "sxHeight": 1108,
+          "sCapHeight": 1567,
+          "usDefaultChar": 0,
+          "usBreakChar": 32,
+          "usMaxContext": 6
+        },
+        "panose": {
+          "bFamilyType": 2,
+          "bSerifStyle": 0,
+          "bWeight": 0,
+          "bProportion": 9,
+          "bContrast": 0,
+          "bStrokeVariation": 0,
+          "bArmStyle": 0,
+          "bLetterForm": 0,
+          "bMidline": 0,
+          "bXHeight": 0
+        },
+        "post": {
+          "formatType": 2.0,
+          "isFixedPitch": 1,
+          "italicAngle": -9.0
+        },
+        "cmap": {
+          "characters": 12442,
+          "subtables": [
+            {
+              "format": 14,
+              "platform": 0,
+              "encoding": 5,
+              "entries": 10160
+            },
+            {
+              "format": 4,
+              "platform": 3,
+              "encoding": 1,
+              "entries": 12082
+            },
+            {
+              "format": 12,
+              "platform": 3,
+              "encoding": 10,
+              "entries": 12442
+            }
+          ]
+        },
+        "hmtx": {
+          "unicode_advances": {
+            "0": 47,
+            "600": 1518,
+            "1200": 10877
+          },
+          "all_glyph_advances": {
+            "0": 92,
+            "600": 1844,
+            "1200": 11202
+          },
+          "samples": {
+            "A": 600,
+            " ": 600,
+            "元": 1200,
+            "日": 1200,
+            "ｱ": 600
+          }
+        },
+        "tables": {
+          "head": {
+            "sha256": "343858c6c6d3f3eb34da51700bd6d47e0c2603c05916399020627c76bf65e563",
+            "bytes": 54
+          },
+          "hhea": {
+            "sha256": "66696057e837bacae19ac7ba7da0d0c0d748378c068bbc1ebfadd0beb898910d",
+            "bytes": 36
+          },
+          "maxp": {
+            "sha256": "58f94583495c11b5703aa67a00402878c4a7975c4ed1a405bc9dfe4a18c4e5f0",
+            "bytes": 32
+          },
+          "OS/2": {
+            "sha256": "76ad248062cba002a8fe856f0b574abb1eeeaa8a3a54bd5123518c622cc1b26e",
+            "bytes": 96
+          },
+          "hmtx": {
+            "sha256": "21773f07881a7dbb4b92d220b5a7707fe91f749c400065ed2ccbca4964eb4e6e",
+            "bytes": 52546
+          },
+          "cmap": {
+            "sha256": "c6158e8338c67790e8f21740621250b2a4cfc012aa3dc9b93ae9a8b4ab12a334",
+            "bytes": 213105
+          },
+          "fpgm": {
+            "sha256": "24c7d2293020be24d28f973149e99b5e04536533dfb66a518191cc7fa206f99b",
+            "bytes": 3596
+          },
+          "prep": {
+            "sha256": "e282e040eb0146fa56caddc3a32d4a4e4a8cc8a204431fcf76aeb56651f24e63",
+            "bytes": 214
+          },
+          "cvt ": {
+            "sha256": "142282ec023d348935e037c505adfdb362a37c97ae07ebe586d0ecbbcdc5d22d",
+            "bytes": 168
+          },
+          "loca": {
+            "sha256": "29714fcf173ed4aac910cb4291faceb9bd9220d50709da8771a89f19cf6336f5",
+            "bytes": 52556
+          },
+          "glyf": {
+            "sha256": "31031c01bdbfd539e538262f3abbe7b093436674f944fbbcc08c9dc9b23818ae",
+            "bytes": 3214398
+          },
+          "name": {
+            "sha256": "0acf63445fde78f5a04a27dec88c38ac9a2fa2470de353a63596b3d79e48d271",
+            "bytes": 1387
+          },
+          "post": {
+            "sha256": "62dcf41cb7378235be543b19e1e8de7b9864dfdcd45382caf488a60ed84f3365",
+            "bytes": 134108
+          },
+          "gasp": {
+            "sha256": "4ca731f86ad506ac0e320283dc9461926346de3c4d91d539ea7f6620d3826940",
+            "bytes": 8
+          },
+          "GDEF": {
+            "sha256": "f0828bf1e14459ddc495f436197d38c847d5589e0e557e41e369284c287374f4",
+            "bytes": 578
+          },
+          "GPOS": {
+            "sha256": "f7a23996ee4071d956ce5901b93b7809f96722a8025503d6450d2049f6b1af74",
+            "bytes": 119996
+          },
+          "GSUB": {
+            "sha256": "48aa528a7e730e965f2b2f0f34cf297980594a638468d354bdc8735870ca97a3",
+            "bytes": 32066
+          }
+        }
+      },
+      "changed_tables": [
+        "head",
+        "OS/2"
+      ],
+      "only_xAvgCharWidth_and_checkSumAdjustment_changed": true
+    }
+  },
+  "references": {
+    "UDEV Gothic v2.2.0 Regular": {
+      "filename": "UDEVGothic-Regular.ttf",
+      "sha256": "25fa0eca4be611ac125f03411d280c85494153da01dfa02ba734399c05f6289d",
+      "head": {
+        "tableVersion": 1.0,
+        "fontRevision": 2.3040008544921875,
+        "checkSumAdjustment": 3245834111,
+        "magicNumber": 1594834165,
+        "flags": 9,
+        "unitsPerEm": 2048,
+        "created": 3854684286,
+        "modified": 3854684351,
+        "xMin": -2162,
+        "yMin": -811,
+        "xMax": 2048,
+        "yMax": 2271,
+        "macStyle": 0,
+        "lowestRecPPEM": 8,
+        "fontDirectionHint": 2,
+        "indexToLocFormat": 1,
+        "glyphDataFormat": 0
+      },
+      "hhea": {
+        "tableVersion": 65536,
+        "ascent": 1962,
+        "descent": -416,
+        "lineGap": 0,
+        "advanceWidthMax": 2048,
+        "minLeftSideBearing": -2162,
+        "minRightSideBearing": -347,
+        "xMaxExtent": 2048,
+        "caretSlopeRise": 1,
+        "caretSlopeRun": 0,
+        "caretOffset": 0,
+        "reserved0": 0,
+        "reserved1": 0,
+        "reserved2": 0,
+        "reserved3": 0,
+        "metricDataFormat": 0,
+        "numberOfHMetrics": 14860
+      },
+      "maxp": {
+        "tableVersion": 65536,
+        "numGlyphs": 14860,
+        "maxPoints": 440,
+        "maxContours": 110,
+        "maxCompositePoints": 0,
+        "maxCompositeContours": 0,
+        "maxZones": 2,
+        "maxTwilightPoints": 44,
+        "maxStorage": 90,
+        "maxFunctionDefs": 141,
+        "maxInstructionDefs": 0,
+        "maxStackElements": 833,
+        "maxSizeOfInstructions": 3581,
+        "maxComponentElements": 0,
+        "maxComponentDepth": 0
+      },
+      "OS/2": {
+        "tableTag": "OS/2",
+        "version": 4,
+        "xAvgCharWidth": 1024,
+        "usWeightClass": 400,
+        "usWidthClass": 5,
+        "fsType": 0,
+        "ySubscriptXSize": 1331,
+        "ySubscriptYSize": 1229,
+        "ySubscriptXOffset": 0,
+        "ySubscriptYOffset": 154,
+        "ySuperscriptXSize": 1331,
+        "ySuperscriptYSize": 1229,
+        "ySuperscriptXOffset": 0,
+        "ySuperscriptYOffset": 717,
+        "yStrikeoutSize": 102,
+        "yStrikeoutPosition": 655,
+        "sFamilyClass": 0,
+        "ulUnicodeRange1": 3758359295,
+        "ulUnicodeRange2": 986185211,
+        "ulUnicodeRange3": 33554494,
+        "ulUnicodeRange4": 0,
+        "achVendID": "TWR\u0000",
+        "fsSelection": 320,
+        "usFirstCharIndex": 13,
+        "usLastCharIndex": 65535,
+        "sTypoAscender": 1962,
+        "sTypoDescender": -416,
+        "sTypoLineGap": 0,
+        "usWinAscent": 1962,
+        "usWinDescent": 416,
+        "ulCodePageRange1": 537002399,
+        "ulCodePageRange2": 3755409408,
+        "sxHeight": 1115,
+        "sCapHeight": 1480,
+        "usDefaultChar": 0,
+        "usBreakChar": 32,
+        "usMaxContext": 6
+      },
+      "panose": {
+        "bFamilyType": 2,
+        "bSerifStyle": 11,
+        "bWeight": 5,
+        "bProportion": 9,
+        "bContrast": 2,
+        "bStrokeVariation": 2,
+        "bArmStyle": 3,
+        "bLetterForm": 2,
+        "bMidline": 2,
+        "bXHeight": 7
+      },
+      "post": {
+        "formatType": 2.0,
+        "isFixedPitch": 1,
+        "italicAngle": 0.0
+      },
+      "cmap": {
+        "characters": 12438,
+        "subtables": [
+          {
+            "format": 14,
+            "platform": 0,
+            "encoding": 5,
+            "entries": 10160
+          },
+          {
+            "format": 4,
+            "platform": 3,
+            "encoding": 1,
+            "entries": 12078
+          },
+          {
+            "format": 12,
+            "platform": 3,
+            "encoding": 10,
+            "entries": 12438
+          }
+        ]
+      },
+      "hmtx": {
+        "unicode_advances": {
+          "0": 24,
+          "1024": 1537,
+          "2048": 10877
+        },
+        "all_glyph_advances": {
+          "0": 71,
+          "553": 1,
+          "594": 4,
+          "625": 2,
+          "635": 5,
+          "655": 9,
+          "676": 8,
+          "682": 2,
+          "683": 2,
+          "717": 1,
+          "729": 1,
+          "778": 3,
+          "819": 1,
+          "840": 2,
+          "860": 9,
+          "881": 1,
+          "901": 2,
+          "922": 8,
+          "942": 2,
+          "963": 8,
+          "983": 5,
+          "1004": 2,
+          "1024": 1987,
+          "1044": 2,
+          "1065": 4,
+          "1077": 2,
+          "1106": 3,
+          "1126": 2,
+          "1188": 11,
+          "1208": 6,
+          "1229": 13,
+          "1249": 5,
+          "1270": 1,
+          "1290": 4,
+          "1311": 20,
+          "1331": 14,
+          "1352": 10,
+          "1365": 1,
+          "1372": 3,
+          "1393": 18,
+          "1413": 13,
+          "1434": 61,
+          "1454": 17,
+          "1475": 5,
+          "1491": 1,
+          "1495": 3,
+          "1516": 5,
+          "1536": 8,
+          "1544": 1,
+          "1556": 37,
+          "1565": 2,
+          "1577": 2,
+          "1587": 2,
+          "1597": 1,
+          "1618": 5,
+          "1638": 18,
+          "1659": 4,
+          "1679": 15,
+          "1700": 5,
+          "1720": 39,
+          "1741": 7,
+          "1761": 17,
+          "1782": 5,
+          "1802": 11,
+          "1823": 11,
+          "1839": 1,
+          "1843": 5,
+          "1864": 6,
+          "1884": 9,
+          "1905": 7,
+          "1925": 21,
+          "1946": 12,
+          "1966": 17,
+          "1987": 14,
+          "2007": 39,
+          "2028": 22,
+          "2048": 12157
+        },
+        "samples": {
+          "A": 1024,
+          " ": 1024,
+          "元": 2048,
+          "日": 2048,
+          "ｱ": 1024
+        }
+      },
+      "tables": {
+        "head": {
+          "sha256": "1e2d447e30cedbfa6b741c8b72708ab83d18006edb4de5a495bfed4f589a9e93",
+          "bytes": 54
+        },
+        "hhea": {
+          "sha256": "7a6fe0e7a13c5be573d9768b58e4345cef1e5d614b3b52147f6b7c66339df1c4",
+          "bytes": 36
+        },
+        "maxp": {
+          "sha256": "efdadf97013799c03e324ce9a59e4f199d229496bcc06c2e1afc3a19e572a009",
+          "bytes": 32
+        },
+        "OS/2": {
+          "sha256": "c9cc5cce63cca78610fcfad9d408126244abb9c732d2728047c60c72471282a7",
+          "bytes": 96
+        },
+        "hmtx": {
+          "sha256": "b7b474bc8c2fafa593e3ebbf88ec0b484e42053a76a81ba01cb328514a0717c5",
+          "bytes": 59440
+        },
+        "cmap": {
+          "sha256": "c156876dc70ac1ec27097d1f1d71946e56bc2151b3985906cf60f30f479c09cb",
+          "bytes": 127505
+        },
+        "fpgm": {
+          "sha256": "9f28732b1a53d1e8cfecccfd5675ab02183ed8aed401e0d339e6cdea8db33037",
+          "bytes": 3581
+        },
+        "prep": {
+          "sha256": "dfe954f04ecfb5b1139f313fdbcf0705176142eb18ab500dba007232caeca0f1",
+          "bytes": 243
+        },
+        "cvt ": {
+          "sha256": "1a0406a704c08353f7a7916eaaeb8a1d1f7e451e8c3b4f8af449df7b87c962ef",
+          "bytes": 238
+        },
+        "loca": {
+          "sha256": "1b6f40948e2df54b9fbce8ffc592b0a03f86a6c703d51e5eac49333844e7048f",
+          "bytes": 59444
+        },
+        "glyf": {
+          "sha256": "43fea1dbbb54acebc29e1f80d0ad26889154f3a5959d92b63fb1139f8d5ff5d9",
+          "bytes": 3432450
+        },
+        "name": {
+          "sha256": "1380d0c7cea0b46b406add5fe737cba91d8f055f8a28909df3b7415babbd2794",
+          "bytes": 2385
+        },
+        "post": {
+          "sha256": "54538dfcae64b96cdaab034a5b22c21f55e9e3a2f450e1a4e25b9445ae2d0b9e",
+          "bytes": 155782
+        },
+        "gasp": {
+          "sha256": "4ca731f86ad506ac0e320283dc9461926346de3c4d91d539ea7f6620d3826940",
+          "bytes": 8
+        },
+        "GDEF": {
+          "sha256": "5f74b0fb1e28d47a6542e6b8ee1d46e10317fa234a741d49e49dc1fb641e2e25",
+          "bytes": 850
+        },
+        "GPOS": {
+          "sha256": "64a1a8ad26c9f8d7937468ce97677e84843b3c5566e4ff9e7cf982b11514b688",
+          "bytes": 62
+        },
+        "GSUB": {
+          "sha256": "53d32b3b340764329cc715a2a2b5db9e5a6abe10d96774d741fbe3b3e6fe2118",
+          "bytes": 31832
+        }
+      }
+    },
+    "SOROEMONO v1.0.0 Regular": {
+      "filename": "SOROEMONO-Regular.ttf",
+      "sha256": "83994897f9a4ee58cab502861f47718b4638b1836e379e1479035b4a664ea8d3",
+      "head": {
+        "tableVersion": 1.0,
+        "fontRevision": 1.050994873046875,
+        "checkSumAdjustment": 1859506951,
+        "magicNumber": 1594834165,
+        "flags": 31,
+        "unitsPerEm": 1000,
+        "created": 3776868125,
+        "modified": 3806366105,
+        "xMin": -1735,
+        "yMin": -400,
+        "xMax": 1142,
+        "yMax": 1120,
+        "macStyle": 0,
+        "lowestRecPPEM": 8,
+        "fontDirectionHint": 2,
+        "indexToLocFormat": 1,
+        "glyphDataFormat": 0
+      },
+      "hhea": {
+        "tableVersion": 65536,
+        "ascent": 880,
+        "descent": -120,
+        "lineGap": 0,
+        "advanceWidthMax": 1200,
+        "minLeftSideBearing": -1735,
+        "minRightSideBearing": -165,
+        "xMaxExtent": 1142,
+        "caretSlopeRise": 1,
+        "caretSlopeRun": 0,
+        "caretOffset": 0,
+        "reserved0": 0,
+        "reserved1": 0,
+        "reserved2": 0,
+        "reserved3": 0,
+        "metricDataFormat": 0,
+        "numberOfHMetrics": 15014
+      },
+      "maxp": {
+        "tableVersion": 65536,
+        "numGlyphs": 15014,
+        "maxPoints": 440,
+        "maxContours": 110,
+        "maxCompositePoints": 135,
+        "maxCompositeContours": 6,
+        "maxZones": 2,
+        "maxTwilightPoints": 26,
+        "maxStorage": 47,
+        "maxFunctionDefs": 154,
+        "maxInstructionDefs": 0,
+        "maxStackElements": 829,
+        "maxSizeOfInstructions": 323,
+        "maxComponentElements": 3,
+        "maxComponentDepth": 1
+      },
+      "OS/2": {
+        "tableTag": "OS/2",
+        "version": 4,
+        "xAvgCharWidth": 1123,
+        "usWeightClass": 400,
+        "usWidthClass": 5,
+        "fsType": 0,
+        "ySubscriptXSize": 500,
+        "ySubscriptYSize": 760,
+        "ySubscriptXOffset": 0,
+        "ySubscriptYOffset": 150,
+        "ySuperscriptXSize": 500,
+        "ySuperscriptYSize": 760,
+        "ySuperscriptXOffset": 0,
+        "ySuperscriptYOffset": 0,
+        "yStrikeoutSize": 50,
+        "yStrikeoutPosition": 355,
+        "sFamilyClass": 0,
+        "ulUnicodeRange1": 3758097143,
+        "ulUnicodeRange2": 717745656,
+        "ulUnicodeRange3": 18,
+        "ulUnicodeRange4": 0,
+        "achVendID": "MRSW",
+        "fsSelection": 64,
+        "usFirstCharIndex": 13,
+        "usLastCharIndex": 65535,
+        "sTypoAscender": 880,
+        "sTypoDescender": -120,
+        "sTypoLineGap": 0,
+        "usWinAscent": 880,
+        "usWinDescent": 120,
+        "ulCodePageRange1": 537001993,
+        "ulCodePageRange2": 0,
+        "sxHeight": 541,
+        "sCapHeight": 765,
+        "usDefaultChar": 0,
+        "usBreakChar": 32,
+        "usMaxContext": 12
+      },
+      "panose": {
+        "bFamilyType": 2,
+        "bSerifStyle": 11,
+        "bWeight": 4,
+        "bProportion": 0,
+        "bContrast": 0,
+        "bStrokeVariation": 0,
+        "bArmStyle": 0,
+        "bLetterForm": 0,
+        "bMidline": 0,
+        "bXHeight": 0
+      },
+      "post": {
+        "formatType": 2.0,
+        "isFixedPitch": 0,
+        "italicAngle": 0.0
+      },
+      "cmap": {
+        "characters": 12442,
+        "subtables": [
+          {
+            "format": 4,
+            "platform": 0,
+            "encoding": 3,
+            "entries": 12082
+          },
+          {
+            "format": 12,
+            "platform": 0,
+            "encoding": 4,
+            "entries": 12442
+          },
+          {
+            "format": 14,
+            "platform": 0,
+            "encoding": 5,
+            "entries": 10160
+          },
+          {
+            "format": 6,
+            "platform": 1,
+            "encoding": 0,
+            "entries": 227
+          },
+          {
+            "format": 4,
+            "platform": 3,
+            "encoding": 1,
+            "entries": 12082
+          },
+          {
+            "format": 12,
+            "platform": 3,
+            "encoding": 10,
+            "entries": 12442
+          }
+        ]
+      },
+      "hmtx": {
+        "unicode_advances": {
+          "0": 24,
+          "500": 204,
+          "600": 1339,
+          "1200": 10875
+        },
+        "all_glyph_advances": {
+          "0": 70,
+          "270": 1,
+          "290": 4,
+          "305": 2,
+          "310": 5,
+          "319": 9,
+          "330": 8,
+          "333": 3,
+          "350": 1,
+          "355": 1,
+          "379": 3,
+          "399": 1,
+          "410": 2,
+          "419": 9,
+          "430": 1,
+          "439": 2,
+          "450": 8,
+          "459": 2,
+          "470": 8,
+          "479": 5,
+          "490": 2,
+          "500": 472,
+          "509": 2,
+          "520": 4,
+          "525": 2,
+          "540": 3,
+          "549": 2,
+          "580": 11,
+          "589": 6,
+          "600": 1673,
+          "1200": 12692
+        },
+        "samples": {
+          "A": 600,
+          " ": 600,
+          "元": 1200,
+          "日": 1200,
+          "ｱ": 500
+        }
+      },
+      "tables": {
+        "head": {
+          "sha256": "aef1461ca540160256e2cfa6cd0716ab981a7fc7972217db09f573faf1a856bc",
+          "bytes": 54
+        },
+        "hhea": {
+          "sha256": "b9a73b1ee5a39ed709000894e9ed7782556a89dfd23b8d2dd4e0b41cc62e36f8",
+          "bytes": 36
+        },
+        "maxp": {
+          "sha256": "c2f67012901c7c06475972b3c56a626e89b9dd34583af9e72c4e80076b1e2ec5",
+          "bytes": 32
+        },
+        "OS/2": {
+          "sha256": "983b734be0272dd8e826f6299628ea29d44438e04d8697d2075398934090f4cd",
+          "bytes": 96
+        },
+        "hmtx": {
+          "sha256": "bad6e2077f0c751db89f9ade471f9dbbaf01f376b3145373f28822d855224950",
+          "bytes": 60056
+        },
+        "cmap": {
+          "sha256": "b10e08d6347643fc37399ecef92efd055715c3f0534e959cc181276966716920",
+          "bytes": 125738
+        },
+        "fpgm": {
+          "sha256": "75acdcc28a4eee646b65bd5027d6a8c93efb2604c7cd990ade01bd810e512151",
+          "bytes": 3971
+        },
+        "prep": {
+          "sha256": "b9aaac060499de8cfabb16103d039826c1a49b301b1b4a798dd1c6918f0ea2bb",
+          "bytes": 835
+        },
+        "cvt ": {
+          "sha256": "926c0ce37b6ff774a1f900312f6a8eaabff7420b64a01f5633301a4ed969ff5f",
+          "bytes": 322
+        },
+        "loca": {
+          "sha256": "e82b22815d6107e1c0ffdd633b95358d24048b7f69f0bc9b7ed7e7e2b5d56b4a",
+          "bytes": 60060
+        },
+        "glyf": {
+          "sha256": "07a03d53e575ce31da40747be9b8035bb1dffdc4e54851fef65083e31a18368d",
+          "bytes": 4153228
+        },
+        "name": {
+          "sha256": "86d7472a2a3f6f41169baa77e16c2553d91150211bb9ac658e6a4667c112e2de",
+          "bytes": 1368
+        },
+        "post": {
+          "sha256": "16c554ac21fb9224590d0e78684275bfa079b7301007cc789e5ba0fc89f346a4",
+          "bytes": 159628
+        },
+        "gasp": {
+          "sha256": "1acea18a3ce4369c7f1bb27f8c825831793f6ba0f6ca6607453d240e5d27a732",
+          "bytes": 12
+        },
+        "GDEF": {
+          "sha256": "47396222889bd965a62a52006c77eaa5f2ff2a7aef8f0f678e27ee9b0e1414ab",
+          "bytes": 606
+        },
+        "GSUB": {
+          "sha256": "df3babc55fc893e398d35bd80643c3984497c6e756fbf0f2c2c402c50ba759c9",
+          "bytes": 69970
+        },
+        "GPOS": {
+          "sha256": "3193bdf19760f007be46874abb4f4154a5154092878150a4b56f5b4e446943fa",
+          "bytes": 19344
+        },
+        "vmtx": {
+          "sha256": "0a68c0d0394af283a2754f906a26dc71ca883a24a95da33eb8517b2fe7e721f5",
+          "bytes": 59290
+        },
+        "vhea": {
+          "sha256": "57ef31a02d2543c65794c67c735b7e5889152aec7d9b8fbb7c4f1e28f0980ba3",
+          "bytes": 36
+        },
+        "FFTM": {
+          "sha256": "5169b905bc3c4a1c5aa184a16e6aa8fe9a35da94d3b607e5dfeb0e45702fef2c",
+          "bytes": 28
+        }
+      }
+    },
+    "JetBrains Mono Regular": {
+      "filename": "JetBrainsMono-Regular.ttf",
+      "sha256": "a0bf60ef0f83c5ed4d7a75d45838548b1f6873372dfac88f71804491898d138f",
+      "head": {
+        "tableVersion": 1.0,
+        "fontRevision": 2.3040008544921875,
+        "checkSumAdjustment": 320028151,
+        "magicNumber": 1594834165,
+        "flags": 15,
+        "unitsPerEm": 1000,
+        "created": 3756549753,
+        "modified": 3756550276,
+        "xMin": -1735,
+        "yMin": -400,
+        "xMax": 765,
+        "yMax": 1120,
+        "macStyle": 0,
+        "lowestRecPPEM": 6,
+        "fontDirectionHint": 2,
+        "indexToLocFormat": 1,
+        "glyphDataFormat": 0
+      },
+      "hhea": {
+        "tableVersion": 65536,
+        "ascent": 1020,
+        "descent": -300,
+        "lineGap": 0,
+        "advanceWidthMax": 600,
+        "minLeftSideBearing": -1735,
+        "minRightSideBearing": -165,
+        "xMaxExtent": 765,
+        "caretSlopeRise": 1,
+        "caretSlopeRun": 0,
+        "caretOffset": 0,
+        "reserved0": 0,
+        "reserved1": 0,
+        "reserved2": 0,
+        "reserved3": 0,
+        "metricDataFormat": 0,
+        "numberOfHMetrics": 1743
+      },
+      "maxp": {
+        "tableVersion": 65536,
+        "numGlyphs": 1743,
+        "maxPoints": 440,
+        "maxContours": 110,
+        "maxCompositePoints": 135,
+        "maxCompositeContours": 6,
+        "maxZones": 2,
+        "maxTwilightPoints": 660,
+        "maxStorage": 1014,
+        "maxFunctionDefs": 141,
+        "maxInstructionDefs": 0,
+        "maxStackElements": 1376,
+        "maxSizeOfInstructions": 3596,
+        "maxComponentElements": 3,
+        "maxComponentDepth": 1
+      },
+      "OS/2": {
+        "tableTag": "OS/2",
+        "version": 4,
+        "xAvgCharWidth": 600,
+        "usWeightClass": 400,
+        "usWidthClass": 5,
+        "fsType": 0,
+        "ySubscriptXSize": 650,
+        "ySubscriptYSize": 600,
+        "ySubscriptXOffset": 0,
+        "ySubscriptYOffset": 75,
+        "ySuperscriptXSize": 650,
+        "ySuperscriptYSize": 600,
+        "ySuperscriptXOffset": 0,
+        "ySuperscriptYOffset": 350,
+        "yStrikeoutSize": 50,
+        "yStrikeoutPosition": 320,
+        "sFamilyClass": 0,
+        "ulUnicodeRange1": 2684617471,
+        "ulUnicodeRange2": 302053883,
+        "ulUnicodeRange3": 33554492,
+        "ulUnicodeRange4": 0,
+        "achVendID": "JB\u0000\u0000",
+        "fsSelection": 192,
+        "usFirstCharIndex": 13,
+        "usLastCharIndex": 65535,
+        "sTypoAscender": 1020,
+        "sTypoDescender": -300,
+        "sTypoLineGap": 0,
+        "usWinAscent": 1020,
+        "usWinDescent": 300,
+        "ulCodePageRange1": 536871327,
+        "ulCodePageRange2": 3755409408,
+        "sxHeight": 550,
+        "sCapHeight": 730,
+        "usDefaultChar": 0,
+        "usBreakChar": 32,
+        "usMaxContext": 6
+      },
+      "panose": {
+        "bFamilyType": 2,
+        "bSerifStyle": 0,
+        "bWeight": 0,
+        "bProportion": 9,
+        "bContrast": 0,
+        "bStrokeVariation": 0,
+        "bArmStyle": 0,
+        "bLetterForm": 0,
+        "bMidline": 0,
+        "bXHeight": 0
+      },
+      "post": {
+        "formatType": 2.0,
+        "isFixedPitch": 1,
+        "italicAngle": 0.0
+      },
+      "cmap": {
+        "characters": 1363,
+        "subtables": [
+          {
+            "format": 4,
+            "platform": 0,
+            "encoding": 3,
+            "entries": 1317
+          },
+          {
+            "format": 12,
+            "platform": 0,
+            "encoding": 4,
+            "entries": 1363
+          },
+          {
+            "format": 4,
+            "platform": 3,
+            "encoding": 1,
+            "entries": 1317
+          },
+          {
+            "format": 12,
+            "platform": 3,
+            "encoding": 10,
+            "entries": 1363
+          }
+        ]
+      },
+      "hmtx": {
+        "unicode_advances": {
+          "0": 24,
+          "600": 1339
+        },
+        "all_glyph_advances": {
+          "0": 69,
+          "600": 1674
+        },
+        "samples": {
+          "A": 600,
+          " ": 600,
+          "元": null,
+          "日": null,
+          "ｱ": null
+        }
+      },
+      "tables": {
+        "head": {
+          "sha256": "78c9a33d270f98436b51304f31accbc9a80a98d993ad4d96afa8b26cb05cfcc0",
+          "bytes": 54
+        },
+        "hhea": {
+          "sha256": "f328a4a7d8dacfc3ee131cafa37ed9c49f9f8e4350edd0c4428c2f730e591318",
+          "bytes": 36
+        },
+        "maxp": {
+          "sha256": "98617f691c121fa40c861a4466f9e09e37892f8a66ee8df0fe36e056b7b55173",
+          "bytes": 32
+        },
+        "OS/2": {
+          "sha256": "c0116b65d074e53577507f890fb26eef8adc9bdb682ef92f03630b374799b236",
+          "bytes": 96
+        },
+        "hmtx": {
+          "sha256": "8b10f2263736861a69a47f053ca42af9229ab04d7ca248760b8bac8b62aa3bab",
+          "bytes": 6972
+        },
+        "cmap": {
+          "sha256": "c3e6cb37e8ca43259c92e6fbc103f1bcb6a0a08f95e1b4888067ce68fdb9f793",
+          "bytes": 17002
+        },
+        "fpgm": {
+          "sha256": "24c7d2293020be24d28f973149e99b5e04536533dfb66a518191cc7fa206f99b",
+          "bytes": 3596
+        },
+        "prep": {
+          "sha256": "e282e040eb0146fa56caddc3a32d4a4e4a8cc8a204431fcf76aeb56651f24e63",
+          "bytes": 214
+        },
+        "cvt ": {
+          "sha256": "4bbb02ce688ff1eeadf8ff5a4a31f55d62041f653e31ac46c08ec18dd5d9c09f",
+          "bytes": 168
+        },
+        "loca": {
+          "sha256": "d010d6072308c2de0f32758f9c9463ccb97a158c466359438a6e18cf5019042e",
+          "bytes": 6976
+        },
+        "glyf": {
+          "sha256": "e508e6f89cde4ff6fa2347faf24ad9c13cbc08a8850529e5e8d9818d35a8ad23",
+          "bytes": 182588
+        },
+        "name": {
+          "sha256": "353acc72b10d0f263ac09282222a85de0ac25c1bad6e6c9ac0be341d09d7b501",
+          "bytes": 1583
+        },
+        "post": {
+          "sha256": "55e7b8d88dfa7a09908c425ce10a6f21e252671d8d9c10e2ec4885155fa80f04",
+          "bytes": 19507
+        },
+        "gasp": {
+          "sha256": "4ca731f86ad506ac0e320283dc9461926346de3c4d91d539ea7f6620d3826940",
+          "bytes": 8
+        },
+        "GDEF": {
+          "sha256": "7e58981c886e80037d75c2466985e0d81cc65ca680f55b375df9112d78949a28",
+          "bytes": 554
+        },
+        "GPOS": {
+          "sha256": "67cdf7ad5341fadcff121b3ac50e2876b3e4f3ca7c9765ecdb3a2baa9b2c8686",
+          "bytes": 9110
+        },
+        "GSUB": {
+          "sha256": "7ef989d92049ac46dae0cbde5b65db6fda7e160cf7c0e07387706bc7f44cfd38",
+          "bytes": 25108
+        }
+      }
+    },
+    "BIZ UDGothic Regular": {
+      "filename": "BIZUDGothic-Regular.ttf",
+      "sha256": "18956be217e02e08ca18dfe71aeb2110173e81c5f5d5c69d4833d854039e462a",
+      "head": {
+        "tableVersion": 1.0,
+        "fontRevision": 1.050994873046875,
+        "checkSumAdjustment": 3610752136,
+        "magicNumber": 1594834165,
+        "flags": 11,
+        "unitsPerEm": 2048,
+        "created": 3776868125,
+        "modified": 3776868133,
+        "xMin": 0,
+        "yMin": -246,
+        "xMax": 2048,
+        "yMax": 1802,
+        "macStyle": 0,
+        "lowestRecPPEM": 9,
+        "fontDirectionHint": 2,
+        "indexToLocFormat": 1,
+        "glyphDataFormat": 0
+      },
+      "hhea": {
+        "tableVersion": 65536,
+        "ascent": 1802,
+        "descent": -246,
+        "lineGap": 0,
+        "advanceWidthMax": 2048,
+        "minLeftSideBearing": 0,
+        "minRightSideBearing": -98,
+        "xMaxExtent": 2048,
+        "caretSlopeRise": 1,
+        "caretSlopeRun": 0,
+        "caretOffset": 0,
+        "reserved0": 0,
+        "reserved1": 0,
+        "reserved2": 0,
+        "reserved3": 0,
+        "metricDataFormat": 0,
+        "numberOfHMetrics": 13926
+      },
+      "maxp": {
+        "tableVersion": 65536,
+        "numGlyphs": 13932,
+        "maxPoints": 371,
+        "maxContours": 26,
+        "maxCompositePoints": 0,
+        "maxCompositeContours": 0,
+        "maxZones": 2,
+        "maxTwilightPoints": 26,
+        "maxStorage": 47,
+        "maxFunctionDefs": 154,
+        "maxInstructionDefs": 0,
+        "maxStackElements": 829,
+        "maxSizeOfInstructions": 3971,
+        "maxComponentElements": 0,
+        "maxComponentDepth": 0
+      },
+      "OS/2": {
+        "tableTag": "OS/2",
+        "version": 4,
+        "xAvgCharWidth": 1718,
+        "usWeightClass": 400,
+        "usWidthClass": 5,
+        "fsType": 0,
+        "ySubscriptXSize": 1024,
+        "ySubscriptYSize": 1556,
+        "ySubscriptXOffset": 0,
+        "ySubscriptYOffset": 307,
+        "ySuperscriptXSize": 1024,
+        "ySuperscriptYSize": 1556,
+        "ySuperscriptXOffset": 0,
+        "ySuperscriptYOffset": 0,
+        "yStrikeoutSize": 102,
+        "yStrikeoutPosition": 727,
+        "sFamilyClass": 0,
+        "ulUnicodeRange1": 3758097143,
+        "ulUnicodeRange2": 717745656,
+        "ulUnicodeRange3": 18,
+        "ulUnicodeRange4": 0,
+        "achVendID": "MRSW",
+        "fsSelection": 64,
+        "usFirstCharIndex": 32,
+        "usLastCharIndex": 65535,
+        "sTypoAscender": 1802,
+        "sTypoDescender": -246,
+        "sTypoLineGap": 0,
+        "usWinAscent": 1802,
+        "usWinDescent": 246,
+        "ulCodePageRange1": 537001993,
+        "ulCodePageRange2": 0,
+        "sxHeight": 1108,
+        "sCapHeight": 1567,
+        "usDefaultChar": 0,
+        "usBreakChar": 32,
+        "usMaxContext": 6
+      },
+      "panose": {
+        "bFamilyType": 2,
+        "bSerifStyle": 11,
+        "bWeight": 4,
+        "bProportion": 0,
+        "bContrast": 0,
+        "bStrokeVariation": 0,
+        "bArmStyle": 0,
+        "bLetterForm": 0,
+        "bMidline": 0,
+        "bXHeight": 0
+      },
+      "post": {
+        "formatType": 3.0,
+        "isFixedPitch": 1,
+        "italicAngle": 0.0
+      },
+      "cmap": {
+        "characters": 11741,
+        "subtables": [
+          {
+            "format": 4,
+            "platform": 0,
+            "encoding": 3,
+            "entries": 11427
+          },
+          {
+            "format": 14,
+            "platform": 0,
+            "encoding": 5,
+            "entries": 10160
+          },
+          {
+            "format": 4,
+            "platform": 3,
+            "encoding": 1,
+            "entries": 11427
+          },
+          {
+            "format": 12,
+            "platform": 3,
+            "encoding": 10,
+            "entries": 11741
+          }
+        ]
+      },
+      "hmtx": {
+        "unicode_advances": {
+          "1024": 583,
+          "2048": 11158
+        },
+        "all_glyph_advances": {
+          "0": 1,
+          "553": 1,
+          "594": 4,
+          "625": 2,
+          "635": 5,
+          "655": 9,
+          "676": 8,
+          "683": 2,
+          "717": 1,
+          "729": 1,
+          "778": 3,
+          "819": 1,
+          "840": 2,
+          "860": 9,
+          "881": 1,
+          "901": 2,
+          "922": 8,
+          "942": 2,
+          "963": 8,
+          "983": 5,
+          "1004": 2,
+          "1024": 850,
+          "1044": 2,
+          "1065": 4,
+          "1077": 2,
+          "1106": 3,
+          "1126": 2,
+          "1188": 11,
+          "1208": 6,
+          "1229": 13,
+          "1249": 5,
+          "1270": 1,
+          "1290": 4,
+          "1311": 20,
+          "1331": 14,
+          "1352": 10,
+          "1365": 1,
+          "1372": 3,
+          "1393": 18,
+          "1413": 13,
+          "1434": 61,
+          "1454": 17,
+          "1475": 5,
+          "1491": 1,
+          "1495": 3,
+          "1516": 5,
+          "1536": 8,
+          "1544": 1,
+          "1556": 37,
+          "1565": 2,
+          "1577": 2,
+          "1587": 2,
+          "1597": 1,
+          "1618": 5,
+          "1638": 18,
+          "1659": 4,
+          "1679": 15,
+          "1700": 5,
+          "1720": 39,
+          "1741": 7,
+          "1761": 17,
+          "1782": 5,
+          "1802": 11,
+          "1823": 11,
+          "1839": 1,
+          "1843": 5,
+          "1864": 6,
+          "1884": 9,
+          "1905": 7,
+          "1925": 21,
+          "1946": 12,
+          "1966": 17,
+          "1987": 14,
+          "2007": 39,
+          "2028": 22,
+          "2048": 12438
+        },
+        "samples": {
+          "A": 1024,
+          " ": 1024,
+          "元": 2048,
+          "日": 2048,
+          "ｱ": 1024
+        }
+      },
+      "tables": {
+        "head": {
+          "sha256": "dcaa77df5ebbec7b697a8f0940de310785420373927a7429fd49908c650dee36",
+          "bytes": 54
+        },
+        "hhea": {
+          "sha256": "b27ecd3f68ef1462a61848c3692d0575b9fe9e064e761969801a6e7e66388a9e",
+          "bytes": 36
+        },
+        "maxp": {
+          "sha256": "41e6f2627877a345ba639b975d5b374133f818851f3f14a41470862295df420a",
+          "bytes": 32
+        },
+        "OS/2": {
+          "sha256": "345ffb4d860d9cdec1becb52a2fb71d41f55fc4e4094cd2cb03fa127fcf8656e",
+          "bytes": 96
+        },
+        "hmtx": {
+          "sha256": "1c59c9d1e22df2c0d8d29430b7ab243c59c3e18bad98f04f5069fd1a8ff2b8bc",
+          "bytes": 55716
+        },
+        "cmap": {
+          "sha256": "749211d2228ea2c3ffe6eb9d0e52e79a03f8704c896209feb055e09196d75cff",
+          "bytes": 202155
+        },
+        "fpgm": {
+          "sha256": "75acdcc28a4eee646b65bd5027d6a8c93efb2604c7cd990ade01bd810e512151",
+          "bytes": 3971
+        },
+        "prep": {
+          "sha256": "b9aaac060499de8cfabb16103d039826c1a49b301b1b4a798dd1c6918f0ea2bb",
+          "bytes": 835
+        },
+        "cvt ": {
+          "sha256": "926c0ce37b6ff774a1f900312f6a8eaabff7420b64a01f5633301a4ed969ff5f",
+          "bytes": 322
+        },
+        "loca": {
+          "sha256": "df0871b8c7a53d3a0a9e059657f5b3095920c7c5a814cf3fdd28d34b63a2daa0",
+          "bytes": 55732
+        },
+        "glyf": {
+          "sha256": "1c9422c6e22714e60e3030bc7f774ff4bc082cc403a0b1f6739590177623d1b5",
+          "bytes": 4250088
+        },
+        "name": {
+          "sha256": "f72d5dbed13ef5c63c525409f052f654cb32c80b8d0b3ecf8c748dc8abe26ac0",
+          "bytes": 1162
+        },
+        "post": {
+          "sha256": "ad6fe33e362053c891d35b711e755619f1112026e01f02dcecd70a761a659a9b",
+          "bytes": 32
+        },
+        "gasp": {
+          "sha256": "1acea18a3ce4369c7f1bb27f8c825831793f6ba0f6ca6607453d240e5d27a732",
+          "bytes": 12
+        },
+        "GSUB": {
+          "sha256": "45633c2e2de2dcb234df725a7c22788d634f712e60915261e041f1448ac276f0",
+          "bytes": 41182
+        },
+        "meta": {
+          "sha256": "33d72991a9ccef1247e3e191393f5b8429721168aa3d8a92391dd940db6ccf08",
+          "bytes": 102
+        },
+        "vhea": {
+          "sha256": "19d383bf5817ca3121141217b8d4d5e04baa26ec21f81ebbf05a05aa8ac6ae5d",
+          "bytes": 36
+        },
+        "vmtx": {
+          "sha256": "14d54943599c59a4c2fbc3ef7e9d1e355650d219205ac158e919f59a26b3db07",
+          "bytes": 55478
+        },
+        "DSIG": {
+          "sha256": "cbbc48750debb8535093b3deaf88ac7f4cff87425576a58de2bac754acdb4616",
+          "bytes": 8
+        }
+      }
+    }
+  },
+  "udev_source": {
+    "tag": "v2.2.0",
+    "archive_url": "https://github.com/yuru7/udev-gothic/releases/download/v2.2.0/UDEVGothic_v2.2.0.zip",
+    "archive_sha256": "c104c171f6ed8922ca52d74cd915a271e427f1e884e51431aae71d99e8b3b47b",
+    "fonttools_script_sha256": "9c7126d4f8429b050e447be051b5d092b1bb88475da62b3dcb1b82c748521d29",
+    "build_ini_sha256": "61e717c87b4a5d7df1689f6114b0d33056f8d767783935acc42615cbf56b905d"
+  }
+}

@@ -1,0 +1,12 @@
+test_bold_build_preserves_inputs_and_links_to_regular (test_build.BuildTests.test_bold_build_preserves_inputs_and_links_to_regular) ... ok
+test_compiled_font_preserves_sources_and_layout (test_build.BuildTests.test_compiled_font_preserves_sources_and_layout) ... ok
+test_formal_release_contains_four_verified_styles (test_build.BuildTests.test_formal_release_contains_four_verified_styles) ... ok
+test_monospace_metadata_regressions_are_rejected (test_build.BuildTests.test_monospace_metadata_regressions_are_rejected) ... ok
+test_rebuild_is_byte_identical (test_build.BuildTests.test_rebuild_is_byte_identical) ... ok
+test_untrusted_inputs_are_rejected (test_build.BuildTests.test_untrusted_inputs_are_rejected) ... ok
+test_width_regression_is_rejected (test_build.BuildTests.test_width_regression_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 202.616s
+
+OK

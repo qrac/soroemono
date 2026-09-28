@@ -4,7 +4,7 @@ SOROEMONOは、JetBrains Monoの英数字のバランスを維持し、BIZ UDGot
 
 - 計画・調査・仕様・判断の記録は `context/` に置く。入口は [contextの索引](context/README.md)、現在の状態は [進捗](context/progress.md) を参照する。`docs/` は作らない。
 - 作業に関係する [再設計計画](context/rebuild-plan.ja.md)、[現行字形の基準](context/font-baseline.ja.md)、[フォント検証計画](context/font-testing.ja.md) を参照する。
-- 文書中の構成案を実装済みとして扱わない。v2.0.0の4スタイル生成・数値検査・ブラウザproof・撮影・ZIP梱包は `src/soroemono/` に実装済み。正式版4スタイルのMac/Windowsブラウザ表示とWindows実アプリの一部を確認済み。Windowsメモ帳の文字送り回帰、Issue #5/#6の残検証、正式配布の公開は未完了。実装した部分は文書も更新する。
+- 文書中の構成案を実装済みとして扱わない。v2.0.0の4スタイル生成・数値検査・ブラウザproof・撮影・ZIP梱包は `src/soroemono/` に実装済み。正式版4スタイルのMac/Windowsブラウザ表示とWindows実アプリの一部を確認済み。メモ帳の文字送り回帰に対する平均文字幅600の修正候補を実装済みだが、Windowsでの解消、Issue #5/#6の残検証、正式配布の公開は未完了。実装した部分は文書も更新する。
 - 実行方法と結果は [開発・検証手順](context/development.ja.md) と[正式ビルド検証記録](context/artifacts/v2-formal-build-2026-09-26/mac/report.md)を参照する。通常は `uv sync --locked --extra proof`、`uv run --locked soroemono build` / `check` / `proof` / `capture` / `release`、`uv run --locked python -m unittest discover -s tests -v` を使う。
 - 説明・調査記録は原則日本語で書く。事実、原因候補、未検証事項を区別する。
 

@@ -15,6 +15,7 @@
 | v2の不要ファイル整理と生成結果の確認 | [2026-09-26の検証記録](artifacts/v2-cleanup-2026-09-26/mac/report.md) |
 | v2.0.0の正式ビルド実装と検証 | [正式ビルド検証記録](artifacts/v2-formal-build-2026-09-26/mac/report.md) |
 | v2.0.0のWindows 11実アプリとIssues #2/#5/#6 | [2026-09-27の検証記録](artifacts/windows-v2-2026-09-27/win/report.md)と[保存した証跡](artifacts/windows-v2-2026-09-27/win/README.md) |
+| メモ帳の日本語送り回帰への平均文字幅修正 | [2026-09-28の調査・Mac検証・Windows引き継ぎ](artifacts/notepad-metrics-2026-09-28/mac/report.md) |
 
 ## 更新方針
 

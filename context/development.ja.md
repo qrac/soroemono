@@ -1,6 +1,6 @@
 # v2.0.0の開発・検証手順
 
-更新: 2026-09-27。Regular/Bold試作時の手順と初回実測値は[旧記録](development-preview-2026-09-23.ja.md)へ保存した。現在のビルドは `SOROEMONO` の4スタイルを生成する。公開v1.0.0は比較基準として保持し、旧 `build.py` は実行しない。
+更新: 2026-09-28。Regular/Bold試作時の手順と初回実測値は[旧記録](development-preview-2026-09-23.ja.md)へ保存した。現在のビルドは `SOROEMONO` の4スタイルを生成する。公開v1.0.0は比較基準として保持し、旧 `build.py` は実行しない。
 
 ## 環境と入力
 
@@ -35,4 +35,6 @@ uv run --locked soroemono capture --proof build/proofs/bold-italic
 
 ブラウザproofはOSにフォントを登録せず、Font Loading APIと実測幅を確認する。`capture` は実使用フォントを検査し、`before.png`、`after.png`、`diff.png` と `manifest.json` を保存する。日常の生成物はGit管理外。確定した検証画像・環境情報と報告は `context/artifacts/<run-id>/mac/` または `win/` に保存する。Windows側の実行・実アプリ受け入れ・Git同期は[Windows検証・Git受け渡し手順](windows-verification.ja.md)を参照する。
 
-今回の実測と未検証項目は[正式ビルド検証記録](artifacts/v2-formal-build-2026-09-26/mac/report.md)に記録する。
+`check` は等幅メタデータ `OS/2.xAvgCharWidth=600`、`post.isFixedPitch=1`、`OS/2.panose.bProportion=9` も検査する。600は合成後の全グリフ平均を使わず半角セルに合わせるCJK互換性方針。数値検査の合格をWindowsメモ帳での解消とは扱わない。変更前v2（平均1115）はこの検査で拒否されるため、比較用TTFを新しい `check` の合格対象にしない。
+
+初回の正式ビルド結果は[正式ビルド検証記録](artifacts/v2-formal-build-2026-09-26/mac/report.md)、平均文字幅修正の実測とWindowsへの引き継ぎは[2026-09-28の記録](artifacts/notepad-metrics-2026-09-28/mac/report.md)を参照する。

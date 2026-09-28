@@ -224,6 +224,11 @@ def metadata(font: TTFont, latin: TTFont, japanese: TTFont, style: str) -> None:
     os2.fsSelection = (1 << 7) | ((1 << 5) if bold else 0) | ((1 << 0) if italic else 0) | ((1 << 6) if style == "Regular" else 0)
     os2.usWeightClass = STYLES[style]
     os2.usWidthClass = 5
+    # CJK dual-width compatibility: advertise the halfwidth cell, as UDEV Gothic
+    # does, instead of the merger's all-glyph average (1115). Native applications
+    # may use this value as a cell width; Windows acceptance is tested separately.
+    os2.xAvgCharWidth = 600
+    os2.panose.bProportion = 9
     font["post"].italicAngle = -9 if italic else 0
     bounds = [font["glyf"][name] for name in font.getGlyphOrder() if font["glyf"][name].numberOfContours]
     os2.usWinAscent = max(1020, max(g.yMax for g in bounds))
@@ -295,6 +300,9 @@ def build(root: Path, output_dir: Path | None = None, style: str = "Regular") ->
         "wide_latin_clones": [f"U+{cp:04X}" for cp in sorted(WIDE_LATIN)],
         "extra_marks": [f"U+{cp:04X}" for cp in sorted(marks)],
         "metrics": {"upm": 1000, "half": 600, "full": 1200, "typo": [1020, -300, 0],
+                    "x_avg_char_width": font["OS/2"].xAvgCharWidth,
+                    "is_fixed_pitch": font["post"].isFixedPitch,
+                    "panose_proportion": font["OS/2"].panose.bProportion,
                     "win": [font["OS/2"].usWinAscent, font["OS/2"].usWinDescent]},
         "limitations": ["Additional IPA mark anchors need visual review",
                         "Windows native app acceptance not automated yet"],

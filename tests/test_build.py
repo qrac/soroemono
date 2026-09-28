@@ -75,6 +75,24 @@ class BuildTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "archive SHA-256 mismatch"):
             fetch_baseline(ROOT, archive)
 
+    def test_monospace_metadata_regressions_are_rejected(self):
+        # Reproduce the pre-fix merger average and reject loss of either fixed-
+        # pitch marker, even though the actual glyph advances remain unchanged.
+        cases = [
+            ("OS/2", "xAvgCharWidth", 1115, r"OS/2\.xAvgCharWidth must match"),
+            ("post", "isFixedPitch", 0, r"post\.isFixedPitch must be 1"),
+            ("panose", "bProportion", 0, r"OS/2\.panose\.bProportion must be 9"),
+        ]
+        for table, field, value, message in cases:
+            with self.subTest(field=field):
+                font = TTFont(self.font, recalcTimestamp=False)
+                target = font["OS/2"].panose if table == "panose" else font[table]
+                setattr(target, field, value)
+                broken = self.output / f"broken-{field}.ttf"
+                font.save(broken)
+                with self.assertRaisesRegex(ValueError, message):
+                    check(ROOT, broken)
+
     def test_formal_release_contains_four_verified_styles(self):
         archive = release_package(ROOT, self.output / "release")
         rebuilt_archive = release_package(ROOT, self.output / "release-rebuilt")

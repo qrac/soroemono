@@ -118,6 +118,9 @@ def check(root: Path, path: Path, style: str = "Regular") -> dict:
     require(sum(row[1] for row in shape(path, "あ゙")) == 1200, "Combining kana changes cell count")
     require(any(row[3] for row in shape(path, "あ゙")), "Combining kana was not positioned")
     hhea, os2 = font["hhea"], font["OS/2"]
+    require(os2.xAvgCharWidth == 600, "OS/2.xAvgCharWidth must match the 600-unit halfwidth cell")
+    require(font["post"].isFixedPitch == 1, "post.isFixedPitch must be 1")
+    require(os2.panose.bProportion == 9, "OS/2.panose.bProportion must be 9")
     require((hhea.ascent, hhea.descent, hhea.lineGap) == (1020, -300, 0), "hhea line metrics")
     require((os2.sTypoAscender, os2.sTypoDescender, os2.sTypoLineGap) == (1020, -300, 0), "typo line metrics")
     require(bool(os2.fsSelection & 128), "USE_TYPO_METRICS is not set")
@@ -138,6 +141,9 @@ def check(root: Path, path: Path, style: str = "Regular") -> dict:
     require(font["post"].italicAngle == (-9 if italic else 0), "Italic angle mismatch")
     require(font["name"].getDebugName(5) == "Version 2.000", "Version name mismatch")
     result = {"passed": not failures, "sha256": digest(path.read_bytes()), "counts": counts,
+              "monospace_metadata": {"x_avg_char_width": os2.xAvgCharWidth,
+                                     "is_fixed_pitch": font["post"].isFixedPitch,
+                                     "panose_proportion": os2.panose.bProportion},
               "failures": failures, "harfbuzz": hb.version_string(),
               "scope": "Static metrics, input preservation and shaping; not Windows rasterization acceptance"}
     if failures:

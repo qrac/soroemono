@@ -1,0 +1,279 @@
+{
+  "style": "Bold",
+  "comparison": "v2 before xAvgCharWidth fix vs v2 after fix; public v1 remains in separate overview",
+  "fonts": {
+    "before": {
+      "sha256": "bce5467676cdddfc10a054b56f2ccc8ad75be053489ca4e0e9c51965cd9c1a13",
+      "filename": "SOROEMONO-Bold.ttf"
+    },
+    "after": {
+      "sha256": "3c58fc099294e4a2f5bac0b30c638927ede87afbdb96bfecdc5c75a6234f5e87",
+      "filename": "SOROEMONO-Bold.ttf"
+    }
+  },
+  "base_commit": "ff26ca177117fa8edfb47d2a8e14f6bf7b12ea88",
+  "candidate_base_commit": "ff26ca177117fa8edfb47d2a8e14f6bf7b12ea88",
+  "candidate_working_tree_dirty": true,
+  "source_hashes": "../metrics-comparison.json",
+  "settings": {
+    "font_sizes_css_px": [
+      14,
+      16,
+      20
+    ],
+    "font_weight": 700,
+    "font_synthesis": "none",
+    "calt": true,
+    "letter_spacing": 0,
+    "line_height": "1.65; normal in the last specimen"
+  },
+  "captures": {
+    "before": {
+      "timestamp_utc": "2026-09-28T00:35:24.505341+00:00",
+      "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+      "browser": "154.0.8037.57",
+      "channel": "chrome",
+      "headless": true,
+      "viewport_css_px": [
+        1200,
+        1100
+      ],
+      "device_scale_factor": 1,
+      "browser_zoom": 1,
+      "rasterization": "Browser default; no smoothing override",
+      "os_dpi": "Not inferred from deviceScaleFactor; headless browser capture"
+    },
+    "after": {
+      "timestamp_utc": "2026-09-28T00:39:58.766932+00:00",
+      "os": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+      "browser": "154.0.8037.57",
+      "channel": "chrome",
+      "headless": true,
+      "viewport_css_px": [
+        1200,
+        1100
+      ],
+      "device_scale_factor": 1,
+      "browser_zoom": 1,
+      "rasterization": "Browser default; no smoothing override",
+      "os_dpi": "Not inferred from deviceScaleFactor; headless browser capture"
+    }
+  },
+  "evidence": {
+    "before": {
+      "ready": true,
+      "error": null,
+      "metrics": {
+        "before": {
+          "A": 60,
+          "日": 120,
+          "ｱ": 50
+        },
+        "after": {
+          "A": 60,
+          "日": 120,
+          "ｱ": 60
+        }
+      },
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "devicePixelRatio": 1,
+      "viewport": [
+        1200,
+        1100
+      ],
+      "screen": [
+        1200,
+        1100
+      ],
+      "normalLineBoxes": [
+        {
+          "mode": "before",
+          "height": 0
+        },
+        {
+          "mode": "after",
+          "height": 84
+        }
+      ],
+      "platform_fonts": [
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 28
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 28
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 28
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 78
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 103
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 73
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 66
+          }
+        ]
+      ]
+    },
+    "after": {
+      "ready": true,
+      "error": null,
+      "metrics": {
+        "before": {
+          "A": 60,
+          "日": 120,
+          "ｱ": 50
+        },
+        "after": {
+          "A": 60,
+          "日": 120,
+          "ｱ": 60
+        }
+      },
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "devicePixelRatio": 1,
+      "viewport": [
+        1200,
+        1100
+      ],
+      "screen": [
+        1200,
+        1100
+      ],
+      "normalLineBoxes": [
+        {
+          "mode": "before",
+          "height": 0
+        },
+        {
+          "mode": "after",
+          "height": 84
+        }
+      ],
+      "platform_fonts": [
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 28
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 28
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 28
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 78
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 103
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 73
+          }
+        ],
+        [
+          {
+            "familyName": "SOROEMONO",
+            "postScriptName": "SOROEMONO-Bold",
+            "isCustomFont": true,
+            "glyphCount": 66
+          }
+        ]
+      ]
+    }
+  },
+  "difference": {
+    "pixel_equal": true,
+    "difference_bbox": null,
+    "image_size": [
+      1096,
+      1101
+    ],
+    "method": "absolute RGB difference, inverted grayscale; white means equal"
+  },
+  "detail": {
+    "source_crop_px": [
+      0,
+      0,
+      500,
+      274
+    ],
+    "top": "before.png",
+    "bottom": "after.png",
+    "scale": 1
+  },
+  "images": {
+    "after.png": "dc05d5f91045ce94178a51c9cb2470c57a241316a3769e38e4593aa9c3c854a9",
+    "before.png": "dc05d5f91045ce94178a51c9cb2470c57a241316a3769e38e4593aa9c3c854a9",
+    "comparison-detail.png": "a12dfd646f2eda88ea61a53a86daeecd681111eb335cb6048ad4ea6a7d73b3eb",
+    "diff.png": "97266a4e7cae57d226237f20580f4d5e7a5e30e3001f498cadf3241121f0a65d",
+    "public-v1-overview.png": "133c1540a926299e28e861091a52e4636ccd1b09ce4a3a266cc6de4e1e7c052e"
+  }
+}
