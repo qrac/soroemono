@@ -1,36 +1,37 @@
-# メモ帳の文字送り修正候補: Windows 側の再検証準備結果
+# Issue #2・メモ帳の日本語送り: Windows 11 再検証
 
-記録日: 2026-09-28。対象コミット: `43a1a92bb8b44962ebba8dfa9f26788144d2b05a`（`v2`）。開始時の作業ツリーはクリーン。これは[Mac 側の修正・検証記録](../mac/report.md)を受けた Windows 側の実行結果であり、**メモ帳での解消判定ではない**。
+検証日: 2026-09-28〜29。対象は `v2` のコミット `43a1a92bb8b44962ebba8dfa9f26788144d2b05a`、修正コミットは `824915f`。この記録は [Mac 側の修正・検証](../mac/report.md) と [前回の Windows 実アプリ検証](../../windows-v2-2026-09-27/win/report.md) に続くもの。Windows 側ではソースを変更していない。検証開始時の HEAD は `43a1a92`。検証中にローカル HEAD は Windows 証跡のみを含む `5a9a7b988c7223fc4bc91c7608b03f12a309c1c7` へ進んだが、`src/` や依存関係に差分はない。後者を検証対象コミットと読み替えない。画像、試験文、環境、SHA-256 は [manifest](manifest.json) にまとめた。
 
-## 確認できたこと
+## 結果
 
-- 修正コミット `824915f` は `OS/2.xAvgCharWidth=600`、`panose.bProportion=9` を生成時に設定し、3項目の検査と回帰テストを追加している。`824915f..43a1a92` で `src/`、`tests/`、`resource/`、`pyproject.toml`、`uv.lock`、`sources.lock.json` に差分はない。
-- Git に記録されたソース・ロックの SHA-256 は[Mac 側の数値比較](../mac/metrics-comparison.json)の値と一致した。Windows の作業ファイルは改行コードが CRLF なので、`git show HEAD:<path>` の生バイトをハッシュした。
+**メモ帳の Regular・サイズ20・ズーム100%・OS拡大率200%では、修正前 v2 の日本語文字送り拡大を再現し、今回の TTF で解消を確認した。** 行送りは修正前後で一致し、前回確認した v2 の広い行間を維持した。結合後の TTF で `OS/2.xAvgCharWidth` のみ 1115 から 600 に変えたときに現れる表示差である。メモ帳内部がこの値を直接使うかは調べていない。
 
-| Git 内のファイル | SHA-256 |
-| --- | --- |
-| `src/soroemono/builder.py` | `a214ca05f3f34a058a395c1ddd9ca325364eb345bcbc1fe5a27b774621c389d8` |
-| `src/soroemono/validation.py` | `a41891a5418b5c208af4d5bf88a1eff3703a70a0f416219f41784678f18dd6d0` |
-| `tests/test_build.py` | `82e1fc961077baf90eca6026e3c5d3381f9e9d55c2ad3c65e1cf1d6dc1279de3` |
-| `uv.lock` | `90767254d510f20230978563ca00c1158225b6c3c336398e48f615c4c3bd318c` |
-| `sources.lock.json` | `8e397ccf2251e80ca72e55eff74402bdbf208624ce673a60a819ab6d5f6d448d` |
+| メモ帳画像の実測（論理 px） | 修正前 v2 | 修正後 v2 |
+| --- | ---: | ---: |
+| 1行目の連続する「元元」の上線左端 | x=94, 153 | x=67, 99 |
+| その2文字の送り | 約59px | 約32px |
+| 同じ「元」の上線位置（1・3・5・7行目） | y=103, 173, 243, 313 | y=103, 173, 243, 313 |
 
-## 実行できなかった検証
+画像は Windows 画面の論理ピクセルで保存した。OS拡大率200%なので、連続する「元」の送りは物理画素換算で約118pxから64px。後者は[公開 v1 の前回画像](../../windows-v2-2026-09-27/win/report.md#メモ帳で見つかった文字間の回帰)の約63物理pxに近い。2行おきの上線位置差70論理pxから、隣接行の送りは前後とも約35論理px（約70物理px）。これは画像上の配置測定で、メモ帳が内部で返す行高・文字幅ではない。
 
-検証端末は通常使用の Windows（`Windows NT 10.0.26200.0`、ARM64）で、ユーザーに復元可能な検証用 VM ではないことを確認した。`WindowsSandbox.exe` も見つからなかった。プロジェクト方針に従い、この端末へ試験フォントを登録・削除していない。
+- [修正前の原寸画面](notepad-before.png) / [修正後の原寸画面](notepad-after.png)
+- [同じ領域の並列比較](notepad-comparison.png) / [先頭2行の画素差分](notepad-diff.png)
+- [修正前のメモ帳設定](notepad-settings-before.png) / [修正後のメモ帳設定](notepad-settings-after.png)
 
-| 操作 | 結果 |
-| --- | --- |
-| `uv sync --locked --extra proof` | `uv` コマンドが存在せず、開始できなかった。指定の Python 3.14.6 / `.venv` もない。 |
-| 同梱 Python 3.12.14 で `python -m unittest discover -s tests -v` | `ModuleNotFoundError: No module named 'fontTools'`。テスト本体は実行されていない。 |
-| `pip download --dest build/wheels uv==0.9.20` | PyPI への接続が `WinError 10013` で失敗した。権限を上げた再試行は実行ポリシーの `sandbox_approval: false` により拒否された。 |
-| 新しい v2 TTF の生成・SHA-256 照合、Windows ブラウザ proof | 未実施。生成に必要な固定依存関係がない。 |
-| メモ帳、Windows Terminal、VS Code での修正前後の実アプリ比較 | 未実施。復元可能な隔離環境と新しい TTF がない。 |
+## 対象と手順
 
-今回生成した TTF・ZIP・スクリーンショットはない。[Mac 側で生成した修正後 TTF のハッシュと画像](../mac/report.md#macでの検証結果)を Windows で再確認したものとは扱わない。公開 v1.0.0 と修正前 v2 の[過去の Windows 証跡](../../windows-v2-2026-09-27/win/report.md)も、今回の修正後 v2 の表示証拠にはならない。
+- ユーザーが `build/formal/SOROEMONO-Regular.ttf` を対象コミットからビルドした。Windows 側でファイルの SHA-256 `209cb5666ab6ec80f8270d954565920bcc185cf8d4c3adc049419b78486afc43` を再計算し、[Mac 側の候補](../mac/report.md#macでの検証結果)と一致した。`build/formal/checks-regular.json` は `passed: true`、`xAvgCharWidth=600`、`isFixedPitch=1`、`panose.bProportion=9`、HarfBuzz 14.5.0 と記録している。Codex の隔離プロセスからユーザー所有の `.venv` が読めず、単体テストはこの Windows セッションでは実行できなかった。
+- 比較元は修正後の TTF の `OS/2.xAvgCharWidth` を 1115 に戻し、テーブルとフォント全体のチェックサムを再計算した。SHA-256 `56f46b6042efc0911317895aa7dbcd281af3f4ba129925316d8422f96e6b1ea1` が、[前回の正式 v2 の現物](../../windows-v2-2026-09-27/win/manifest.json)と一致した。生成スクリプトと TTF は Git 管理外の `build/issue2-windows-20260928/` に置き、証跡ディレクトリへは入れていない。`hmtx`、字形、行間のテーブルは変更していない。
+- ユーザーの指示に従い、復元スナップショットは使わなかった。修正後と修正前を順に現在のユーザーへ一時インストールし、各回に `C:\Users\qrac\AppData\Local\Microsoft\Windows\Fonts\SOROEMONO-Regular.ttf` の SHA-256 を対象 TTF と照合した。版の切替時はフォントをアンインストールし、メモ帳を終了・再起動した。同名フォントの重複登録は避けた。
+- 同じ `sample.txt` をメモ帳 11.2607.14.0 で表示した。設定は両回とも `SOROEMONO` / Regular / サイズ20、ズーム100%、折り返し・書式設定オン。2行の試験文を4回繰り返し、ASCII、全角、半角カナを混在させた。試験文のハッシュと全画面画像のハッシュは [manifest](manifest.json) を参照。
+- Windows 11 25H2、ビルド 26200.9457、ARM64 の Parallels VM。DPI-aware プロセスでシステム DPI 192、物理解像度 3200×1724 を読み、OS 拡大率200%を確認した。フォントスムージング有効、ClearType (`SystemParametersInfoW` の type 2)。物理 DPI と仮想 GPU、Parallels Tools の現行版は未取得。保存したメモ帳ウィンドウ画像は 1190×587 論理px。
 
-## 判定と再開条件
+## Windows ブラウザ proof
 
-Issue #2 の行間改善は過去の Windows 証跡で確認済みだが、**平均文字幅600の修正でメモ帳の日本語送りが正常に戻るかは未判定**。解消を宣言しない。
+OSへフォントを再登録せず、SHA-256を照合した2つのTTFを `data:font/ttf` としてローカルHTMLへ埋め込み、Windows の Chrome 154.0.8037.58 をヘッドレスで実行した（[原寸画面](browser-proof.png)）。HTML は Git 管理外の `build/issue2-windows-20260928/` に置いた。画面に `Before=loaded, After=loaded` が表示され、各フォントで 100 CSS px の `A=60 / 日=120 / ｱ=60` を測定した。`line-height: normal` の4行見本も両者で同じ表示。見本部分の同一領域を225pxずらして比較すると画素差はなかった（切り出し座標は [manifest](manifest.json)）。HTML の FontFace 読み込み成功と表示幅を確認したが、CDP の実使用フォント照会は実行していない。Chrome の device scale factor も未測定。この proof は Regular のみで、Mac 側の4スタイル proof に追加する Windows 確認である。
 
-再開には、固定版 Python / uv / 依存関係を導入できる Windows 環境と、スナップショットから復元できる検証専用 Windows VM が必要。対象コミットから TTF を生成して SHA-256 を[Mac 側の値](../mac/report.md)と照合し、修正前 v2 と修正後 v2 を別々の復元サイクルで登録する。その後、同条件のメモ帳、Windows Terminal、VS Code の前・後・差分画像と環境情報を新しい `win/` 記録に保存する。
+## 後片付けと判定範囲
+
+試験後は修正前 TTF もアンインストールした。ユーザー別 Fonts の同名ファイルは存在せず、Windows の Fonts 一覧で `SOROEMONO` の検索結果は0件（[画像](font-uninstalled.png)）。メモ帳の設定を検証前の `Merged Yaku Han JP` / Black / サイズ20 に戻し（[画像](notepad-settings-restored.png)）、試験用 `sample.txt` タブを閉じた。スナップショットは戻していない。`build/` の生成物と本報告は残している。この継続作業で追加したブラウザ画像・manifest・報告追記は未コミットで、エージェントはコミット・pushしていない。
+
+今回の**メモ帳での回帰は解消確認**。Issue #2 の元の行間問題は、前回の Windows Terminal、VS Code ターミナル、メモ帳の比較で v2 の改善を確認済み。今回の変更は TTF の平均文字幅とチェックサムだけで、行間メトリクスは維持された。ただし、今回の修正後 TTF を Windows Terminal と VS Code ターミナルで再撮影していないため、現コミットの3アプリすべての実表示を再確認したとはしない。Regular の Windows ブラウザ直接読込は上記のとおり確認した。固定 Python 環境へのアクセス制限によりプロジェクト既定の `soroemono capture` は実行できず、Chrome CLI で別ページを撮影した。Mac 側の4スタイル proof は別記録であり、この Windows の Regular 結果を他スタイルへ拡張しない。メモ帳の内部で実際に選ばれたグリフを API で照会していないため、ファミリー設定、登録先 TTF ハッシュ、修正前後の意図した差を合わせた検証である。今回の Regular 以外のスタイル、別の文字サイズ・倍率も未確認。

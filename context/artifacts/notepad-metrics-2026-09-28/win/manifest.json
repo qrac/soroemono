@@ -1,0 +1,174 @@
+{
+  "recorded_at": "2026-09-29",
+  "target_commit": "43a1a92bb8b44962ebba8dfa9f26788144d2b05a",
+  "platform": {
+    "os": "Windows 11 25H2",
+    "build": "26200.9457",
+    "cpu": "ARM64",
+    "environment": "Parallels VM",
+    "screen_physical_px": [
+      3200,
+      1724
+    ],
+    "system_dpi": 192,
+    "scale_percent": 200,
+    "font_smoothing_enabled": true,
+    "font_smoothing_type": 2
+  },
+  "app": {
+    "name": "Windows Notepad",
+    "version": "11.2607.14.0",
+    "family": "SOROEMONO",
+    "style": "Regular",
+    "size": 20,
+    "zoom_percent": 100,
+    "word_wrap": true,
+    "formatting": true
+  },
+  "fonts": {
+    "before": {
+      "sha256": "56f46b6042efc0911317895aa7dbcd281af3f4ba129925316d8422f96e6b1ea1",
+      "xAvgCharWidth": 1115,
+      "per_user_installed_hash_confirmed": true
+    },
+    "after": {
+      "sha256": "209cb5666ab6ec80f8270d954565920bcc185cf8d4c3adc049419b78486afc43",
+      "xAvgCharWidth": 600,
+      "per_user_installed_hash_confirmed": true
+    }
+  },
+  "sample": {
+    "sha256": "36d03ad4fe7cbfb34d0f5c4a6ca39062976991036f66acd5518b7a16effd0307",
+    "text": "元 元元 元気な日本語 English Agjqp\n日 国 語 あいうえお アイウエオ ｱｲｳｴｵ\n元 元元 元気な日本語 English Agjqp\n日 国 語 あいうえお アイウエオ ｱｲｳｴｵ\n元 元元 元気な日本語 English Agjqp\n日 国 語 あいうえお アイウエオ ｱｲｳｴｵ\n元 元元 元気な日本語 English Agjqp\n日 国 語 あいうえお アイウエオ ｱｲｳｴｵ"
+  },
+  "measurements": {
+    "coordinate_system": "window screenshot logical px; physical scale factor 2",
+    "first_line_moto_top_stroke_x_before": [
+      19,
+      94,
+      153
+    ],
+    "first_line_moto_top_stroke_x_after": [
+      19,
+      67,
+      99
+    ],
+    "adjacent_moto_advance_logical_px_before": 59,
+    "adjacent_moto_advance_logical_px_after": 32,
+    "repeated_line_top_stroke_y_before": [
+      103,
+      173,
+      243,
+      313
+    ],
+    "repeated_line_top_stroke_y_after": [
+      103,
+      173,
+      243,
+      313
+    ]
+  },
+  "cleanup": {
+    "font_uninstalled": true,
+    "per_user_font_file_absent": true,
+    "fonts_search_result_count": 0,
+    "notepad_font_restored": "Merged Yaku Han JP / Black / 20",
+    "snapshot_restored": false
+  },
+  "browser": {
+    "name": "Google Chrome",
+    "version": "154.0.8037.58",
+    "mode": "headless=new",
+    "viewport_px": [
+      1200,
+      900
+    ],
+    "fonts_embedded_from_sha256_verified_ttf": true,
+    "font_loading_status": "Before=loaded, After=loaded",
+    "widths_css_px": {
+      "A": 60,
+      "日": 120,
+      "ｱ": 60
+    },
+    "matched_sample_crop_difference_bbox": null,
+    "sample_crop_before_px": [
+      38,
+      205,
+      600,
+      306
+    ],
+    "sample_crop_after_px": [
+      38,
+      430,
+      600,
+      531
+    ],
+    "device_scale_factor": "not measured"
+  },
+  "screenshots": {
+    "browser-proof.png": {
+      "sha256": "6bc1369270cd3136cc2865354698709a78b48692b7a155ec5fe82eadbc610d4f",
+      "size_px": [
+        1200,
+        900
+      ]
+    },
+    "font-uninstalled.png": {
+      "sha256": "ab6e8f4b0c384377758268fda61587170ad151bba7a3d2a7d63ae19f24c82c24",
+      "size_px": [
+        1128,
+        667
+      ]
+    },
+    "notepad-after.png": {
+      "sha256": "0d9523b98a3523b40a6fc5c9ca5751e759921095f0cb3cdd6c85641eedb8e54f",
+      "size_px": [
+        1190,
+        587
+      ]
+    },
+    "notepad-before.png": {
+      "sha256": "61257940388fa1193711302a6c06de46df5c7dfbd72808ecdadd09cdc9f980b5",
+      "size_px": [
+        1190,
+        587
+      ]
+    },
+    "notepad-comparison.png": {
+      "sha256": "a7743c04fdc15ba2deafa7577e6f09aca1d16453cc50a5f510d44119c1c872b1",
+      "size_px": [
+        2000,
+        320
+      ]
+    },
+    "notepad-diff.png": {
+      "sha256": "6ede4aadcb343d3c4f9b0b1b70ad73889a562d82866def7fc095c7ea6c966222",
+      "size_px": [
+        1000,
+        80
+      ]
+    },
+    "notepad-settings-after.png": {
+      "sha256": "96c24f09b8051e890f68d4b7153c7d075d26ea8f65673e68543b22feff35bc94",
+      "size_px": [
+        1190,
+        587
+      ]
+    },
+    "notepad-settings-before.png": {
+      "sha256": "e3935b2c751c680585b4e2d4c73dd59e2712dfc76d0b5e1f3e3ec2f02ff5494a",
+      "size_px": [
+        1190,
+        587
+      ]
+    },
+    "notepad-settings-restored.png": {
+      "sha256": "b757128f7266c2e1906b56698866363fd85243c2a9267ed36c0caf938b910bca",
+      "size_px": [
+        1190,
+        587
+      ]
+    }
+  },
+  "head_at_report": "5a9a7b988c7223fc4bc91c7608b03f12a309c1c7"
+}
