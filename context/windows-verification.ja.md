@@ -75,4 +75,4 @@ uv run --locked soroemono capture --proof build/proofs/regular
 
 各Issueに着手・解消判定するときの確認項目は、#2のメモ帳の日本語送り回帰と関連アプリの等幅認識・行間、#6の公開版での欠け再現と新版の同条件比較（報告条件のOS拡大率100%/200%、必要に応じて125%/150%）、#5の自動Italic/Bold Italic切替。これらは通常のブラウザ基本合格には含めない。4スタイル列挙やヘッドレスChromeだけで個別Issueの実アプリ検証を完了としない。
 
-既存の [Ubuntu CI](../.github/workflows/preview.yml) は維持する。CIやLinux上の検査はWindows 11の対話アプリ表示の代替にしない。CIの実行結果、OTS/FontBakery、他OSの追加確認は必要な場合に実施する。正式配布公開は別途未完了として管理する。
+GitHub Actionsの設定は2026-09-29に削除した。ローカル環境での検査と証跡保存を続ける。Linux上の検査はWindows 11の対話アプリ表示の代替にしない。OTS/FontBakeryと他OSの追加確認は必要な場合に実施する。正式配布公開は別途未完了として管理する。

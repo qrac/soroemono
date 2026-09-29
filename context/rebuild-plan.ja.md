@@ -176,9 +176,6 @@
      specification.ja.md
      testing.ja.md
    licenses/
-   .github/workflows/
-     ci.yml
-     release.yml
    OFL.txt
    README.md
    CHANGELOG.md
@@ -191,7 +188,7 @@
 
    入力のダウンロードとビルドを分離し、取得済みキャッシュがあればオフラインで生成できるようにする。まずLinuxの固定環境を正式なリリース生成元とし、OS間では構造・機能の一致を検査する。タイムスタンプ、グリフ順序、ファイル順序、ZIPの時刻等を固定し、同じ入力から同じ成果物を得る。
 
-   PRでは生成TTF、検査結果、比較proofを成果物として保存する。タグからは同じ工程を通し、合格したものだけを配布する。ZIPにはTTF、インストール説明、OFL本文、両元フォントの著作権表示、ソース版情報、チェックサムを含める。[OFL公式本文](https://openfontlicense.org/open-font-license-official-text/)
+   配布前には生成TTF、検査結果、比較proofを確認し、合格したものだけを配布する。ZIPにはTTF、インストール説明、OFL本文、両元フォントの著作権表示、ソース版情報、チェックサムを含める。[OFL公式本文](https://openfontlicense.org/open-font-license-official-text/)
 
    旧リリースとGit履歴は保持する。未使用のNoto Sans JP/LINE Seed JPや旧FontForge用 `build.py` / `build.ini` は2026-09-26にv2の作業ツリーから削除した。v2で使うJetBrains Mono/BIZ UDGothicの固定入力とOFLは維持する。リポジトリの全面刷新のために、履歴を書き換えたり新しいリポジトリへ移したりする必要はない。
 
@@ -208,4 +205,4 @@
 
    プレビューには既存版と区別できる一時ファミリー名を使い、フォントキャッシュの混同を避ける。正式版はSOROEMONOの名称を継続し、旧版の削除・置き換え方法を説明する。最初の判断点は、Regularの小さな試作で「JetBrains Monoを保ったまま、半角カナ・日本語をMac・Windowsのブラウザで意図どおり表示できるか」を確かめること。その確認後に全スタイルと配布基盤へ投資する。
 
-   初回実装ではRegularの生成、数値・シェーピング検査、ブラウザproof、macOSでの旧版・新版・差分撮影まで実施した。2026-09-23にBoldの生成・検査とMac/WindowsでのRegular/Boldブラウザ比較を追加した。2026-09-26に4スタイルと正式名義のZIP生成を実装し、macOS Chromeで直接読み込みの比較を行った。CI設定は更新したがGitHub上での実行は未確認。個別IssueのWindows実アプリ検証と公開は未完了。詳細は [開発・検証手順](development.ja.md) と[正式ビルド検証記録](artifacts/v2-formal-build-2026-09-26/mac/report.md)を参照する。
+   初回実装ではRegularの生成、数値・シェーピング検査、ブラウザproof、macOSでの旧版・新版・差分撮影まで実施した。2026-09-23にBoldの生成・検査とMac/WindowsでのRegular/Boldブラウザ比較を追加した。2026-09-26に4スタイルと正式名義のZIP生成を実装し、macOS Chromeで直接読み込みの比較を行った。GitHub Actions設定は2026-09-29に削除した。個別IssueのWindows実アプリ検証と公開は未完了。詳細は [開発・検証手順](development.ja.md) と[正式ビルド検証記録](artifacts/v2-formal-build-2026-09-26/mac/report.md)を参照する。

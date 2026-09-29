@@ -24,8 +24,6 @@
 
    Windowsホストを使える場合はWindows Sandboxも隔離方法の候補になる。読み取り専用の入力フォルダ、結果出力フォルダ、LogonCommandを設定できる。採用する場合もWindows側で実行条件を確認し、現在のWindows 11 VMと同じ環境とみなさない。[Windows Sandbox公式資料](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-configure-using-wsb-file)
 
-   GitHub ActionsのWindowsランナーを利用する場合も、実際のOSと対話デスクトップの利用可否を確認する。Windows Server上のブラウザ撮影をWindows 11の実アプリ試験と同等に扱わない。GUI自動化が必要なジョブは、対話セッションを管理できる専用VMで実行する。
-
    Linuxコンテナ、Wine、CSSのdeviceScaleFactor変更だけではWindows 11のDirectWriteやOSのDPI設定を再現できない。拡大率が問題の条件に含まれる場合は、対象の倍率をVMの実設定で確認し、ブラウザ側の倍率設定とは分けて記録する。仮想GPU等による実機との差が残る場合は、該当環境への適用範囲も報告する。
 
 3. **提出する成果物を固定する**
@@ -40,7 +38,7 @@
    | report.html | TTF内包の比較ページ。ローカルの `build/` に置き、Git保存版には含めない |
    | manifest.json | TTFハッシュ、コミット、OS、アプリ、表示設定、使用機能、テスト文字列 |
 
-   日常の成果物は各cloneの `build/proofs/<run-id>/` にまとめ、CIではダウンロードできる成果物として保存する。確定画像・環境情報・報告は `context/artifacts/<run-id>/mac/` と `context/artifacts/<run-id>/win/` に分けてGit管理する。Windows側は `win/` のみを更新し、共通の進捗・索引はMac側が受領後に更新する。[2026-09-23の証跡](artifacts/verification-2026-09-23/README.md)等の過去の証跡もOS別に整理済み。画像・manifestの内容は変更していない。エージェントは実際に確認した代表画像を会話に提示し、全レポートへリンクする。現物のスクリーンショットの代わりに生成画像や手描きの文字を使わない。拡大見本には原寸を併記する。
+   日常の成果物は各cloneの `build/proofs/<run-id>/` にまとめる。確定画像・環境情報・報告は `context/artifacts/<run-id>/mac/` と `context/artifacts/<run-id>/win/` に分けてGit管理する。Windows側は `win/` のみを更新し、共通の進捗・索引はMac側が受領後に更新する。[2026-09-23の証跡](artifacts/verification-2026-09-23/README.md)等の過去の証跡もOS別に整理済み。画像・manifestの内容は変更していない。エージェントは実際に確認した代表画像を会話に提示し、全レポートへリンクする。現物のスクリーンショットの代わりに生成画像や手描きの文字を使わない。拡大見本には原寸を併記する。
 
    初期基準は公開v1.0.0。スクリーンショットの基準画像はOS・ブラウザ・描画設定ごとに持つ。LinuxとWindowsを画素一致させる判定にはしない。差分が出た場合は、入力や環境の変化を調べてから判断し、テストを通すためだけに基準画像を更新しない。[Playwrightの視覚比較](https://playwright.dev/docs/test-snapshots)
 

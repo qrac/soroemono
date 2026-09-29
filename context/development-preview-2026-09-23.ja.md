@@ -61,7 +61,7 @@ Markdown表の手動確認用見本は `tests/fixtures/markdown-table.md` に置
 
 日常の生成物・キャッシュ・仮想環境はGit管理外。確定した検証画像と環境情報だけは[保存した証跡](artifacts/verification-2026-09-23/README.md)でGit管理する。比較ページはFont Loading APIの成功と実測幅を確認する。自動撮影ではさらにChromiumの実使用フォントを取得し、見本にシステムフォントのフォールバックがあれば失敗する。
 
-`.github/workflows/preview.yml` はUbuntu 24.04でRegular/Boldの数値テスト、ビルド、基準版取得、ブラウザ撮影を行い、成果物を保存する設定。GitHub上での今回の変更後の実行は未確認。OSイメージの完全固定やコンテナによる画素回帰、リリース自動公開はまだ実装していない。
+当時の `.github/workflows/preview.yml` はUbuntu 24.04でRegular/Boldの数値テスト、ビルド、基準版取得、ブラウザ撮影を行い、成果物を保存する設定だった。GitHub上での実行は未確認のまま、2026-09-29に削除した。OSイメージの完全固定やコンテナによる画素回帰、リリース自動公開は実装していない。
 
 ## 初回の確認結果
 
